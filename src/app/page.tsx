@@ -3,6 +3,10 @@ import WaitlistForm from "../components/WaitlistForm";
 import FeaturesSection from "../components/FeaturesSection";
 import TestUI from "../components/TestUI";
 import Image from "next/image";
+import HeroImageCarousel from "../components/HeroImageCarousel";
+import NutritionScreen from "@/components/ui-screens/NutritionScreen";
+import HealthChatScreen from "@/components/ui-screens/HealthChatScreen";
+import HealthTimelineScreen from "@/components/ui-screens/HealthTimelineScreen";
 
 export default function Home() {
   return (
@@ -15,12 +19,13 @@ export default function Home() {
           {/* Decorative Elements */}
           <div className="absolute top-40 right-0 w-64 h-64 bg-terracotta/5 rounded-full blur-3xl -z-10"></div>
           <div className="absolute top-20 left-10 w-72 h-72 bg-sage/10 rounded-full blur-2xl -z-10"></div>
+          <div className="absolute bottom-10 left-1/4 w-40 h-40 bg-terracotta/10 rounded-full blur-xl -z-10"></div>
           
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
               <div className="md:w-1/2 animate-fade-in-up">
                 <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                  Unique Pets Deserve <span className="text-terracotta">Unique Care</span>
+                  Unique Pets Deserve <span className="text-terracotta relative after:content-[''] after:absolute after:-z-10 after:h-4 after:w-full after:bottom-0 after:left-0 after:bg-terracotta/10 after:skew-x-6">Unique Care</span>
                 </h1>
                 <p className="text-xl md:text-2xl text-charcoal/80 mb-6 font-light">
                   Your pet&apos;s personal health advisor, powered by AI
@@ -59,17 +64,7 @@ export default function Home() {
               </div>
               
               <div className="md:w-1/2 relative">
-                <div className="relative w-full max-w-md mx-auto aspect-square md:aspect-auto md:h-[500px]">
-                  <div className="absolute inset-0 bg-terracotta/10 rounded-2xl -rotate-6 transform"></div>
-                  <Image
-                    src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                    alt="Pet care"
-                    fill
-                    className="rounded-2xl shadow-lg object-cover z-10 rotate-3 transform transition-all duration-500 hover:rotate-0"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    priority
-                  />
-                </div>
+                <HeroImageCarousel />
                 
                 {/* Mobile CTA */}
                 <div className="mt-12 flex flex-col space-y-4 md:hidden">
@@ -99,76 +94,76 @@ export default function Home() {
         </section>
 
         {/* Hero Waitlist Form - Prominent Signup */}
-        <section id="hero-waitlist" className="py-20 bg-white relative overflow-hidden">
+        <section id="hero-waitlist" className="py-12 sm:py-16 md:py-20 bg-white relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-terracotta/10 rounded-full blur-3xl -z-10"></div>
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-sage/10 rounded-full blur-2xl -z-10"></div>
           
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-charcoal mb-6">
+            <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-charcoal mb-4 sm:mb-6">
                 Be The First To Experience <span className="text-terracotta">WhiskerAI</span>
               </h2>
-              <p className="text-xl md:text-2xl text-charcoal/80 mb-4">
+              <p className="text-lg sm:text-xl md:text-2xl text-charcoal/80 mb-3 sm:mb-4">
                 Join our exclusive waitlist today and receive 3 months of premium features for free!
               </p>
-              <p className="text-lg text-charcoal/70">
+              <p className="text-base sm:text-lg text-charcoal/70">
                 Limited to the first 1,000 pet parents who sign up
               </p>
             </div>
             
-            <div className="max-w-3xl mx-auto">
-              <form className="bg-gradient-to-r from-terracotta/20 to-sage/20 p-10 rounded-3xl shadow-2xl border border-gray-100 transform hover:scale-[1.01] transition-all duration-300">
-                <div className="flex flex-col md:flex-row gap-4 mb-6">
+            <div className="max-w-4xl mx-auto">
+              <form className="bg-gradient-to-r from-terracotta/20 to-sage/20 p-6 sm:p-8 md:p-10 rounded-3xl shadow-2xl border border-gray-100 transform hover:scale-[1.01] transition-all duration-300">
+                <div className="flex flex-col md:flex-row gap-4 mb-4 sm:mb-6">
                   <input 
                     type="email" 
                     placeholder="Enter your email address" 
-                    className="flex-1 px-6 py-5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta text-lg shadow-sm"
+                    className="flex-1 px-4 sm:px-6 py-4 sm:py-5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta text-base sm:text-lg shadow-sm"
                     required
                   />
                   <button 
                     type="submit" 
-                    className="bg-terracotta hover:bg-terracotta-dark text-white font-bold px-10 py-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 text-lg flex-shrink-0"
+                    className="bg-terracotta hover:bg-terracotta-dark text-white font-bold px-6 sm:px-10 py-4 sm:py-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 text-base sm:text-lg flex-shrink-0"
                   >
                     Join Waitlist
                   </button>
                 </div>
-                <div className="flex items-center justify-center text-sm text-charcoal/70">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="flex items-center justify-center text-xs sm:text-sm text-charcoal/70">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 sm:h-5 w-4 sm:w-5 mr-2 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
                   <span>Your information is secure. We never share your data.</span>
                 </div>
               </form>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-terracotta/20 rounded-full flex items-center justify-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-terracotta" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
+                <div className="flex flex-col items-center bg-white p-4 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-terracotta/20 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8 text-terracotta" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-medium mb-2">Early Access</h3>
-                  <p className="text-center text-charcoal/70 text-sm">First to test new features</p>
+                  <h3 className="text-lg sm:text-xl font-medium mb-1 sm:mb-2">Early Access</h3>
+                  <p className="text-center text-charcoal/70 text-xs sm:text-sm">First to test new features</p>
                 </div>
                 
-                <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="flex flex-col items-center bg-white p-4 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-sage/20 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-medium mb-2">Premium Benefits</h3>
-                  <p className="text-center text-charcoal/70 text-sm">3 months free premium</p>
+                  <h3 className="text-lg sm:text-xl font-medium mb-1 sm:mb-2">Premium Benefits</h3>
+                  <p className="text-center text-charcoal/70 text-xs sm:text-sm">3 months free premium</p>
                 </div>
                 
-                <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
-                  <div className="w-16 h-16 bg-terracotta/20 rounded-full flex items-center justify-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-terracotta" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="flex flex-col items-center bg-white p-4 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-terracotta/20 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8 text-terracotta" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-medium mb-2">Development Updates</h3>
-                  <p className="text-center text-charcoal/70 text-sm">Exclusive product news</p>
+                  <h3 className="text-lg sm:text-xl font-medium mb-1 sm:mb-2">Development Updates</h3>
+                  <p className="text-center text-charcoal/70 text-xs sm:text-sm">Exclusive product news</p>
                 </div>
               </div>
             </div>
@@ -179,45 +174,45 @@ export default function Home() {
         <FeaturesSection />
         
         {/* How It Works Section */}
-        <section className="py-16 md:py-24 bg-white" id="how-it-works">
+        <section className="py-12 sm:py-16 md:py-24 bg-white" id="how-it-works">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-charcoal text-center mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-charcoal text-center mb-8 sm:mb-12 md:mb-16">
               How <span className="text-terracotta">WhiskerAI</span> Works
             </h2>
             
-            <div className="grid md:grid-cols-3 gap-8 md:gap-10">
-              <div className="flex flex-col items-center text-center bg-cream/30 p-8 rounded-xl hover:shadow-md transition-shadow">
-                <div className="w-16 h-16 bg-terracotta text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6">1</div>
-                <h3 className="text-xl font-semibold mb-3">Sign Up & Create Profile</h3>
-                <p className="text-charcoal/80">Create a detailed profile for your pet including breed, age, weight, and health history.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
+              <div className="flex flex-col items-center text-center bg-cream/30 p-6 sm:p-8 rounded-xl hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-terracotta text-white rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold mb-4 sm:mb-6">1</div>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Sign Up & Create Profile</h3>
+                <p className="text-charcoal/80 text-sm sm:text-base">Create a detailed profile for your pet including breed, age, weight, and health history.</p>
               </div>
               
-              <div className="flex flex-col items-center text-center bg-cream/30 p-8 rounded-xl hover:shadow-md transition-shadow">
-                <div className="w-16 h-16 bg-terracotta text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6">2</div>
-                <h3 className="text-xl font-semibold mb-3">Connect With Our AI</h3>
-                <p className="text-charcoal/80">Our AI system analyzes your pet's data and provides personalized care recommendations.</p>
+              <div className="flex flex-col items-center text-center bg-cream/30 p-6 sm:p-8 rounded-xl hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-terracotta text-white rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold mb-4 sm:mb-6">2</div>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Connect With Our AI</h3>
+                <p className="text-charcoal/80 text-sm sm:text-base">Our AI system analyzes your pet's data and provides personalized care recommendations.</p>
               </div>
               
-              <div className="flex flex-col items-center text-center bg-cream/30 p-8 rounded-xl hover:shadow-md transition-shadow">
-                <div className="w-16 h-16 bg-terracotta text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6">3</div>
-                <h3 className="text-xl font-semibold mb-3">Enjoy Peace of Mind</h3>
-                <p className="text-charcoal/80">Receive alerts, insights, and advice tailored specifically to your pet's unique needs.</p>
+              <div className="flex flex-col items-center text-center bg-cream/30 p-6 sm:p-8 rounded-xl hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-terracotta text-white rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold mb-4 sm:mb-6">3</div>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Enjoy Peace of Mind</h3>
+                <p className="text-charcoal/80 text-sm sm:text-base">Receive alerts, insights, and advice tailored specifically to your pet's unique needs.</p>
               </div>
             </div>
           </div>
         </section>
         
         {/* Testimonials */}
-        <section className="py-16 md:py-24 bg-cream/50">
+        <section className="py-12 sm:py-16 md:py-24 bg-cream/50">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-charcoal text-center mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-charcoal text-center mb-4 sm:mb-6">
               What Pet Parents Are Saying
             </h2>
-            <p className="text-center text-lg mb-16 max-w-2xl mx-auto">
+            <p className="text-center text-base sm:text-lg mb-8 sm:mb-12 md:mb-16 max-w-2xl mx-auto">
               Join thousands of happy pet owners who have discovered the future of pet care with WhiskerAI.
             </p>
             
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
               {[
                 { 
                   name: "Sarah T.", 
@@ -235,17 +230,17 @@ export default function Home() {
                   text: "With three dogs and two cats, keeping track of everyone's health needs was overwhelming. WhiskerAI simplifies everything in one easy platform." 
                 }
               ].map((testimonial, index) => (
-                <div key={index} className="bg-white p-6 md:p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 rounded-full bg-terracotta/20 flex items-center justify-center text-terracotta font-bold text-lg mr-4">
+                <div key={index} className="bg-white p-5 sm:p-6 md:p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                  <div className="flex items-center mb-3 sm:mb-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-terracotta/20 flex items-center justify-center text-terracotta font-bold text-base sm:text-lg mr-3 sm:mr-4">
                       {testimonial.name.charAt(0)}
                     </div>
                     <div>
-                      <h4 className="font-semibold">{testimonial.name}</h4>
-                      <p className="text-sm text-gray-500">{testimonial.pet}</p>
+                      <h4 className="font-semibold text-base sm:text-lg">{testimonial.name}</h4>
+                      <p className="text-xs sm:text-sm text-gray-500">{testimonial.pet}</p>
                     </div>
                   </div>
-                  <p className="text-charcoal/90 italic">"{testimonial.text}"</p>
+                  <p className="text-charcoal/90 italic text-sm sm:text-base">"{testimonial.text}"</p>
                 </div>
               ))}
             </div>
@@ -317,36 +312,36 @@ export default function Home() {
         </section>
         
         {/* CTA Section */}
-        <section className="py-20 bg-terracotta text-white relative overflow-hidden">
+        <section className="py-16 md:py-20 bg-terracotta text-white relative overflow-hidden">
           <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-0 w-80 h-80 bg-sage/5 rounded-full blur-2xl"></div>
           
           <div className="container mx-auto px-4 text-center relative z-10">
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6 md:mb-8">
               Ready to Transform Your Pet's Care?
             </h2>
-            <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl mb-8 md:mb-10 max-w-3xl mx-auto">
               Join thousands of pet parents who have discovered the power of AI-assisted pet care. 
               The first 1,000 people to join the waitlist will receive 3 months of premium access free!
             </p>
             
-            <form className="max-w-2xl mx-auto flex flex-col md:flex-row gap-4 mb-8">
+            <form className="max-w-2xl mx-auto flex flex-col md:flex-row gap-4 mb-6 md:mb-8">
               <input 
                 type="email" 
                 placeholder="Enter your email address" 
-                className="flex-1 px-6 py-4 rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 text-lg bg-white/10 text-white placeholder-white/70"
+                className="flex-1 px-4 sm:px-6 py-4 rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 text-base sm:text-lg bg-white/10 text-white placeholder-white/70"
                 required
               />
               <button 
                 type="submit" 
-                className="bg-white text-terracotta hover:bg-cream transition-colors py-4 px-8 rounded-xl text-lg font-bold shadow-lg hover:shadow-xl"
+                className="bg-white text-terracotta hover:bg-cream transition-colors py-3 sm:py-4 px-6 sm:px-8 rounded-xl text-base sm:text-lg font-bold shadow-lg hover:shadow-xl"
               >
                 Join the Waitlist Now
               </button>
             </form>
             
-            <div className="flex items-center justify-center text-sm text-white/80">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="flex items-center justify-center text-xs sm:text-sm text-white/80">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 sm:h-5 w-4 sm:w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
               <span>Your information is secure. We never share your data.</span>
@@ -355,42 +350,56 @@ export default function Home() {
         </section>
       </main>
       
-      <footer className="bg-charcoal text-white py-12">
+      {/* Styling the footer */}
+      <footer className="bg-charcoal text-white py-16">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-8 md:mb-0">
-              <div className="flex items-center space-x-2 mb-4 justify-center md:justify-start">
-                <svg className="w-6 h-6 text-terracotta" fill="currentColor" viewBox="0 0 24 24">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+            <div className="col-span-1 md:col-span-2">
+              <div className="flex items-center space-x-2 mb-4">
+                <svg className="w-8 h-8 text-terracotta" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12,8L10.67,8.09C9.81,7.07 7.4,4.5 5,4.5C5,4.5 3.03,7.46 4.96,11.41C6.32,14.15 9.38,15.31 11.24,16.2C11.24,16.2 11.59,16.37 12,16.42C12.41,16.37 12.77,16.2 12.77,16.2C14.62,15.31 17.68,14.15 19.04,11.41C20.97,7.46 19,4.5 19,4.5C16.6,4.5 14.19,7.07 13.33,8.09L12,8Z"/>
                 </svg>
-                <span className="text-lg font-semibold text-white">WhiskerAI</span>
+                <span className="text-2xl font-semibold text-white font-display">WhiskerAI</span>
               </div>
-              <p className="text-white/60 text-center md:text-left">© {new Date().getFullYear()} WhiskerAI. All rights reserved.</p>
+              <p className="text-white/70 mb-6">AI-powered personalized pet care for your unique furry companions. Join our waitlist today and be among the first to experience the future of pet health management.</p>
+              <p className="text-white/60">© {new Date().getFullYear()} WhiskerAI. All rights reserved.</p>
             </div>
-            
-            <div className="grid grid-cols-2 md:flex md:space-x-8 gap-4 md:gap-0">
-              <a href="#features" className="text-white/80 hover:text-white transition-colors">Features</a>
-              <a href="#how-it-works" className="text-white/80 hover:text-white transition-colors">How It Works</a>
-              <a href="#privacy" className="text-white/80 hover:text-white transition-colors">Privacy</a>
-              <a href="#terms" className="text-white/80 hover:text-white transition-colors">Terms</a>
-              <a href="#contact" className="text-white/80 hover:text-white transition-colors">Contact</a>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-4 text-white/90">Explore</h3>
+              <ul className="space-y-3">
+                <li><a href="#home" className="text-white/70 hover:text-white hover:pl-1 transition-all">Home</a></li>
+                <li><a href="#features" className="text-white/70 hover:text-white hover:pl-1 transition-all">Features</a></li>
+                <li><a href="#how-it-works" className="text-white/70 hover:text-white hover:pl-1 transition-all">How It Works</a></li>
+                <li><a href="#app-preview" className="text-white/70 hover:text-white hover:pl-1 transition-all">App Preview</a></li>
+                <li><a href="#waitlist-form" className="text-white/70 hover:text-white hover:pl-1 transition-all">Join Waitlist</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-4 text-white/90">Legal</h3>
+              <ul className="space-y-3">
+                <li><a href="#privacy" className="text-white/70 hover:text-white hover:pl-1 transition-all">Privacy Policy</a></li>
+                <li><a href="#terms" className="text-white/70 hover:text-white hover:pl-1 transition-all">Terms of Service</a></li>
+                <li><a href="#contact" className="text-white/70 hover:text-white hover:pl-1 transition-all">Contact Us</a></li>
+              </ul>
             </div>
           </div>
           
-          <div className="mt-8 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
+          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-white/60 mb-4 md:mb-0">Made with ❤️ for pets and their humans</p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-white/80 hover:text-white transition-colors">
+            <div className="flex space-x-6">
+              <a href="#" className="text-white/80 hover:text-white transition-colors hover:scale-110 transform">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
                 </svg>
               </a>
-              <a href="#" className="text-white/80 hover:text-white transition-colors">
+              <a href="#" className="text-white/80 hover:text-white transition-colors hover:scale-110 transform">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
                 </svg>
               </a>
-              <a href="#" className="text-white/80 hover:text-white transition-colors">
+              <a href="#" className="text-white/80 hover:text-white transition-colors hover:scale-110 transform">
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                 </svg>
