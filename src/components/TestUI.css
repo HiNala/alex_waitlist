@@ -121,4 +121,11 @@
 
 .blur-xl {
   filter: blur(24px);
+}
+
+.chat-bubble {
+  border-radius: 18px;
+  max-width: 80%;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 } 
