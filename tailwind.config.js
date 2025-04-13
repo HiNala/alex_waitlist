@@ -13,9 +13,18 @@ module.exports = {
           light: "#B15B3A",
           dark: "#7A3218",
         },
-        cream: "#F9F5F0",
-        sage: "#8DAA9D",
+        cream: {
+          DEFAULT: "#F9F5F0",
+          light: "#F5EFE6",
+          dark: "#E8DFD3",
+        },
+        sage: {
+          DEFAULT: "#8DAA9D",
+          light: "#9EBCAF",
+          dark: "#7A9589",
+        },
         charcoal: "#2C2C2C",
+        gold: "rgba(218, 165, 32, 0.3)",
       },
       fontFamily: {
         sans: ['Outfit', 'sans-serif'],
@@ -55,6 +64,10 @@ module.exports = {
         'fade-out': {
           '0%': { opacity: '1' },
           '100%': { opacity: '0' },
+        },
+        wag: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
         }
       },
       animation: {
@@ -65,6 +78,15 @@ module.exports = {
         'fade-in-up': 'fade-in-up 0.5s ease-out',
         'fade-in': 'fade-in 0.5s ease-out',
         'fade-out': 'fade-out 0.5s ease-out',
+        'wag': 'wag 1s ease-in-out infinite',
+      },
+      boxShadow: {
+        'elevation-1': '0 2px 4px rgba(0, 0, 0, 0.05)',
+        'elevation-2': '0 4px 8px rgba(0, 0, 0, 0.08)',
+        'elevation-3': '0 8px 16px rgba(0, 0, 0, 0.1)',
+      },
+      blur: {
+        'xl': '24px',
       },
     },
   },

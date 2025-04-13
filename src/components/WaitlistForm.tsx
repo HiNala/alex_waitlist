@@ -38,17 +38,17 @@ const WaitlistForm = () => {
   return (
     <div className="relative w-full max-w-md mx-auto md:mx-0">
       {/* Decorative elements */}
-      <div className="absolute -top-4 -left-4 w-20 h-20 bg-sage/20 rounded-full -z-10 animate-pulse"></div>
-      <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-terracotta/10 rounded-full -z-10 animate-pulse-slow"></div>
+      <div className="absolute -top-8 -left-8 w-32 h-32 bg-sage/20 rounded-full -z-10 animate-pulse"></div>
+      <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-terracotta/10 rounded-full -z-10 animate-pulse-slow"></div>
       
-      <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-6 md:p-8 rounded-xl shadow-lg space-y-5 relative z-10 border border-gray-100">
-        <div className="text-center mb-6">
-          <h3 className="text-xl md:text-2xl font-display font-semibold text-charcoal">Join Our Waitlist</h3>
-          <p className="text-sm text-gray-500 mt-1">Early access gets 3 months premium free</p>
+      <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-8 md:p-10 rounded-xl shadow-xl space-y-6 relative z-10 border border-gray-100">
+        <div className="text-center mb-8">
+          <h3 className="text-2xl md:text-3xl font-display font-bold text-charcoal">Join Our Waitlist</h3>
+          <p className="text-md text-gray-500 mt-2">Early access gets 3 months premium free</p>
         </div>
         
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-charcoal mb-1">
+          <label htmlFor="email" className="block text-sm font-medium text-charcoal mb-2">
             Email Address <span className="text-terracotta">*</span>
           </label>
           <input 
@@ -62,14 +62,14 @@ const WaitlistForm = () => {
               }
             })}
             placeholder="youremail@example.com"
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta/50 focus:border-terracotta transition-colors"
+            className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta/50 focus:border-terracotta transition-colors shadow-sm"
           />
           {errors.email && <span className="text-red-500 text-xs mt-1 block">{errors.email.message}</span>}
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-charcoal mb-1">
+            <label htmlFor="name" className="block text-sm font-medium text-charcoal mb-2">
               First Name
             </label>
             <input 
@@ -77,18 +77,18 @@ const WaitlistForm = () => {
               id="name"
               {...register("name")}
               placeholder="Your name"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta/50 focus:border-terracotta transition-colors"
+              className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta/50 focus:border-terracotta transition-colors shadow-sm"
             />
           </div>
           
           <div>
-            <label htmlFor="petType" className="block text-sm font-medium text-charcoal mb-1">
+            <label htmlFor="petType" className="block text-sm font-medium text-charcoal mb-2">
               Pet Type
             </label>
             <select 
               id="petType"
               {...register("petType")}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta/50 focus:border-terracotta transition-colors appearance-none bg-white"
+              className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta/50 focus:border-terracotta transition-colors appearance-none bg-white shadow-sm"
               defaultValue=""
             >
               <option value="" disabled>Select pet type</option>
@@ -103,11 +103,11 @@ const WaitlistForm = () => {
         <button 
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-terracotta hover:bg-terracotta-dark text-white font-medium py-3 px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl flex items-center justify-center"
+          className="w-full bg-gradient-to-r from-terracotta to-terracotta-dark hover:from-terracotta-dark hover:to-terracotta text-white font-bold py-4 px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl flex items-center justify-center"
         >
           {isSubmitting ? (
             <>
-              <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
@@ -119,8 +119,8 @@ const WaitlistForm = () => {
         </button>
         
         {success && (
-          <div className="bg-green-50 text-green-700 p-3 rounded-lg text-center text-sm animate-fade-in">
-            <svg className="w-5 h-5 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <div className="bg-green-50 text-green-700 p-4 rounded-lg text-center text-sm animate-fade-in">
+            <svg className="w-6 h-6 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
             </svg>
             You're on the waitlist! Check your email for confirmation.

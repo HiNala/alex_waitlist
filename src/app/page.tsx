@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import WaitlistForm from "../components/WaitlistForm";
 import FeaturesSection from "../components/FeaturesSection";
+import TestUI from "../components/TestUI";
 import Image from "next/image";
 
 export default function Home() {
@@ -31,7 +32,7 @@ export default function Home() {
                 {/* CTA for desktop */}
                 <div className="hidden md:flex space-x-4 mb-8">
                   <a 
-                    href="#waitlist-form" 
+                    href="#hero-waitlist" 
                     className="inline-block bg-terracotta hover:bg-terracotta-dark text-white font-medium px-8 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
                   >
                     Join the Waitlist
@@ -73,12 +74,12 @@ export default function Home() {
                 {/* Mobile CTA */}
                 <div className="mt-12 flex flex-col space-y-4 md:hidden">
                   <a 
-                    href="#waitlist-form" 
+                    href="#hero-waitlist" 
                     className="bg-terracotta hover:bg-terracotta-dark text-white font-medium px-6 py-3 rounded-full transition-colors shadow-lg text-center"
                   >
                     Join the Waitlist
                   </a>
-                  <a 
+                  <a
                     href="#features" 
                     className="bg-white hover:bg-gray-50 text-charcoal font-medium px-6 py-3 rounded-full transition-colors shadow-md text-center"
                   >
@@ -94,6 +95,83 @@ export default function Home() {
             <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute -top-24 left-0 w-full">
               <path d="M0 24L60 32C120 40 240 56 360 64C480 72 600 72 720 56C840 40 960 8 1080 0C1200 -8 1320 8 1380 16L1440 24V100H1380C1320 100 1200 100 1080 100C960 100 840 100 720 100C600 100 480 100 360 100C240 100 120 100 60 100H0V24Z" fill="#F9F5F0"/>
             </svg>
+          </div>
+        </section>
+
+        {/* Hero Waitlist Form - Prominent Signup */}
+        <section id="hero-waitlist" className="py-20 bg-white relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-terracotta/10 rounded-full blur-3xl -z-10"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-sage/10 rounded-full blur-2xl -z-10"></div>
+          
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-charcoal mb-6">
+                Be The First To Experience <span className="text-terracotta">WhiskerAI</span>
+              </h2>
+              <p className="text-xl md:text-2xl text-charcoal/80 mb-4">
+                Join our exclusive waitlist today and receive 3 months of premium features for free!
+              </p>
+              <p className="text-lg text-charcoal/70">
+                Limited to the first 1,000 pet parents who sign up
+              </p>
+            </div>
+            
+            <div className="max-w-3xl mx-auto">
+              <form className="bg-gradient-to-r from-terracotta/20 to-sage/20 p-10 rounded-3xl shadow-2xl border border-gray-100 transform hover:scale-[1.01] transition-all duration-300">
+                <div className="flex flex-col md:flex-row gap-4 mb-6">
+                  <input 
+                    type="email" 
+                    placeholder="Enter your email address" 
+                    className="flex-1 px-6 py-5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta text-lg shadow-sm"
+                    required
+                  />
+                  <button 
+                    type="submit" 
+                    className="bg-terracotta hover:bg-terracotta-dark text-white font-bold px-10 py-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 text-lg flex-shrink-0"
+                  >
+                    Join Waitlist
+                  </button>
+                </div>
+                <div className="flex items-center justify-center text-sm text-charcoal/70">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                  <span>Your information is secure. We never share your data.</span>
+                </div>
+              </form>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+                  <div className="w-16 h-16 bg-terracotta/20 rounded-full flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-terracotta" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-medium mb-2">Early Access</h3>
+                  <p className="text-center text-charcoal/70 text-sm">First to test new features</p>
+                </div>
+                
+                <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+                  <div className="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-medium mb-2">Premium Benefits</h3>
+                  <p className="text-center text-charcoal/70 text-sm">3 months free premium</p>
+                </div>
+                
+                <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+                  <div className="w-16 h-16 bg-terracotta/20 rounded-full flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-terracotta" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-medium mb-2">Development Updates</h3>
+                  <p className="text-center text-charcoal/70 text-sm">Exclusive product news</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
         
@@ -183,26 +261,28 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
               <div className="md:w-1/2 order-2 md:order-1">
-                <WaitlistForm />
+                <div className="transform hover:scale-[1.02] transition-all duration-300">
+                  <WaitlistForm />
+                </div>
               </div>
               
               <div className="md:w-1/2 order-1 md:order-2">
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-charcoal mb-6">
                   Reserve Your Spot Today
                 </h2>
-                <p className="text-lg mb-6">
+                <p className="text-lg mb-8">
                   Join our exclusive waitlist and be among the first to experience the future of pet care with WhiskerAI.
                 </p>
                 
-                <div className="space-y-4 mb-8">
+                <div className="space-y-6 mb-8">
                   {[
                     { title: "Early Access", text: "Be the first to try our revolutionary AI pet care platform" },
                     { title: "Premium Benefits", text: "Waitlist members receive 3 months of premium features free" },
                     { title: "Exclusive Updates", text: "Get insider news and development updates" }
                   ].map((item, index) => (
-                    <div key={index} className="flex items-start">
-                      <div className="min-w-6 h-6 rounded-full bg-terracotta/20 flex items-center justify-center mr-3 mt-1">
-                        <svg className="w-4 h-4 text-terracotta" fill="currentColor" viewBox="0 0 20 20">
+                    <div key={index} className="flex items-start bg-cream/50 p-4 rounded-xl hover:bg-cream/80 transition-colors">
+                      <div className="min-w-8 h-8 rounded-full bg-terracotta/20 flex items-center justify-center mr-4 mt-1">
+                        <svg className="w-5 h-5 text-terracotta" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                         </svg>
                       </div>
@@ -218,22 +298,59 @@ export default function Home() {
           </div>
         </section>
         
-        {/* CTA Section */}
-        <section className="py-16 bg-terracotta text-white">
+        {/* App Preview Section */}
+        <section id="app-preview" className="py-16 md:py-24 bg-cream/30 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-terracotta/5 rounded-full blur-3xl -z-10"></div>
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-sage/10 rounded-full blur-2xl -z-10"></div>
+          
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-charcoal mb-6">
+              App Preview
+            </h2>
+            <p className="text-lg mb-12 max-w-2xl mx-auto">
+              Get a sneak peek of the WhiskerAI mobile experience
+            </p>
+            <div className="flex justify-center">
+              <TestUI />
+            </div>
+          </div>
+        </section>
+        
+        {/* CTA Section */}
+        <section className="py-20 bg-terracotta text-white relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-80 h-80 bg-sage/5 rounded-full blur-2xl"></div>
+          
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-8">
               Ready to Transform Your Pet's Care?
             </h2>
-            <p className="text-xl mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto">
               Join thousands of pet parents who have discovered the power of AI-assisted pet care. 
               The first 1,000 people to join the waitlist will receive 3 months of premium access free!
             </p>
-            <a 
-              href="#waitlist-form" 
-              className="inline-block bg-white text-terracotta hover:bg-cream transition-colors py-3 px-8 rounded-full text-lg font-medium"
-            >
-              Join the Waitlist Now
-            </a>
+            
+            <form className="max-w-2xl mx-auto flex flex-col md:flex-row gap-4 mb-8">
+              <input 
+                type="email" 
+                placeholder="Enter your email address" 
+                className="flex-1 px-6 py-4 rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 text-lg bg-white/10 text-white placeholder-white/70"
+                required
+              />
+              <button 
+                type="submit" 
+                className="bg-white text-terracotta hover:bg-cream transition-colors py-4 px-8 rounded-xl text-lg font-bold shadow-lg hover:shadow-xl"
+              >
+                Join the Waitlist Now
+              </button>
+            </form>
+            
+            <div className="flex items-center justify-center text-sm text-white/80">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+              <span>Your information is secure. We never share your data.</span>
+            </div>
           </div>
         </section>
       </main>
