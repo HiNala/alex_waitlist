@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Whisker - Join the Waitlist",
   description: "Your pet's personal health advisor, powered by AI. Join our waitlist to get early access.",
   icons: {
-    icon: '/favicon.ico',
+    icon: '/favicon.svg',
   },
 };
 

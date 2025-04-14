@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 const HomeScreen: React.FC = () => {
   const [notificationCount, setNotificationCount] = useState(3);
@@ -19,7 +20,16 @@ const HomeScreen: React.FC = () => {
     <div className="device flex flex-col mx-auto my-4 cursor-pointer transition-transform hover:scale-105">
       <div className="bg-gradient-to-r from-terracotta-dark to-terracotta-light p-6 text-white">
         <div className="flex justify-between items-center mb-2">
-          <h1 className="text-2xl font-bold">Whisker</h1>
+          <div className="flex items-center">
+            <Image 
+              src="/logo/icon.svg"
+              alt="Whisker Logo"
+              width={24}
+              height={24}
+              className="mr-1"
+            />
+            <h1 className="text-2xl font-bold">Whisker</h1>
+          </div>
           <button 
             className="relative w-8 h-8 bg-white/20 rounded-full flex items-center justify-center"
             onClick={handleNotificationClick}
