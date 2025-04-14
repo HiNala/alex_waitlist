@@ -80,7 +80,7 @@ const FeaturesSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-charcoal mb-6">
-            Why Pet Parents <span className="text-terracotta">Love WhiskerAI</span>
+            Why Pet Parents <span className="text-terracotta">Love Using Whisker</span>
           </h2>
           <p className="text-lg text-charcoal/80">
             Our comprehensive AI-powered platform is designed to provide the best possible care experience for your beloved companions.
@@ -110,7 +110,6 @@ const FeaturesSection = () => {
           {[
             { value: "98%", label: "Customer Satisfaction" },
             { value: "24/7", label: "Health Monitoring" },
-            { value: "15+", label: "Breed-Specific Insights" },
             { value: "3x", label: "Faster Health Alerts" },
           ].map((stat, index) => (
             <div 

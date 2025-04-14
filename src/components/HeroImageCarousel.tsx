@@ -28,13 +28,26 @@ const HeroImageCarousel: React.FC = () => {
     setCurrentImageIndex(index);
   };
   
+  // Previous and next controls
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => 
+      prevIndex === 0 ? dogImages.length - 1 : prevIndex - 1
+    );
+  };
+  
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => 
+      (prevIndex + 1) % dogImages.length
+    );
+  };
+  
   return (
-    <div className="relative w-full max-w-md mx-auto aspect-square md:aspect-auto md:h-[500px]">
+    <div className="relative w-full max-w-full mx-auto aspect-[4/5] sm:aspect-[3/4] md:aspect-auto md:h-[500px] my-6 md:my-0">
       {/* Decorative frame */}
       <div className="absolute inset-0 bg-terracotta/10 rounded-2xl -rotate-6 transform"></div>
       
       {/* Main image container */}
-      <div className="absolute inset-0 overflow-hidden rounded-2xl z-10 rotate-3 transform transition-all duration-500 hover:rotate-0 shadow-lg">
+      <div className="absolute inset-0 overflow-hidden rounded-2xl z-10 rotate-3 transform transition-all duration-500 hover:rotate-0 shadow-xl">
         {/* Images */}
         {dogImages.map((src, index) => (
           <div 
@@ -53,17 +66,38 @@ const HeroImageCarousel: React.FC = () => {
             />
           </div>
         ))}
+        
+        {/* Left/Right Navigation Arrows - Only visible on hover or touch */}
+        <button 
+          onClick={prevImage}
+          className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/30 hover:bg-black/50 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity z-20 sm:block"
+          aria-label="Previous image"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        
+        <button 
+          onClick={nextImage}
+          className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/30 hover:bg-black/50 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity z-20 sm:block"
+          aria-label="Next image"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
       
       {/* Navigation dots */}
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-20">
+      <div className="absolute -bottom-6 left-0 right-0 flex justify-center space-x-3 z-20">
         {dogImages.map((_, index) => (
           <button
             key={index}
             className={`w-2 h-2 rounded-full transition-all ${
               index === currentImageIndex 
-                ? 'bg-white w-4' 
-                : 'bg-white/50 hover:bg-white/80'
+                ? 'bg-terracotta w-6' 
+                : 'bg-terracotta/40 hover:bg-terracotta/70'
             }`}
             onClick={() => goToImage(index)}
             aria-label={`Go to image ${index + 1}`}

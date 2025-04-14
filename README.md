@@ -1,10 +1,10 @@
-# WhiskerAI - Pet Health AI Companion
+# Whisker - Pet Health AI Companion
 
-A modern landing page and waitlist application for WhiskerAI, an AI-powered pet health companion that provides personalized guidance, nutritional insights, and preventative care for pets.
+A modern landing page and waitlist application for Whisker, an AI-powered pet health companion that provides personalized guidance, nutritional insights, and preventative care for pets.
 
 ## Overview
 
-WhiskerAI combines veterinary knowledge with artificial intelligence to deliver personalized care for your unique pets. This repository contains the landing page and waitlist application built with Next.js 15 and Tailwind CSS.
+Whisker combines veterinary knowledge with artificial intelligence to deliver personalized care for your unique pets. This repository contains the landing page and waitlist application built with Next.js 15 and Tailwind CSS.
 
 ## Features
 

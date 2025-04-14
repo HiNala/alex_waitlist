@@ -15,23 +15,23 @@ export default function Home() {
       
       <main>
         {/* Hero Section */}
-        <section className="relative pt-24 pb-16 md:py-32 overflow-hidden" id="home">
+        <section className="relative pt-16 sm:pt-20 md:pt-24 pb-16 md:pb-32 overflow-hidden" id="home">
           {/* Decorative Elements */}
           <div className="absolute top-40 right-0 w-64 h-64 bg-terracotta/5 rounded-full blur-3xl -z-10"></div>
           <div className="absolute top-20 left-10 w-72 h-72 bg-sage/10 rounded-full blur-2xl -z-10"></div>
           <div className="absolute bottom-10 left-1/4 w-40 h-40 bg-terracotta/10 rounded-full blur-xl -z-10"></div>
           
           <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
               <div className="md:w-1/2 animate-fade-in-up">
-                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
                   Unique Pets Deserve <span className="text-terracotta relative after:content-[''] after:absolute after:-z-10 after:h-4 after:w-full after:bottom-0 after:left-0 after:bg-terracotta/10 after:skew-x-6">Unique Care</span>
                 </h1>
-                <p className="text-xl md:text-2xl text-charcoal/80 mb-6 font-light">
+                <p className="text-lg sm:text-xl md:text-2xl text-charcoal/80 mb-4 sm:mb-6 font-light">
                   Your pet&apos;s personal health advisor, powered by AI
                 </p>
-                <p className="mb-8 text-lg">
-                  WhiskerAI combines veterinary knowledge with artificial intelligence to provide personalized guidance, nutritional insights, and preventative care for your one-of-a-kind companion.
+                <p className="mb-6 sm:mb-8 text-base sm:text-lg">
+                  Whisker combines veterinary knowledge with artificial intelligence to provide personalized guidance, nutritional insights, and preventative care for your one-of-a-kind companion.
                 </p>
                 
                 {/* CTA for desktop */}
@@ -51,7 +51,7 @@ export default function Home() {
                 </div>
                 
                 {/* Social proof */}
-                <div className="flex items-center space-x-4 text-charcoal/70 text-sm mt-8">
+                <div className="hidden sm:flex items-center space-x-4 text-charcoal/70 text-sm mb-6 md:mb-0 md:mt-8">
                   <div className="flex -space-x-2">
                     {[1, 2, 3, 4].map((i) => (
                       <div key={i} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-medium">
@@ -67,7 +67,7 @@ export default function Home() {
                 <HeroImageCarousel />
                 
                 {/* Mobile CTA */}
-                <div className="mt-12 flex flex-col space-y-4 md:hidden">
+                <div className="mt-8 flex flex-col space-y-3 md:hidden">
                   <a 
                     href="#hero-waitlist" 
                     className="bg-terracotta hover:bg-terracotta-dark text-white font-medium px-6 py-3 rounded-full transition-colors shadow-lg text-center"
@@ -80,6 +80,18 @@ export default function Home() {
                   >
                     Learn More
                   </a>
+                </div>
+                
+                {/* Mobile social proof */}
+                <div className="flex sm:hidden items-center justify-center space-x-4 text-charcoal/70 text-sm mt-6 mb-4">
+                  <div className="flex -space-x-2">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div key={i} className="w-7 h-7 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-medium">
+                        {String.fromCharCode(64 + i)}
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-xs">Joined by <span className="font-semibold">1,200+</span> pet owners</p>
                 </div>
               </div>
             </div>
@@ -101,7 +113,7 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-charcoal mb-4 sm:mb-6">
-                Be The First To Experience <span className="text-terracotta">WhiskerAI</span>
+                Be First To Experience <span className="text-terracotta">The Whisker App</span>
               </h2>
               <p className="text-lg sm:text-xl md:text-2xl text-charcoal/80 mb-3 sm:mb-4">
                 Join our exclusive waitlist today and receive 3 months of premium features for free!
@@ -166,6 +178,13 @@ export default function Home() {
                   <p className="text-center text-charcoal/70 text-xs sm:text-sm">Exclusive product news</p>
                 </div>
               </div>
+              
+              <div className="mt-8 text-center">
+                <h4 className="text-lg sm:text-xl font-medium mb-2">Co-Creating the Future of Pet Care</h4>
+                <p className="text-charcoal/80 text-sm sm:text-base">
+                  We're building the Whisker App with the insight of vets, animal experts, and devoted pet parents like you. Share your ideas and help us shape the future of pet care – together
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -177,7 +196,7 @@ export default function Home() {
         <section className="py-12 sm:py-16 md:py-24 bg-white" id="how-it-works">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-charcoal text-center mb-8 sm:mb-12 md:mb-16">
-              How <span className="text-terracotta">WhiskerAI</span> Works
+              How <span className="text-terracotta">Whisker</span> Works
             </h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
@@ -209,7 +228,7 @@ export default function Home() {
               What Pet Parents Are Saying
             </h2>
             <p className="text-center text-base sm:text-lg mb-8 sm:mb-12 md:mb-16 max-w-2xl mx-auto">
-              Join thousands of happy pet owners who have discovered the future of pet care with WhiskerAI.
+              Join thousands of happy pet owners who have discovered the future of pet care with Whisker.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
@@ -217,17 +236,17 @@ export default function Home() {
                 { 
                   name: "Sarah T.", 
                   pet: "Dog Owner", 
-                  text: "WhiskerAI detected my dog's potential allergy issues before they became serious. The personalized food recommendations have made a huge difference!" 
+                  text: "Whisker detected my dog's potential allergy issues before they became serious. The personalized food recommendations have made a huge difference!" 
                 },
                 { 
                   name: "Michael R.", 
                   pet: "Cat Owner", 
-                  text: "As a first-time cat owner, WhiskerAI has been like having a vet on call 24/7. The preventative care alerts have saved me from so many worries." 
+                  text: "As a first-time cat owner, Whisker has been like having a vet on call 24/7. The preventative care alerts have saved me from so many worries." 
                 },
                 { 
                   name: "Jennifer L.", 
                   pet: "Multi-pet Household", 
-                  text: "With three dogs and two cats, keeping track of everyone's health needs was overwhelming. WhiskerAI simplifies everything in one easy platform." 
+                  text: "With three dogs and two cats, keeping track of everyone's health needs was overwhelming. Whisker simplifies everything in one easy platform." 
                 }
               ].map((testimonial, index) => (
                 <div key={index} className="bg-white p-5 sm:p-6 md:p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
@@ -266,7 +285,7 @@ export default function Home() {
                   Reserve Your Spot Today
                 </h2>
                 <p className="text-lg mb-8">
-                  Join our exclusive waitlist and be among the first to experience the future of pet care with WhiskerAI.
+                  Join our exclusive waitlist and be among the first to experience the future of pet care with Whisker.
                 </p>
                 
                 <div className="space-y-6 mb-8">
@@ -294,19 +313,26 @@ export default function Home() {
         </section>
         
         {/* App Preview Section */}
-        <section id="app-preview" className="py-16 md:py-24 bg-cream/30 relative overflow-hidden">
+        <section id="app-preview" className="py-12 sm:py-16 md:py-24 bg-cream/30 relative overflow-hidden">
           <div className="absolute top-0 left-0 w-96 h-96 bg-terracotta/5 rounded-full blur-3xl -z-10"></div>
           <div className="absolute bottom-0 right-0 w-80 h-80 bg-sage/10 rounded-full blur-2xl -z-10"></div>
           
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-charcoal mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-charcoal mb-4 sm:mb-6">
               App Preview
             </h2>
-            <p className="text-lg mb-12 max-w-2xl mx-auto">
-              Get a sneak peek of the WhiskerAI mobile experience
+            <p className="text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto">
+              Get a sneak peek of the Whisker mobile experience
             </p>
-            <div className="flex justify-center">
+            <div className="flex justify-center overflow-hidden">
               <TestUI />
+            </div>
+
+            <div className="mt-8 sm:mt-12 max-w-sm mx-auto px-4 py-3 bg-white/70 backdrop-blur-sm rounded-lg shadow-sm">
+              <p className="text-xs sm:text-sm text-charcoal/80">
+                <span className="hidden sm:inline">👆 </span>
+                <span className="font-medium text-terracotta">Swipe</span> through the screens on mobile to see all features
+              </p>
             </div>
           </div>
         </section>
@@ -359,10 +385,10 @@ export default function Home() {
                 <svg className="w-8 h-8 text-terracotta" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12,8L10.67,8.09C9.81,7.07 7.4,4.5 5,4.5C5,4.5 3.03,7.46 4.96,11.41C6.32,14.15 9.38,15.31 11.24,16.2C11.24,16.2 11.59,16.37 12,16.42C12.41,16.37 12.77,16.2 12.77,16.2C14.62,15.31 17.68,14.15 19.04,11.41C20.97,7.46 19,4.5 19,4.5C16.6,4.5 14.19,7.07 13.33,8.09L12,8Z"/>
                 </svg>
-                <span className="text-2xl font-semibold text-white font-display">WhiskerAI</span>
+                <span className="text-2xl font-semibold text-white font-display">Whisker</span>
               </div>
               <p className="text-white/70 mb-6">AI-powered personalized pet care for your unique furry companions. Join our waitlist today and be among the first to experience the future of pet health management.</p>
-              <p className="text-white/60">© {new Date().getFullYear()} WhiskerAI. All rights reserved.</p>
+              <p className="text-white/60">© {new Date().getFullYear()} Whisker. All rights reserved.</p>
             </div>
 
             <div>
