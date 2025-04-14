@@ -324,7 +324,7 @@ export default function Home() {
             <p className="text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto">
               Get a sneak peek of the Whisker mobile experience
             </p>
-            <div className="flex justify-center overflow-hidden">
+            <div className="w-full">
               <TestUI />
             </div>
 
