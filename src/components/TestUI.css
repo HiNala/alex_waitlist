@@ -96,23 +96,23 @@
 
 @media (min-width: 768px) {
   .device {
-    max-width: 280px;
-    height: 580px;
+    max-width: 320px;
+    height: 650px;
     margin: 0 auto;
   }
 }
 
 @media (min-width: 1024px) {
   .device {
-    max-width: 300px;
-    height: 600px;
+    max-width: 340px;
+    height: 680px;
   }
 }
 
 @media (min-width: 1280px) {
   .device {
-    max-width: 320px;
-    height: 650px;
+    max-width: 360px;
+    height: 720px;
   }
 }
 
