@@ -96,14 +96,15 @@
 
 @media (min-width: 768px) {
   .device {
-    max-width: 250px;
-    height: 550px;
+    max-width: 280px;
+    height: 580px;
+    margin: 0 auto;
   }
 }
 
 @media (min-width: 1024px) {
   .device {
-    max-width: 280px;
+    max-width: 300px;
     height: 600px;
   }
 }
