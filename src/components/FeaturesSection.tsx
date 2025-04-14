@@ -106,7 +106,7 @@ const FeaturesSection = () => {
         </div>
         
         {/* Stats */}
-        <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
+        <div className="mt-24 grid grid-cols-3 gap-6 md:gap-12 text-center max-w-5xl mx-auto justify-between">
           {[
             { value: "98%", label: "Customer Satisfaction" },
             { value: "24/7", label: "Health Monitoring" },

@@ -47,9 +47,9 @@ const TestUI: React.FC = () => {
       </div>
       
       {/* Desktop view - all screens */}
-      <div className="hidden md:flex justify-center items-center gap-6 xl:gap-8 overflow-x-auto pb-4">
+      <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 justify-items-center gap-8 xl:gap-12 mx-auto max-w-6xl px-4">
         {screens.map((screen, index) => (
-          <div key={index} className="relative">
+          <div key={index} className="relative px-2">
             {screen.component}
             <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-xs font-medium bg-white px-3 py-1 rounded-full shadow-md">
               {screen.name}
