@@ -9,6 +9,7 @@ import HeroImageCarousel from "../components/HeroImageCarousel";
 import NutritionScreen from "@/components/ui-screens/NutritionScreen";
 import HealthChatScreen from "@/components/ui-screens/HealthChatScreen";
 import HealthTimelineScreen from "@/components/ui-screens/HealthTimelineScreen";
+import WhiskerCta from '@/components/WhiskerCta';
 
 export default function Home() {
   return (
@@ -340,42 +341,7 @@ export default function Home() {
         </section>
         
         {/* CTA Section */}
-        <section className="py-16 md:py-20 bg-terracotta text-white relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-80 h-80 bg-sage/5 rounded-full blur-2xl"></div>
-          
-          <div className="container mx-auto px-4 text-center relative z-10">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-6 md:mb-8">
-              Ready to Transform Your Pet's Care?
-            </h2>
-            <p className="text-lg sm:text-xl md:text-2xl mb-8 md:mb-10 max-w-3xl mx-auto">
-              Join thousands of pet parents who have discovered the power of AI-assisted pet care. 
-              The first 1,000 people to join the waitlist will receive 3 months of premium access free!
-            </p>
-            
-            <form className="max-w-2xl mx-auto flex flex-col md:flex-row gap-4 mb-6 md:mb-8">
-              <input 
-                type="email" 
-                placeholder="Enter your email address" 
-                className="flex-1 px-4 sm:px-6 py-4 rounded-xl border border-white/20 focus:outline-none focus:ring-2 focus:ring-white/50 text-base sm:text-lg bg-white/10 text-white placeholder-white/70"
-                required
-              />
-              <button 
-                type="submit" 
-                className="bg-white text-terracotta hover:bg-cream transition-colors py-3 sm:py-4 px-6 sm:px-8 rounded-xl text-base sm:text-lg font-bold shadow-lg hover:shadow-xl"
-              >
-                Join the Waitlist Now
-              </button>
-            </form>
-            
-            <div className="flex items-center justify-center text-xs sm:text-sm text-white/80">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 sm:h-5 w-4 sm:w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-              <span>Your information is secure. We never share your data.</span>
-            </div>
-          </div>
-        </section>
+        <WhiskerCta />
       </main>
       
       {/* Styling the footer */}
