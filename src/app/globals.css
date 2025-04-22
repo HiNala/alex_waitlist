@@ -15,6 +15,10 @@ body {
   background-color: #FFFFFF;
   color: #2C2C2C;
   overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(176, 92, 56, 0.05) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(129, 178, 154, 0.05) 0%, transparent 20%);
+  background-attachment: fixed;
 }
 
 @layer components {
@@ -32,6 +36,15 @@ body {
   
   .section-subtitle {
     @apply text-lg text-charcoal/80 mb-12 max-w-3xl mx-auto;
+  }
+
+  /* Email capture field styles */
+  .email-capture {
+    @apply w-full px-5 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta/50 focus:border-terracotta transition-colors shadow-sm bg-white/90 backdrop-blur-sm;
+  }
+
+  .email-capture-container {
+    @apply relative bg-gradient-to-r from-terracotta/20 to-sage/20 p-6 sm:p-8 md:p-10 rounded-3xl shadow-2xl border border-gray-100 transform hover:scale-[1.01] transition-all duration-300;
   }
 }
 
@@ -83,4 +96,13 @@ body {
   max-width: 100%;
   aspect-ratio: 9/19;
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Subtle background patterns */
+.bg-pattern {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(176, 92, 56, 0.1) 1px, transparent 0),
+    radial-gradient(circle at 1px 1px, rgba(129, 178, 154, 0.1) 1px, transparent 0);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
 }

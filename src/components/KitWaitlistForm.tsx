@@ -117,7 +117,7 @@ const KitWaitlistForm = ({
                   Your Name
                 </label>
                 <input 
-                  className="formkit-input w-full px-5 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta/50 focus:border-terracotta transition-colors shadow-sm" 
+                  className="formkit-input email-capture" 
                   name="fields[name]" 
                   type="text"
                   id="fields-name"
@@ -131,7 +131,7 @@ const KitWaitlistForm = ({
                   Email Address <span className="text-terracotta">*</span>
                 </label>
                 <input 
-                  className="formkit-input w-full px-5 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta/50 focus:border-terracotta transition-colors shadow-sm" 
+                  className="formkit-input email-capture" 
                   name="email_address" 
                   aria-label="Email" 
                   placeholder="youremail@example.com" 
@@ -148,7 +148,7 @@ const KitWaitlistForm = ({
                 </label>
                 <div data-group="dropdown" className="formkit-3060">
                   <select 
-                    className="formkit-select w-full px-5 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta/50 focus:border-terracotta transition-colors shadow-sm appearance-none bg-white" 
+                    className="formkit-select email-capture" 
                     data-element="tags-select" 
                     name="tags[]"
                     id="tags-select"

@@ -1,0 +1,30 @@
+{
+  "name": "Whisker",
+  "short_name": "Whisker",
+  "description": "Your pet's personal health advisor, powered by AI",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#B05C38",
+  "theme_color": "#B05C38",
+  "icons": [
+    {
+      "src": "/logo/icon.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/logo/icon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 

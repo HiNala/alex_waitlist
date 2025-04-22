@@ -19,7 +19,7 @@ export default function Home() {
       
       <main>
         {/* Hero Section */}
-        <section className="relative pt-16 sm:pt-20 md:pt-24 pb-16 md:pb-32 overflow-hidden" id="home">
+        <section className="relative pt-16 sm:pt-20 md:pt-24 pb-16 md:pb-32 overflow-hidden bg-pattern" id="home">
           {/* Decorative Elements */}
           <div className="absolute top-40 right-0 w-64 h-64 bg-terracotta/5 rounded-full blur-3xl -z-10"></div>
           <div className="absolute top-20 left-10 w-72 h-72 bg-sage/10 rounded-full blur-2xl -z-10"></div>
@@ -39,7 +39,7 @@ export default function Home() {
                 </p>
                 
                 {/* CTA for desktop */}
-                <div className="hidden md:flex space-x-4 mb-8">
+                <div className="flex flex-col sm:flex-row gap-4 mb-6">
                   <a 
                     href="#hero-waitlist" 
                     className="inline-block bg-terracotta hover:bg-terracotta-dark text-white font-medium px-8 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
@@ -53,21 +53,9 @@ export default function Home() {
                     Learn More
                   </a>
                 </div>
-                
-                {/* Social proof */}
-                <div className="hidden sm:flex items-center space-x-4 text-charcoal/70 text-sm mb-6 md:mb-0 md:mt-8">
-                  <div className="flex -space-x-2">
-                    {[1, 2, 3, 4].map((i) => (
-                      <div key={i} className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-medium">
-                        {String.fromCharCode(64 + i)}
-                      </div>
-                    ))}
-                  </div>
-                  <p>Joined by <span className="font-semibold">1,200+</span> pet owners</p>
-                </div>
               </div>
               
-              <div className="md:w-1/2 relative">
+              <div className="md:w-1/2 animate-fade-in-up">
                 <HeroImageCarousel />
                 
                 {/* Mobile CTA */}
@@ -85,18 +73,6 @@ export default function Home() {
                     Learn More
                   </a>
                 </div>
-                
-                {/* Mobile social proof */}
-                <div className="flex sm:hidden items-center justify-center space-x-4 text-charcoal/70 text-sm mt-6 mb-4">
-                  <div className="flex -space-x-2">
-                    {[1, 2, 3, 4].map((i) => (
-                      <div key={i} className="w-7 h-7 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center text-xs font-medium">
-                        {String.fromCharCode(64 + i)}
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-xs">Joined by <span className="font-semibold">1,200+</span> pet owners</p>
-                </div>
               </div>
             </div>
           </div>
@@ -110,7 +86,7 @@ export default function Home() {
         </section>
 
         {/* Hero Waitlist Form - Prominent Signup */}
-        <section id="hero-waitlist" className="py-12 sm:py-16 md:py-20 bg-white relative overflow-hidden">
+        <section id="hero-waitlist" className="py-12 sm:py-16 md:py-20 bg-white relative overflow-hidden bg-pattern">
           <div className="absolute top-0 right-0 w-96 h-96 bg-terracotta/10 rounded-full blur-3xl -z-10"></div>
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-sage/10 rounded-full blur-2xl -z-10"></div>
           
@@ -130,7 +106,7 @@ export default function Home() {
             <div className="max-w-4xl mx-auto">
               <form 
                 action="https://app.kit.com/forms/7916923/subscriptions" 
-                className="seva-form formkit-form bg-gradient-to-r from-terracotta/20 to-sage/20 p-6 sm:p-8 md:p-10 rounded-3xl shadow-2xl border border-gray-100 transform hover:scale-[1.01] transition-all duration-300" 
+                className="seva-form formkit-form email-capture-container mx-auto" 
                 method="post" 
                 data-sv-form="7916923" 
                 data-uid="0f72656b6b" 
@@ -170,45 +146,6 @@ export default function Home() {
                   </div>
                 </div>
               </form>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12">
-                <div className="flex flex-col items-center bg-white p-4 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-terracotta/20 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8 text-terracotta" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-medium mb-1 sm:mb-2">Early Access</h3>
-                  <p className="text-center text-charcoal/70 text-xs sm:text-sm">First to test new features</p>
-                </div>
-                
-                <div className="flex flex-col items-center bg-white p-4 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-sage/20 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-medium mb-1 sm:mb-2">Premium Benefits</h3>
-                  <p className="text-center text-charcoal/70 text-xs sm:text-sm">3 months free premium</p>
-                </div>
-                
-                <div className="flex flex-col items-center bg-white p-4 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-terracotta/20 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 sm:h-8 sm:w-8 text-terracotta" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg sm:text-xl font-medium mb-1 sm:mb-2">Development Updates</h3>
-                  <p className="text-center text-charcoal/70 text-xs sm:text-sm">Exclusive product news</p>
-                </div>
-              </div>
-              
-              <div className="mt-8 text-center">
-                <h4 className="text-lg sm:text-xl font-medium mb-2">Co-Creating the Future of Pet Care</h4>
-                <p className="text-charcoal/80 text-sm sm:text-base">
-                  We're building the Whisker App with the insight of vets, animal experts, and devoted pet parents like you. Share your ideas and help us shape the future of pet care – together
-                </p>
-              </div>
             </div>
           </div>
         </section>

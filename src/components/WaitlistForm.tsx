@@ -62,7 +62,7 @@ const WaitlistForm = () => {
               }
             })}
             placeholder="youremail@example.com"
-            className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta/50 focus:border-terracotta transition-colors shadow-sm"
+            className="email-capture"
           />
           {errors.email && <span className="text-red-500 text-xs mt-1 block">{errors.email.message}</span>}
         </div>
@@ -77,7 +77,7 @@ const WaitlistForm = () => {
               id="name"
               {...register("name")}
               placeholder="Your name"
-              className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta/50 focus:border-terracotta transition-colors shadow-sm"
+              className="email-capture"
             />
           </div>
           
@@ -88,7 +88,7 @@ const WaitlistForm = () => {
             <select 
               id="petType"
               {...register("petType")}
-              className="w-full px-5 py-4 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta/50 focus:border-terracotta transition-colors appearance-none bg-white shadow-sm"
+              className="email-capture"
               defaultValue=""
             >
               <option value="" disabled>Select pet type</option>
