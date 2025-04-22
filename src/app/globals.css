@@ -84,3 +84,23 @@ body {
   aspect-ratio: 9/19;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+/* Only hide Kit forms that appear after the footer */
+footer ~ form[data-sv-form],
+footer ~ div.formkit-form,
+footer ~ form,
+footer ~ div > div.formkit-form,
+footer ~ div > form,
+footer ~ .formkit-modal,
+footer ~ .formkit-slide-in,
+footer ~ .formkit-sticky-bar {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+  position: absolute !important;
+  pointer-events: none !important;
+  z-index: -9999 !important;
+  overflow: hidden !important;
+}
