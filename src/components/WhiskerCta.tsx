@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { cn } from "@/lib/utils";
@@ -24,21 +23,6 @@ const WhiskerCta = ({
   successMessage = "Thanks for joining! We'll be in touch soon with exclusive updates.",
   className
 }: WhiskerCtaProps) => {
-  const [email, setEmail] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsLoading(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitted(true);
-      setIsLoading(false);
-    }, 1000);
-  };
-
   return (
     <section className={cn("relative overflow-hidden py-16 md:py-24 w-full", className)}>
       {/* Animated background gradient */}
@@ -120,71 +104,58 @@ const WhiskerCta = ({
               {description}
             </motion.p>
             
-            {!isSubmitted ? (
-              <motion.form 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                onSubmit={handleSubmit} 
-                className="space-y-4 max-w-md"
-              >
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-white sr-only">
-                    Email
-                  </Label>
-                  <div className="relative">
-                    <Input
-                      id="email"
-                      placeholder="Enter your email"
-                      type="email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-white/60 pr-12 focus-visible:ring-white/30 focus-visible:ring-offset-0"
-                    />
+            <motion.form 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              action="https://app.kit.com/forms/7916923/subscriptions" 
+              method="post" 
+              data-sv-form="7916923" 
+              data-uid="0f72656b6b" 
+              data-format="inline" 
+              data-version="5"
+              className="seva-form formkit-form space-y-4 max-w-md"
+            >
+              <div data-style="clean">
+                <ul className="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+                <div data-element="fields" data-stacked="true" className="seva-fields formkit-fields space-y-2">
+                  <div className="formkit-field">
+                    <Label htmlFor="email_address_cta" className="text-white sr-only">
+                      Email
+                    </Label>
+                    <div className="relative">
+                      <Input
+                        id="email_address_cta"
+                        name="email_address"
+                        placeholder="Enter your email"
+                        type="email"
+                        required
+                        aria-label="Email"
+                        className="formkit-input bg-white/10 border-white/20 text-white placeholder:text-white/60 pr-12 focus-visible:ring-white/30 focus-visible:ring-offset-0"
+                      />
+                    </div>
                   </div>
-                </div>
-                
-                <Button 
-                  type="submit" 
-                  className="w-full bg-[#F2CC8F] hover:bg-[#E8B96C] text-[#3D405B] font-medium transition-all group"
-                  disabled={isLoading}
-                >
-                  {isLoading ? (
-                    <span className="flex items-center">
-                      <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-[#3D405B]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      Processing...
-                    </span>
-                  ) : (
+                  
+                  <button 
+                    data-element="submit" 
+                    className="formkit-submit formkit-submit w-full bg-[#F2CC8F] hover:bg-[#E8B96C] text-[#3D405B] font-medium transition-all group flex items-center justify-center py-2 px-4 rounded-md"
+                  >
+                    <div className="formkit-spinner">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
                     <span className="flex items-center">
                       {buttonText} <ArrowRightIcon className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </span>
-                  )}
-                </Button>
-                
-                <p className="text-sm text-white/70 text-center">
-                  {privacyText}
-                </p>
-              </motion.form>
-            ) : (
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="bg-white/10 border border-white/20 rounded-lg p-6 max-w-md backdrop-blur-sm"
-              >
-                <div className="flex items-center space-x-2 text-white mb-2">
-                  <div className="h-8 w-8 rounded-full bg-[#81B29A] flex items-center justify-center">
-                    <CheckIcon className="h-5 w-5" />
-                  </div>
-                  <h3 className="text-xl font-semibold">You're on the list!</h3>
+                  </button>
+                  
+                  <p className="text-sm text-white/70 text-center">
+                    {privacyText}
+                  </p>
                 </div>
-                <p className="text-white/90">{successMessage}</p>
-              </motion.div>
-            )}
+              </div>
+            </motion.form>
           </div>
           
           <div className="hidden lg:block relative">

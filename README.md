@@ -146,3 +146,27 @@ This project is open source and available under the [MIT License](LICENSE).
 ## Contact
 
 Project Link: [https://github.com/HiNala/alex_waitlist](https://github.com/HiNala/alex_waitlist)
+
+## Kit Email Integration
+
+The website now features complete Kit integration for all email collection forms. This integration includes:
+
+1. **Global Scripts**: Kit's required scripts have been integrated into the app layout
+2. **Custom Components**:
+   - `KitWaitlistForm.tsx` - A styled component that matches the Whisker design system
+   - `KitIntegrationTest.tsx` - A test component demonstrating different integration methods
+
+3. **Key Integration Points**:
+   - Main page waitlist form
+   - Hero waitlist form
+   - WhiskerCta component
+   
+4. **Form Features**:
+   - Email collection
+   - Pet type tagging
+   - Custom styling matching the Whisker brand
+   - Success messages
+   
+5. **Testing**: A dedicated test page at `/test-kit` showcases all Kit integration methods
+
+For detailed documentation on how to use the Kit integration, see `src/lib/kit-integration.md`.

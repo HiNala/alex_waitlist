@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Header from "../components/Header";
 import WaitlistForm from "../components/WaitlistForm";
+import KitWaitlistForm from "../components/KitWaitlistForm";
 import FeaturesSection from "../components/FeaturesSection";
 import TestUI from "../components/TestUI";
 import HeroImageCarousel from "../components/HeroImageCarousel";
@@ -127,26 +128,46 @@ export default function Home() {
             </div>
             
             <div className="max-w-4xl mx-auto">
-              <form className="bg-gradient-to-r from-terracotta/20 to-sage/20 p-6 sm:p-8 md:p-10 rounded-3xl shadow-2xl border border-gray-100 transform hover:scale-[1.01] transition-all duration-300">
-                <div className="flex flex-col md:flex-row gap-4 mb-4 sm:mb-6">
-                  <input 
-                    type="email" 
-                    placeholder="Enter your email address" 
-                    className="flex-1 px-4 sm:px-6 py-4 sm:py-5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta text-base sm:text-lg shadow-sm"
-                    required
-                  />
-                  <button 
-                    type="submit" 
-                    className="bg-terracotta hover:bg-terracotta-dark text-white font-bold px-6 sm:px-10 py-4 sm:py-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 text-base sm:text-lg flex-shrink-0"
-                  >
-                    Join Waitlist
-                  </button>
-                </div>
-                <div className="flex items-center justify-center text-xs sm:text-sm text-charcoal/70">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 sm:h-5 w-4 sm:w-5 mr-2 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
-                  <span>Your information is secure. We never share your data.</span>
+              <form 
+                action="https://app.kit.com/forms/7916923/subscriptions" 
+                className="seva-form formkit-form bg-gradient-to-r from-terracotta/20 to-sage/20 p-6 sm:p-8 md:p-10 rounded-3xl shadow-2xl border border-gray-100 transform hover:scale-[1.01] transition-all duration-300" 
+                method="post" 
+                data-sv-form="7916923" 
+                data-uid="0f72656b6b" 
+                data-format="inline" 
+                data-version="5"
+              >
+                <div data-style="clean">
+                  <ul className="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+                  <div data-element="fields" data-stacked="false" className="seva-fields formkit-fields flex flex-col md:flex-row gap-4 mb-4 sm:mb-6">
+                    <div className="formkit-field flex-1">
+                      <input 
+                        className="formkit-input flex-1 px-4 sm:px-6 py-4 sm:py-5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta text-base sm:text-lg shadow-sm w-full" 
+                        name="email_address" 
+                        aria-label="Email" 
+                        placeholder="Enter your email address" 
+                        required 
+                        type="email"
+                      />
+                    </div>
+                    <button 
+                      data-element="submit" 
+                      className="formkit-submit formkit-submit bg-terracotta hover:bg-terracotta-dark text-white font-bold px-6 sm:px-10 py-4 sm:py-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 text-base sm:text-lg flex-shrink-0"
+                    >
+                      <div className="formkit-spinner">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <span>Join Waitlist</span>
+                    </button>
+                  </div>
+                  <div className="flex items-center justify-center text-xs sm:text-sm text-charcoal/70">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 sm:h-5 w-4 sm:w-5 mr-2 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    <span>Your information is secure. We never share your data.</span>
+                  </div>
                 </div>
               </form>
               
@@ -279,7 +300,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
               <div className="md:w-1/2 order-2 md:order-1">
                 <div className="transform hover:scale-[1.02] transition-all duration-300">
-                  <WaitlistForm />
+                  <KitWaitlistForm />
                 </div>
               </div>
               
