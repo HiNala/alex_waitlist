@@ -1,65 +1,21 @@
-/* Overrides for Kit scripts - hide any automatically inserted forms */
+/* Overrides for Kit scripts - only hide the extra form that appears below the footer */
 
-/* Hide forms that appear outside of our containers */
-body > form[data-sv-form],
-body > div.formkit-slide-in,
+/* Target specific Kit form at the bottom of the page */
+html > body > div.formkit-form:last-of-type,
+html > body > div:not(main):not(footer) > div.formkit-form,
 body > div.formkit-sticky-bar,
+body > div.formkit-slide-in,
 body > div.formkit-modal,
-body > div > div.formkit-form,
-body > div > div > div.formkit-form,
-body > div[role="form"],
-body > script + form,
-body > form[data-uid],
-footer ~ *,
-footer ~ form,
-footer ~ div,
-div#__next ~ * {
+body > .formkit-overlay {
   display: none !important;
   opacity: 0 !important;
   visibility: hidden !important;
-  height: 0 !important;
-  width: 0 !important;
-  position: absolute !important;
-  pointer-events: none !important;
-  z-index: -9999 !important;
-  overflow: hidden !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Overrides for Kit scripts - hide forms that appear after the footer */
-
-/* Only hide forms that appear after the footer or outside our container */
-footer ~ form[data-sv-form],
-footer ~ div.formkit-form,
-footer ~ form,
-footer ~ div > div.formkit-form,
-footer ~ div > form,
-footer ~ .formkit-modal,
-footer ~ .formkit-form,
-footer ~ div.formkit-slide-in,
-footer ~ div.formkit-sticky-bar {
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  width: 0 !important;
-  position: absolute !important;
-  pointer-events: none !important;
-  z-index: -9999 !important;
-  overflow: hidden !important;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
 /* Hide Kit branding but keep forms functional */
 .formkit-powered-by-convertkit-container,
-div[data-element="powered-by"],
-a[href*="convertkit.com"],
-a[href*="kit.com"] {
+.formkit-powered-by {
   display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
 }
 
 /* Ensure no floating forms */

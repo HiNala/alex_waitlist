@@ -1,0 +1,28 @@
+/* Hide Kit forms that appear outside our main containers */
+body > form[data-sv-form],
+body > div > form[data-sv-form],
+body > div[role="form"],
+body > div > div[role="form"],
+body > div.formkit-sticky-bar,
+body > div.formkit-slide-in,
+body > div.formkit-modal {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+  position: absolute !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Hide Kit branding */
+.formkit-powered-by-convertkit-container,
+div[data-element="powered-by"],
+a[href*="convertkit.com"],
+a[href*="kit.com"],
+[data-element="powered-by"] {
+  display: none !important;
+} 
