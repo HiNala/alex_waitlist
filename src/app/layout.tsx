@@ -18,13 +18,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body>
+        {children}
+        
         <Script 
           src="https://f.convertkit.com/ckjs/ck.5.js"
           strategy="beforeInteractive"
         />
-      </head>
-      <body>
-        {children}
         <Script
           async
           data-uid="0f72656b6b"
