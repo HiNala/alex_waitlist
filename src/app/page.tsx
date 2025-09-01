@@ -1,369 +1,925 @@
-'use client';
-
-import Image from 'next/image';
-import Header from "../components/Header";
-import WaitlistForm from "../components/WaitlistForm";
-import KitWaitlistForm from "../components/KitWaitlistForm";
-import FeaturesSection from "../components/FeaturesSection";
-import TestUI from "../components/TestUI";
-import HeroImageCarousel from "../components/HeroImageCarousel";
-import NutritionScreen from "@/components/ui-screens/NutritionScreen";
-import HealthChatScreen from "@/components/ui-screens/HealthChatScreen";
-import HealthTimelineScreen from "@/components/ui-screens/HealthTimelineScreen";
-import WhiskerCta from '@/components/WhiskerCta';
+import Image from "next/image";
+import WaitlistForm from "@/components/WaitlistForm";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-cream text-charcoal overflow-hidden">
-      <Header />
-      
-      <main>
-        {/* Hero Section */}
-        <section className="relative pt-16 sm:pt-20 md:pt-24 pb-16 md:pb-32 overflow-hidden bg-pattern" id="home">
-          {/* Decorative Elements */}
-          <div className="absolute top-40 right-0 w-64 h-64 bg-terracotta/5 rounded-full blur-3xl -z-10"></div>
-          <div className="absolute top-20 left-10 w-72 h-72 bg-sage/10 rounded-full blur-2xl -z-10"></div>
-          <div className="absolute bottom-10 left-1/4 w-40 h-40 bg-terracotta/10 rounded-full blur-xl -z-10"></div>
+    <>
+            {/* HERO */}
+      <section className="bg-cream-50 relative overflow-hidden py-16 md:py-20">
+        {/* Enhanced background elements */}
+        <div className="absolute inset-0 -z-10">
+          {/* Organic blob shapes */}
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gradient-to-br from-cocoa-300/8 to-gold-300/6 blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-gradient-to-tl from-sky-300/6 to-cocoa-300/4 blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
           
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-              <div className="md:w-1/2 animate-fade-in-up">
-                <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-                  Unique Pets Deserve <span className="text-terracotta relative after:content-[''] after:absolute after:-z-10 after:h-4 after:w-full after:bottom-0 after:left-0 after:bg-terracotta/10 after:skew-x-6">Unique Care</span>
-                </h1>
-                <p className="text-lg sm:text-xl md:text-2xl text-charcoal/80 mb-4 sm:mb-6 font-light">
-                  Your pet&apos;s personal health advisor, powered by AI
-                </p>
-                <p className="mb-6 sm:mb-8 text-base sm:text-lg">
-                  Whisker combines veterinary knowledge with artificial intelligence to provide personalized guidance, nutritional insights, and preventative care for your one-of-a-kind companion.
-                </p>
-                
-                {/* CTA for desktop */}
-                <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                  <a 
-                    href="#hero-waitlist" 
-                    className="inline-block bg-terracotta hover:bg-terracotta-dark text-white font-medium px-8 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
-                  >
-                    Join the Waitlist
-                  </a>
-                  <a 
-                    href="#features" 
-                    className="inline-block bg-white hover:bg-gray-50 text-charcoal font-medium px-8 py-3 rounded-full transition-colors shadow-md"
-                  >
-                    Learn More
-                  </a>
-                </div>
+          {/* Subtle grid overlay */}
+          <div 
+            className="absolute inset-0 opacity-[0.01]"
+            style={{
+              backgroundImage: `radial-gradient(circle at 1px 1px, rgba(166, 124, 106, 0.3) 1px, transparent 0)`,
+              backgroundSize: '40px 40px'
+            }}
+          />
+          
+          {/* Accent lines */}
+          <div className="absolute top-1/4 left-0 w-24 h-px bg-gradient-to-r from-transparent via-cocoa-300/20 to-transparent"></div>
+          <div className="absolute top-1/2 right-0 w-32 h-px bg-gradient-to-l from-transparent via-sky-300/20 to-transparent"></div>
+          <div className="absolute bottom-1/3 left-1/3 w-20 h-px bg-gradient-to-r from-transparent via-gold-300/20 to-transparent"></div>
+        </div>
+        
+        <div className="container mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {/* Enhanced badge */}
+              <div className="inline-flex items-center rounded-full border border-cocoa-300/30 bg-gradient-to-r from-cocoa-300/8 to-gold-300/6 px-6 py-3 text-sm text-cocoa-700 font-medium shadow-sm backdrop-blur-sm">
+                <div className="w-2.5 h-2.5 bg-cocoa-700 rounded-full mr-3 animate-pulse"></div>
+                <span className="tracking-wide">AI-Powered Pet Care Ecosystem</span>
               </div>
               
-              <div className="md:w-1/2 animate-fade-in-up">
-                <HeroImageCarousel />
-                
-                {/* Mobile CTA */}
-                <div className="mt-8 flex flex-col space-y-3 md:hidden">
-                  <a 
-                    href="#hero-waitlist" 
-                    className="bg-terracotta hover:bg-terracotta-dark text-white font-medium px-6 py-3 rounded-full transition-colors shadow-lg text-center"
-                  >
-                    Join the Waitlist
-                  </a>
-                  <a
-                    href="#features" 
-                    className="bg-white hover:bg-gray-50 text-charcoal font-medium px-6 py-3 rounded-full transition-colors shadow-md text-center"
-                  >
-                    Learn More
-                  </a>
+              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-charcoal-700 leading-tight">
+                The future of <span className="relative">
+                  <span className="text-transparent bg-gradient-to-r from-cocoa-700 via-cocoa-500 to-gold-500 bg-clip-text">pet care</span>
+                  <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-cocoa-300 to-gold-300 rounded-full opacity-50"></div>
+                </span> is here
+                </h1>
+              
+              <p className="text-lg text-warmgray-600 leading-relaxed max-w-xl">
+                Whisker combines a smart collar with AI-powered insights to give you a complete picture of your pet's health, behavior, and location.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <a href="#waitlist" className="group inline-flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-cocoa-700 to-cocoa-500 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300">
+                  <span>Join Collar Waitlist</span>
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </a>
+                <a href="#device" className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white text-cocoa-700 font-medium border border-cocoa-300/30 shadow-lg hover:shadow-xl hover:bg-sand-100 transition-all duration-300">
+                  See the Device
+                </a>
+              </div>
+              
+              {/* Enhanced trust indicators */}
+              <div className="flex flex-wrap items-center gap-6 pt-6">
+                {[
+                  { 
+                    icon: (
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                      </svg>
+                    ),
+                    label: "Vet-approved AI", 
+                    color: "bg-green-400" 
+                  },
+                  { 
+                    icon: (
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                      </svg>
+                    ),
+                    label: "GDPR compliant", 
+                    color: "bg-sky-400" 
+                  },
+                  { 
+                    icon: (
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                      </svg>
+                    ),
+                    label: "Pet-safe hardware", 
+                    color: "bg-gold-400" 
+                  }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-3 bg-white/60 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm border border-white/40">
+                    <div className={`w-5 h-5 ${item.color} rounded-full flex items-center justify-center text-white`}>
+                      {item.icon}
+                    </div>
+                    <span className="text-sm font-medium text-warmgray-600">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="relative">
+              {/* Enhanced image composition */}
+              <div className="relative">
+                {/* Main image with enhanced styling */}
+                <div className="relative aspect-[4/5] max-w-md mx-auto rounded-2xl overflow-hidden shadow-xl border border-white/50 bg-gradient-to-br from-sand-100 to-cream-100">
+                  <Image src="/images/pet1.jpg" alt="Happy pet using Whisker" fill className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-cocoa-700/15 via-transparent to-gold-500/5"></div>
+                  
+                  {/* Enhanced floating UI element */}
+                  <div className="absolute bottom-6 left-4 right-4">
+                    <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-white/30">
+                      <div className="flex items-center gap-3">
+                        <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <div className="flex-1">
+                          <div className="text-sm font-medium text-charcoal-700">Whisker AI</div>
+                          <div className="text-xs text-warmgray-600">Monitoring Max's activity</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 </div>
               </div>
             </div>
           </div>
           
-          {/* Wave divider */}
-          <div className="absolute bottom-0 left-0 right-0 h-16 bg-white -z-5">
-            <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute -top-24 left-0 w-full">
-              <path d="M0 24L60 32C120 40 240 56 360 64C480 72 600 72 720 56C840 40 960 8 1080 0C1200 -8 1320 8 1380 16L1440 24V100H1380C1320 100 1200 100 1080 100C960 100 840 100 720 100C600 100 480 100 360 100C240 100 120 100 60 100H0V24Z" fill="#F9F5F0"/>
-            </svg>
-          </div>
+        {/* Section transition with subtle accent */}
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-cocoa-300/30 to-transparent"></div>
         </section>
 
-        {/* Hero Waitlist Form - Prominent Signup */}
-        <section id="hero-waitlist" className="py-12 sm:py-16 md:py-20 bg-white relative overflow-hidden bg-pattern">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-terracotta/10 rounded-full blur-3xl -z-10"></div>
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-sage/10 rounded-full blur-2xl -z-10"></div>
-          
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-charcoal mb-4 sm:mb-6">
-                Be First To Experience <span className="text-terracotta">The Whisker App</span>
-              </h2>
-              <p className="text-lg sm:text-xl md:text-2xl text-charcoal/80 mb-3 sm:mb-4">
-                Join our exclusive waitlist today and receive 3 months of premium features for free!
-              </p>
-              <p className="text-base sm:text-lg text-charcoal/70">
-                Limited to the first 1,000 pet parents who sign up
-              </p>
-            </div>
-            
-            <div className="max-w-4xl mx-auto">
-              <form 
-                action="https://app.kit.com/forms/7916923/subscriptions" 
-                className="seva-form formkit-form email-capture-container mx-auto" 
-                method="post" 
-                data-sv-form="7916923" 
-                data-uid="0f72656b6b" 
-                data-format="inline" 
-                data-version="5"
-              >
-                <div data-style="clean">
-                  <ul className="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-                  <div data-element="fields" data-stacked="false" className="seva-fields formkit-fields flex flex-col md:flex-row gap-4 mb-4 sm:mb-6">
-                    <div className="formkit-field flex-1">
-                      <input 
-                        className="formkit-input flex-1 px-4 sm:px-6 py-4 sm:py-5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-terracotta text-base sm:text-lg shadow-sm w-full" 
-                        name="email_address" 
-                        aria-label="Email" 
-                        placeholder="Enter your email address" 
-                        required 
-                        type="email"
-                      />
+      {/* DEVICE PREVIEW */}
+      <section id="device" className="py-20 bg-white relative overflow-hidden">
+        {/* Subtle decorative elements */}
+        <div className="absolute top-1/4 left-0 w-32 h-px bg-gradient-to-r from-transparent to-sky-300/20"></div>
+        <div className="absolute bottom-1/4 right-0 w-40 h-px bg-gradient-to-l from-transparent to-cocoa-300/20"></div>
+        
+        <div className="container mx-auto">
+          <div className="grid lg:grid-cols-12 gap-16 items-center">
+                        <div className="lg:col-span-5 relative">
+              {/* Enhanced device showcase with real image */}
+              <div className="relative">
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-cocoa-300/10 to-gold-300/8 rounded-3xl blur-2xl scale-110"></div>
+                
+                <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border border-cocoa-300/20">
+                  <Image src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Smart collar device technology" fill className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-cocoa-700/20 via-transparent to-gold-500/10"></div>
+                  
+                  {/* Status indicators */}
+                  <div className="absolute top-6 right-6 bg-green-400 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg backdrop-blur-sm">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                      Connected
                     </div>
-                    <button 
-                      data-element="submit" 
-                      className="formkit-submit formkit-submit bg-terracotta hover:bg-terracotta-dark text-white font-bold px-6 sm:px-10 py-4 sm:py-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 text-base sm:text-lg flex-shrink-0"
-                    >
-                      <div className="formkit-spinner">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                      </div>
-                      <span>Join Waitlist</span>
-                    </button>
                   </div>
-                  <div className="flex items-center justify-center text-xs sm:text-sm text-charcoal/70">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 sm:h-5 w-4 sm:w-5 mr-2 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
-                    <span>Your information is secure. We never share your data.</span>
+                  
+                  {/* Live data overlay */}
+                  <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-white/40">
+                    <div className="grid grid-cols-2 gap-4 text-sm">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                        <span className="text-warmgray-600">Battery: <span className="font-medium text-charcoal-700">85%</span></span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-sky-400 rounded-full"></div>
+                        <span className="text-warmgray-600">Signal: <span className="font-medium text-charcoal-700">Strong</span></span>
+                      </div>
+                  </div>
                   </div>
                 </div>
-              </form>
-            </div>
-          </div>
-        </section>
-        
-        {/* Features Section */}
-        <FeaturesSection />
-        
-        {/* How It Works Section */}
-        <section className="py-12 sm:py-16 md:py-24 bg-white" id="how-it-works">
-          <div className="container mx-auto px-4">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-charcoal text-center mb-8 sm:mb-12 md:mb-16">
-              How <span className="text-terracotta">Whisker</span> Works
-            </h2>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
-              <div className="flex flex-col items-center text-center bg-cream/30 p-6 sm:p-8 rounded-xl hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-terracotta text-white rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold mb-4 sm:mb-6">1</div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Sign Up & Create Profile</h3>
-                <p className="text-charcoal/80 text-sm sm:text-base">Create a detailed profile for your pet including breed, age, weight, and health history.</p>
-              </div>
-              
-              <div className="flex flex-col items-center text-center bg-cream/30 p-6 sm:p-8 rounded-xl hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-terracotta text-white rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold mb-4 sm:mb-6">2</div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Connect With Our AI</h3>
-                <p className="text-charcoal/80 text-sm sm:text-base">Our AI system analyzes your pet's data and provides personalized care recommendations.</p>
-              </div>
-              
-              <div className="flex flex-col items-center text-center bg-cream/30 p-6 sm:p-8 rounded-xl hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-terracotta text-white rounded-full flex items-center justify-center text-xl sm:text-2xl font-bold mb-4 sm:mb-6">3</div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">Enjoy Peace of Mind</h3>
-                <p className="text-charcoal/80 text-sm sm:text-base">Receive alerts, insights, and advice tailored specifically to your pet's unique needs.</p>
               </div>
             </div>
-          </div>
-        </section>
-        
-        {/* Testimonials */}
-        <section className="py-12 sm:py-16 md:py-24 bg-cream/50">
-          <div className="container mx-auto px-4">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-charcoal text-center mb-4 sm:mb-6">
-              What Pet Parents Are Saying
-            </h2>
-            <p className="text-center text-base sm:text-lg mb-8 sm:mb-12 md:mb-16 max-w-2xl mx-auto">
-              Join thousands of happy pet owners who have discovered the future of pet care with Whisker.
-            </p>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-              {[
-                { 
-                  name: "Sarah T.", 
-                  pet: "Dog Owner", 
-                  text: "Whisker detected my dog's potential allergy issues before they became serious. The personalized food recommendations have made a huge difference!" 
-                },
-                { 
-                  name: "Michael R.", 
-                  pet: "Cat Owner", 
-                  text: "As a first-time cat owner, Whisker has been like having a vet on call 24/7. The preventative care alerts have saved me from so many worries." 
-                },
-                { 
-                  name: "Jennifer L.", 
-                  pet: "Multi-pet Household", 
-                  text: "With three dogs and two cats, keeping track of everyone's health needs was overwhelming. Whisker simplifies everything in one easy platform." 
-                }
-              ].map((testimonial, index) => (
-                <div key={index} className="bg-white p-5 sm:p-6 md:p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-                  <div className="flex items-center mb-3 sm:mb-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-terracotta/20 flex items-center justify-center text-terracotta font-bold text-base sm:text-lg mr-3 sm:mr-4">
-                      {testimonial.name.charAt(0)}
+                        <div className="lg:col-span-7 space-y-8">
+              <div className="space-y-6">
+                <div className="inline-flex items-center rounded-full border border-sky-300/30 bg-gradient-to-r from-sky-300/8 to-cocoa-300/6 px-6 py-3 text-sm text-sky-500 font-medium shadow-sm">
+                  <div className="w-2.5 h-2.5 bg-sky-500 rounded-full mr-3"></div>
+                  Revolutionary Hardware
+          </div>
+                
+                <div className="space-y-6">
+                  <h2 className="font-serif text-4xl md:text-5xl text-charcoal-700 leading-tight">
+                    Meet the <span className="relative">
+                      <span className="text-transparent bg-gradient-to-r from-cocoa-700 to-gold-500 bg-clip-text">Whisker Collar</span>
+                      <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-cocoa-300 to-gold-300 rounded-full opacity-50"></div>
+                    </span>
+            </h2>
+            
+                  <p className="text-xl text-warmgray-600 leading-relaxed font-light max-w-xl">
+                    A breakthrough companion device that combines GPS tracking, activity monitoring, and health sensors—giving you complete insight into your pet's world.
+                  </p>
+                </div>
+              </div>
+              
+              {/* Minimalist feature list */}
+              <div className="space-y-6">
+                {[
+                  { 
+                    icon: (
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                      </svg>
+                    ),
+                    title: "Real-time GPS tracking", 
+                    desc: "Know where your pet is, always. Set custom safe zones and get instant alerts.",
+                    color: "text-sky-500",
+                    iconBg: "bg-sky-400"
+                  },
+                  { 
+                    icon: (
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                      </svg>
+                    ),
+                    title: "Activity & behavior insights", 
+                    desc: "Understand your pet's daily patterns, energy levels, and behavioral changes.",
+                    color: "text-cocoa-700",
+                    iconBg: "bg-cocoa-500"
+                  },
+                  { 
+                    icon: (
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                      </svg>
+                    ),
+                    title: "Health monitoring", 
+                    desc: "Temperature tracking and wellness indicators to catch health issues early.",
+                    color: "text-green-500",
+                    iconBg: "bg-green-400"
+                  },
+                  { 
+                    icon: (
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                      </svg>
+                    ),
+                    title: "Seamless app integration", 
+                    desc: "All collar data syncs instantly to your phone for easy access and insights.",
+                    color: "text-gold-500",
+                    iconBg: "bg-gold-400"
+                  }
+                ].map((feature, idx) => (
+                  <div key={idx} className="group flex items-start gap-4 py-3 border-l-2 border-sand-200 pl-4 hover:border-l-cocoa-300 transition-colors duration-300">
+                    <div className={`w-10 h-10 ${feature.iconBg} rounded-xl flex items-center justify-center text-white mt-1`}>
+                      {feature.icon}
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-base sm:text-lg">{testimonial.name}</h4>
-                      <p className="text-xs sm:text-sm text-gray-500">{testimonial.pet}</p>
+                    <div className="flex-1 space-y-1">
+                      <h4 className={`font-semibold ${feature.color} group-hover:text-cocoa-700 transition-colors duration-300`}>
+                        {feature.title}
+                      </h4>
+                      <p className="text-sm text-warmgray-600 leading-relaxed">
+                        {feature.desc}
+                      </p>
                     </div>
                   </div>
-                  <p className="text-charcoal/90 italic text-sm sm:text-base">"{testimonial.text}"</p>
+                ))}
+              </div>
+              
+              {/* Minimalist specs */}
+              <div className="space-y-4 pt-6 border-t border-sand-200">
+                <h4 className="font-semibold text-charcoal-700">Technical Specifications</h4>
+                <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+                  {[
+                    { label: "Weight", value: "45g", color: "bg-cocoa-300" },
+                    { label: "Battery", value: "7 days", color: "bg-sky-300" },
+                    { label: "Range", value: "2km", color: "bg-gold-300" },
+                    { label: "Rating", value: "IP67", color: "bg-green-400" }
+                  ].map((spec, idx) => (
+                    <div key={idx} className="flex items-center gap-2">
+                      <div className={`w-2 h-2 ${spec.color} rounded-full`}></div>
+                      <span className="text-warmgray-600 text-sm">
+                        {spec.label}: <span className="font-medium text-charcoal-700">{spec.value}</span>
+                      </span>
+                    </div>
+                  ))}
+                </div>
+                
+                <p className="text-xs text-warmgray-500 italic pt-2">
+                  † Currently in development. Not a medical device. Not for emergencies.
+                </p>
+              </div>
+            </div>
+          </div>
+                  </div>
+        
+        {/* Section transition */}
+        <div className="absolute bottom-0 left-1/4 w-40 h-px bg-gradient-to-r from-transparent via-sky-300/30 to-transparent"></div>
+        </section>
+
+      {/* APP PREVIEW */}
+      <section id="preview" className="py-16 bg-sand-100/30 relative overflow-hidden">
+        {/* Decorative accent lines */}
+        <div className="absolute top-1/3 left-0 w-28 h-px bg-gradient-to-r from-transparent via-gold-300/25 to-transparent"></div>
+        <div className="absolute top-2/3 right-0 w-36 h-px bg-gradient-to-l from-transparent via-cocoa-300/25 to-transparent"></div>
+        
+
+        
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center rounded-full border border-sky-300/30 bg-gradient-to-r from-sky-300/8 to-gold-300/6 px-6 py-3 text-sm text-sky-500 font-medium shadow-sm mb-6">
+              <div className="w-2.5 h-2.5 bg-sky-500 rounded-full mr-3"></div>
+              Mobile Experience
+            </div>
+            
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal-700 mb-4">
+              The <span className="relative">
+                <span className="text-transparent bg-gradient-to-r from-sky-500 to-cocoa-700 bg-clip-text">Whisker App</span>
+                <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-sky-300 to-cocoa-300 rounded-full opacity-50"></div>
+              </span>
+            </h2>
+            
+            <p className="text-lg text-warmgray-600 max-w-2xl mx-auto">
+              Your AI companion for comprehensive pet care, powered by collar data.
+            </p>
+          </div>
+          
+                    <div className="grid lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
+            {/* Left side enhanced content */}
+            <div className="space-y-8">
+              {/* Key benefits */}
+              <div className="space-y-6">
+                {[
+                  {
+                    icon: (
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+                      </svg>
+                    ),
+                    title: "AI-Powered Assistant",
+                    desc: "Get instant, personalized answers about your pet's training, nutrition, and behavior patterns.",
+                    highlight: "Available 24/7"
+                  },
+                  {
+                    icon: (
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                      </svg>
+                    ),
+                    title: "Health Dashboard",
+                    desc: "Monitor your pet's wellness with real-time data from the collar sensors and AI analysis.",
+                    highlight: "Early detection"
+                  },
+                  {
+                    icon: (
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                      </svg>
+                    ),
+                    title: "Location & Safety",
+                    desc: "Always know where your pet is with GPS tracking and customizable safe zone alerts.",
+                    highlight: "Peace of mind"
+                  }
+                ].map((feature, idx) => (
+                  <div key={idx} className="flex items-start gap-5">
+                    <div className="w-12 h-12 bg-gradient-to-br from-sky-400 to-sky-500 rounded-2xl flex items-center justify-center text-white shadow-sm">
+                      {feature.icon}
+                    </div>
+                    <div className="flex-1 space-y-2">
+                      <div className="flex items-center gap-3">
+                        <h3 className="font-semibold text-charcoal-700 text-lg">{feature.title}</h3>
+                        <span className="inline-flex items-center px-2 py-1 rounded-full bg-cocoa-300/10 text-xs font-medium text-cocoa-700">
+                          {feature.highlight}
+                        </span>
+                      </div>
+                      <p className="text-warmgray-600 leading-relaxed">{feature.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Stats */}
+              <div className="bg-gradient-to-r from-sand-100 to-cream-100 rounded-2xl p-6 border border-sand-200/40">
+                <h4 className="font-semibold text-charcoal-700 mb-4">Trusted by Pet Parents</h4>
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-sky-500 mb-1">10,000+</div>
+                    <div className="text-sm text-warmgray-600">Waitlist Members</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-cocoa-700 mb-1">98%</div>
+                    <div className="text-sm text-warmgray-600">AI Accuracy</div>
+                  </div>
+                </div>
+              </div>
+              
+                          {/* App store badges */}
+            <div className="space-y-4">
+              <div className="text-sm text-warmgray-600 font-medium">Download when available:</div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a href="#" className="block hover:opacity-80 transition-opacity">
+                  <Image src="/images/app-store-badge.svg" alt="Download on the App Store" width={160} height={48} className="h-10 sm:h-12 w-auto" />
+                </a>
+                <a href="#" className="block hover:opacity-80 transition-opacity">
+                  <Image src="/images/google-play-badge.svg" alt="Get it on Google Play" width={160} height={48} className="h-10 sm:h-12 w-auto" />
+                </a>
+              </div>
+              <div className="text-xs text-warmgray-500">
+                Join the waitlist to be notified when the app launches
+              </div>
+            </div>
+            </div>
+            
+                      {/* Right side iPhone mockup */}
+          <div className="flex justify-center">
+            <div className="relative">
+              {/* iPhone frame */}
+              <div className="w-56 sm:w-64 md:w-72 aspect-[9/19] bg-charcoal-900 rounded-[2.5rem] p-2 shadow-2xl">
+                <div className="w-full h-full bg-sand-100 rounded-[2rem] overflow-hidden relative flex items-center justify-center">
+                  {/* Placeholder for app screen recording */}
+                  <div className="text-center space-y-4">
+                    <div className="w-16 h-16 bg-cocoa-500 rounded-2xl flex items-center justify-center text-white mx-auto">
+                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m9 12l2 2 4-4" />
+                      </svg>
+                    </div>
+                    <div className="text-warmgray-600">
+                      <div className="font-medium text-charcoal-700 mb-1">Whisker App Preview</div>
+                      <div className="text-sm">Screen recording coming soon</div>
+                    </div>
+                  </div>
+                  
+                  {/* iOS notch */}
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 sm:w-28 md:w-32 h-6 bg-charcoal-900 rounded-b-2xl"></div>
+                </div>
+              </div>
+              
+              {/* Floating badge */}
+              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-sm rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-lg border border-white/50">
+                <div className="flex items-center gap-2 text-xs sm:text-sm">
+                  <svg className="w-4 h-4 text-cocoa-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                  </svg>
+                  <span className="font-medium text-charcoal-700">iOS & Android</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        
+        {/* Section transition */}
+        <div className="absolute bottom-0 right-1/3 w-36 h-px bg-gradient-to-l from-transparent via-gold-300/30 to-transparent"></div>
+      </section>
+
+      {/* FEATURES */}
+      <section id="features" className="py-20 bg-white relative overflow-hidden">
+        {/* Subtle accent lines */}
+        <div className="absolute top-1/4 left-1/2 w-px h-20 bg-gradient-to-b from-transparent via-cocoa-300/20 to-transparent"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-24 h-px bg-gradient-to-l from-transparent via-sky-300/20 to-transparent"></div>
+        
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center rounded-full border border-cocoa-300/30 bg-gradient-to-r from-cocoa-300/8 to-gold-300/6 px-6 py-3 text-sm text-cocoa-700 font-medium shadow-sm mb-6">
+              <div className="w-2.5 h-2.5 bg-cocoa-700 rounded-full mr-3"></div>
+              Complete Pet Care Platform
+            </div>
+            
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal-700 mb-4">
+              Why choose <span className="relative">
+                <span className="text-transparent bg-gradient-to-r from-cocoa-700 to-gold-500 bg-clip-text">Whisker</span>
+                <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-cocoa-300 to-gold-300 rounded-full opacity-50"></div>
+              </span>
+            </h2>
+            
+            <p className="text-lg text-warmgray-600 max-w-2xl mx-auto">
+              The perfect combination of smart hardware and AI creates insights you can't get anywhere else.
+            </p>
+          </div>
+
+          {/* Two rows of feature cards */}
+          <div className="space-y-8 max-w-6xl mx-auto">
+            
+            {/* First row - 3 cards */}
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+                    </svg>
+                  ),
+                  title: "Real-time insights",
+                  description: "Collar sensors feed live data to AI models for instant behavior understanding.",
+                  color: "bg-sky-400",
+                  highlight: "Available 24/7"
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                    </svg>
+                  ),
+                  title: "Expert guidance",
+                  description: "AI trained on veterinary knowledge with access to real professionals.",
+                  color: "bg-cocoa-500",
+                  highlight: "Vet-trained AI"
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
+                    </svg>
+                  ),
+                  title: "Preventive care",
+                  description: "Early health detection and timely checkup reminders.",
+                  color: "bg-green-400",
+                  highlight: "Peace of mind"
+                }
+              ].map((feature, index) => (
+                <div key={index} className="group bg-gradient-to-br from-white to-sand-100/30 rounded-2xl p-6 border border-sand-200/40 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-12 h-12 ${feature.color} rounded-2xl flex items-center justify-center text-white shadow-sm group-hover:scale-110 transition-transform duration-300`}>
+                      {feature.icon}
+                    </div>
+                    <span className="inline-flex items-center px-2 py-1 rounded-full bg-cocoa-300/10 text-xs font-medium text-cocoa-700">
+                      {feature.highlight}
+                    </span>
+                  </div>
+                  <h3 className="font-semibold text-charcoal-700 text-lg mb-3">{feature.title}</h3>
+                  <p className="text-warmgray-600 leading-relaxed">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Second row - 3 cards */}
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                    </svg>
+                  ),
+                  title: "Personalized nutrition",
+                  description: "Custom diet plans based on breed, age, and activity.",
+                  color: "bg-gold-400",
+                  highlight: "Tailored plans"
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                    </svg>
+                  ),
+                  title: "Training support",
+                  description: "Adaptive training plans with progress tracking.",
+                  color: "bg-cocoa-500",
+                  highlight: "Progress tracking"
+                },
+                {
+                  icon: (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    </svg>
+                  ),
+                  title: "Complete records",
+                  description: "All pet information organized in one place.",
+                  color: "bg-warmgray-500",
+                  highlight: "Centralized"
+                }
+              ].map((feature, index) => (
+                <div key={index} className="group bg-gradient-to-br from-white to-sand-100/30 rounded-2xl p-6 border border-sand-200/40 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-12 h-12 ${feature.color} rounded-2xl flex items-center justify-center text-white shadow-sm group-hover:scale-110 transition-transform duration-300`}>
+                      {feature.icon}
+                    </div>
+                    <span className="inline-flex items-center px-2 py-1 rounded-full bg-cocoa-300/10 text-xs font-medium text-cocoa-700">
+                      {feature.highlight}
+                    </span>
+                  </div>
+                  <h3 className="font-semibold text-charcoal-700 text-lg mb-3">{feature.title}</h3>
+                  <p className="text-warmgray-600 leading-relaxed">{feature.description}</p>
                 </div>
               ))}
             </div>
           </div>
-        </section>
-                
-        {/* Waitlist Form Section */}
-        <section id="waitlist-form" className="py-16 md:py-24 bg-white relative overflow-hidden">
-          {/* Background elements */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-sage/10 rounded-full blur-3xl -z-10"></div>
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-terracotta/5 rounded-full blur-2xl -z-10"></div>
-          
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
-              <div className="md:w-1/2 order-2 md:order-1">
-                <div className="transform hover:scale-[1.02] transition-all duration-300">
-                  <KitWaitlistForm />
-                </div>
+
+          {/* Stats section */}
+          <div className="mt-16 bg-gradient-to-r from-sky-400/5 to-cocoa-700/5 rounded-3xl p-8 border border-sand-200/30">
+            <div className="text-center mb-6">
+              <h3 className="font-serif text-2xl text-charcoal-700 mb-2">Trusted by Pet Parents Worldwide</h3>
+              <p className="text-warmgray-600">Join thousands who are already improving their pets' lives</p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-sky-400 mb-1">10,000+</div>
+                <div className="text-sm text-warmgray-600">Waitlist Members</div>
               </div>
-              
-              <div className="md:w-1/2 order-1 md:order-2">
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-charcoal mb-6">
-                  Reserve Your Spot Today
-                </h2>
-                <p className="text-lg mb-8">
-                  Join our exclusive waitlist and be among the first to experience the future of pet care with Whisker.
-                </p>
-                
-                <div className="space-y-6 mb-8">
-                  {[
-                    { title: "Early Access", text: "Be the first to try our revolutionary AI pet care platform" },
-                    { title: "Premium Benefits", text: "Waitlist members receive 3 months of premium features free" },
-                    { title: "Exclusive Updates", text: "Get insider news and development updates" }
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start bg-cream/50 p-4 rounded-xl hover:bg-cream/80 transition-colors">
-                      <div className="min-w-8 h-8 rounded-full bg-terracotta/20 flex items-center justify-center mr-4 mt-1">
-                        <svg className="w-5 h-5 text-terracotta" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-cocoa-500 mb-1">98%</div>
+                <div className="text-sm text-warmgray-600">AI Accuracy</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-400 mb-1">24/7</div>
+                <div className="text-sm text-warmgray-600">Pet Monitoring</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-gold-400 mb-1">500+</div>
+                <div className="text-sm text-warmgray-600">Vet Partners</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Section transition */}
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-28 h-px bg-gradient-to-r from-transparent via-gold-300/30 to-transparent"></div>
+        </section>
+
+      {/* ROADMAP */}
+      <section className="py-16 bg-sand-100/30 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-1/4 right-1/4 w-20 h-px bg-gradient-to-l from-transparent via-cocoa-300/20 to-transparent"></div>
+        <div className="absolute bottom-1/3 left-1/5 w-24 h-px bg-gradient-to-r from-transparent via-sky-300/20 to-transparent"></div>
+        
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center rounded-full border border-sky-300/30 bg-gradient-to-r from-sky-300/8 to-cocoa-300/6 px-6 py-3 text-sm text-sky-500 font-medium shadow-sm mb-6">
+              <div className="w-2.5 h-2.5 bg-sky-500 rounded-full mr-3"></div>
+              Development Timeline
+            </div>
+            
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal-700 mb-4">
+              Product <span className="relative">
+                <span className="text-transparent bg-gradient-to-r from-sky-500 to-cocoa-700 bg-clip-text">Roadmap</span>
+                <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-sky-300 to-cocoa-300 rounded-full opacity-50"></div>
+              </span>
+            </h2>
+            
+            <p className="text-lg text-warmgray-600">
+              Here's what we're building and when you can expect it.
+            </p>
+          </div>
+          
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-0 right-0 top-4 h-px bg-sand-100"></div>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  phase: "Now",
+                  title: "App Beta & Collar Waitlist",
+                  status: "active",
+                  color: "bg-cocoa-700",
+                  progress: 85
+                },
+                {
+                  phase: "Next",
+                  title: "Collar Pilot Program",
+                  status: "coming",
+                  color: "bg-sky-500",
+                  progress: 0
+                },
+                {
+                  phase: "Later",
+                  title: "Advanced Intelligence",
+                  status: "research",
+                  color: "bg-gold-500",
+                  progress: 0
+                }
+              ].map((phase, index) => (
+                <div key={index} className="relative pt-8 text-center">
+                  {/* Timeline dot */}
+                  <div className={`absolute left-1/2 top-2 -translate-x-1/2 w-3 h-3 rounded-full ${phase.color}`}></div>
+                  
+                                    {/* Content */}
+                  <div className="bg-white rounded-xl p-6 shadow-sm border border-sand-200/30">
+                    <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium mb-3 ${
+                      phase.status === 'active' ? 'bg-cocoa-300/20 text-cocoa-700' :
+                      phase.status === 'coming' ? 'bg-sky-300/20 text-sky-500' :
+                      'bg-gold-300/20 text-gold-500'
+                    }`}>
+                      {phase.phase}
+                    </div>
+                    
+                    <h4 className="font-medium text-charcoal-700 mb-2">{phase.title}</h4>
+                    
+                    {phase.progress > 0 && (
+                      <div className="mb-3">
+                        <div className="flex justify-between text-xs text-warmgray-600 mb-1">
+                          <span>Progress</span>
+                          <span>{phase.progress}%</span>
+                        </div>
+                        <div className="w-full bg-sand-100 rounded-full h-1.5">
+                          <div className={`h-1.5 rounded-full ${phase.color}`} style={{width: `${phase.progress}%`}}></div>
+                        </div>
+                      </div>
+                    )}
+                    
+                    <p className="text-sm text-warmgray-600">
+                      {phase.status === 'active' ? 'Building core features and gathering signups' :
+                       phase.status === 'coming' ? 'Smart collar pilot with early adopters' :
+                       'Advanced AI capabilities and integrations'}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            </div>
+          </div>
+        {/* Accent separator to next section */}
+        <div className="absolute -bottom-3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cocoa-300/40 to-transparent"></div>
+      </section>
+        
+      {/* PRIVACY & SAFETY */}
+      <section id="privacy" className="py-16 bg-sand-100/30 relative overflow-hidden">
+        {/* Decorative accent lines */}
+        <div className="absolute top-1/3 left-0 w-24 h-px bg-gradient-to-r from-transparent via-cocoa-300/25 to-transparent"></div>
+        <div className="absolute bottom-1/3 right-0 w-32 h-px bg-gradient-to-l from-transparent via-sky-300/25 to-transparent"></div>
+        
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center rounded-full border border-cocoa-300/30 bg-gradient-to-r from-cocoa-300/8 to-gold-300/6 px-6 py-3 text-sm text-cocoa-700 font-medium shadow-sm mb-6">
+              <div className="w-2.5 h-2.5 bg-cocoa-700 rounded-full mr-3"></div>
+              Trust & Transparency
+            </div>
+            
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal-700 mb-4">
+              Privacy & Safety <span className="text-cocoa-700">by Design</span>
+            </h2>
+            
+            <p className="text-lg text-warmgray-600 max-w-2xl mx-auto">
+              Your pet's data belongs to you. We're built on transparency and user control.
+            </p>
+          </div>
+          
+          {/* Compact grid layout */}
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            {[
+              {
+                icon: (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                  </svg>
+                ),
+                title: "Your Data, Your Control",
+                description: "All pet data is encrypted end-to-end and stored securely. You maintain complete ownership and control over your information.",
+                features: ["Export data anytime", "Request deletion"],
+                color: "bg-cocoa-500"
+              },
+              {
+                icon: (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                ),
+                title: "Transparent Analytics",
+                description: "We're clear about what data we collect and why. Our analytics are designed to improve your pet's experience while respecting your privacy.",
+                features: ["Privacy Controls", "Adjust settings anytime"],
+                color: "bg-sky-400"
+              },
+              {
+                icon: (
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                  </svg>
+                ),
+                title: "Educational Guidance",
+                description: "Whisker provides educational information only. For medical emergencies, always consult a licensed veterinarian.",
+                features: ["Important Health Notice", "Always consult your vet"],
+                color: "bg-gold-400"
+              }
+            ].map((principle, index) => (
+              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg border border-sand-200/40 hover:shadow-xl transition-shadow">
+                <div className={`w-12 h-12 ${principle.color} rounded-2xl flex items-center justify-center text-white shadow-sm mb-4`}>
+                  {principle.icon}
+                </div>
+                <h3 className="font-semibold text-charcoal-700 text-lg mb-3">{principle.title}</h3>
+                <p className="text-warmgray-600 text-sm leading-relaxed mb-4">{principle.description}</p>
+                <div className="space-y-2">
+                  {principle.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-center gap-2">
+                      <div className="w-4 h-4 rounded-full bg-green-400/20 flex items-center justify-center">
+                        <svg className="w-2.5 h-2.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                         </svg>
                       </div>
-                      <div>
-                        <h4 className="font-semibold text-lg">{item.title}</h4>
-                        <p className="text-charcoal/80">{item.text}</p>
-                      </div>
+                      <span className="text-xs text-warmgray-600">{feature}</span>
                     </div>
                   ))}
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-        </section>
-        
-        {/* App Preview Section */}
-        <section id="app-preview" className="py-12 sm:py-16 md:py-24 bg-cream/30 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-terracotta/5 rounded-full blur-3xl -z-10"></div>
-          <div className="absolute bottom-0 right-0 w-80 h-80 bg-sage/10 rounded-full blur-2xl -z-10"></div>
           
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-charcoal mb-4 sm:mb-6">
-              App Preview
-            </h2>
-            <p className="text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto">
-              Get a sneak peek of the Whisker mobile experience
-            </p>
-            <div className="w-full">
-              <TestUI />
-            </div>
-
-            <div className="mt-8 sm:mt-12 max-w-sm mx-auto px-4 py-3 bg-white/70 backdrop-blur-sm rounded-lg shadow-sm">
-              <p className="text-xs sm:text-sm text-charcoal/80">
-                <span className="hidden sm:inline">👆 </span>
-                <span className="font-medium text-terracotta">Swipe</span> through the screens on mobile to see all features
-              </p>
-            </div>
-          </div>
-        </section>
-        
-        {/* CTA Section */}
-        <WhiskerCta />
-      </main>
-      
-      {/* Styling the footer */}
-      <footer className="bg-charcoal text-white py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-            <div className="col-span-1 md:col-span-2">
-              <div className="flex items-center space-x-2 mb-4">
-                <Image 
-                  src="/logo/icon.svg" 
-                  alt="Whisker Logo" 
-                  width={32} 
-                  height={32} 
-                  className="w-8 h-8"
-                />
-                <span className="text-2xl font-semibold text-white font-display">Whisker</span>
+          {/* Bottom info */}
+          <div className="text-center space-y-4">
+            <a href="/terms" className="text-sm font-medium text-cocoa-700 hover:text-cocoa-500 transition-colors">
+              Read our full Terms of Service →
+            </a>
+            
+            {/* Trust badge */}
+            <div className="flex justify-center">
+              <div className="bg-white rounded-full px-6 py-3 shadow-lg border border-sand-200/50 flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-green-400/20 flex items-center justify-center text-green-600">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                  </svg>
+                </div>
+                <span className="text-sm font-medium text-charcoal-700">GDPR & CCPA Compliant</span>
               </div>
-              <p className="text-white/70 mb-6">AI-powered personalized pet care for your unique furry companions. Join our waitlist today and be among the first to experience the future of pet health management.</p>
-              <p className="text-white/60">© {new Date().getFullYear()} Whisker. All rights reserved.</p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-white/90">Explore</h3>
-              <ul className="space-y-3">
-                <li><a href="#home" className="text-white/70 hover:text-white hover:pl-1 transition-all">Home</a></li>
-                <li><a href="#features" className="text-white/70 hover:text-white hover:pl-1 transition-all">Features</a></li>
-                <li><a href="#how-it-works" className="text-white/70 hover:text-white hover:pl-1 transition-all">How It Works</a></li>
-                <li><a href="#app-preview" className="text-white/70 hover:text-white hover:pl-1 transition-all">App Preview</a></li>
-                <li><a href="#waitlist-form" className="text-white/70 hover:text-white hover:pl-1 transition-all">Join Waitlist</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-white/90">Legal</h3>
-              <ul className="space-y-3">
-                <li><a href="#privacy" className="text-white/70 hover:text-white hover:pl-1 transition-all">Privacy Policy</a></li>
-                <li><a href="#terms" className="text-white/70 hover:text-white hover:pl-1 transition-all">Terms of Service</a></li>
-                <li><a href="#contact" className="text-white/70 hover:text-white hover:pl-1 transition-all">Contact Us</a></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-white/60 mb-4 md:mb-0">Made with ❤️ for pets and their humans</p>
-            <div className="flex space-x-6">
-              <a href="#" className="text-white/80 hover:text-white transition-colors hover:scale-110 transform">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                </svg>
-              </a>
-              <a href="#" className="text-white/80 hover:text-white transition-colors hover:scale-110 transform">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
-                </svg>
-              </a>
-              <a href="#" className="text-white/80 hover:text-white transition-colors hover:scale-110 transform">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
-              </a>
             </div>
           </div>
         </div>
-      </footer>
-    </div>
+        
+        {/* Section transition */}
+        <div className="absolute bottom-0 left-1/3 w-32 h-px bg-gradient-to-r from-transparent via-gold-300/30 to-transparent"></div>
+      </section>
+
+      {/* WAITLIST */}
+      <section id="waitlist" className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image src="/images/cute-pet-bg.jpg" alt="Happy pet" fill className="object-cover" />
+          <div className="absolute inset-0 bg-charcoal-900/60"></div>
+        </div>
+        
+
+
+        <div className="container mx-auto relative z-10">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl text-white mb-4">
+                Join the Whisker Collar Waitlist
+              </h2>
+              <p className="text-lg text-white/90">
+                Be first to know when the smart collar pilot opens.
+              </p>
+            </div>
+
+            <div className="max-w-xl mx-auto">
+              <WaitlistForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="py-16 bg-white relative overflow-hidden">
+        {/* Decorative accent lines */}
+        <div className="absolute top-1/3 left-0 w-20 h-px bg-gradient-to-r from-transparent via-cocoa-300/20 to-transparent"></div>
+        <div className="absolute top-2/3 right-0 w-28 h-px bg-gradient-to-l from-transparent via-sky-300/20 to-transparent"></div>
+        
+        {/* Enhanced paw prints trail */}
+        <div className="absolute bottom-8 right-8 opacity-8 pointer-events-none">
+          {[...Array(5)].map((_, i) => (
+            <div 
+              key={i}
+              className="absolute"
+              style={{
+                transform: `translate(${-i * 35}px, ${i * 18}px) rotate(${-12 + i * 4}deg)`,
+                right: `${i * 30}px`,
+                bottom: `${i * 20}px`
+              }}
+            >
+              <svg className="w-5 h-5 text-cocoa-300" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zM8 7c.6 0 1 .4 1 1s-.4 1-1 1-1-.4-1-1 .4-1 1-1zm8 0c.6 0 1 .4 1 1s-.4 1-1 1-1-.4-1-1 .4-1 1-1zM6 12c.6 0 1 .4 1 1s-.4 1-1 1-1-.4-1-1 .4-1 1-1zm12 0c.6 0 1 .4 1 1s-.4 1-1 1-1-.4-1-1 .4-1 1-1zM12 16c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3z"/>
+                </svg>
+            </div>
+          ))}
+        </div>
+        
+        <div className="container mx-auto max-w-3xl">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center rounded-full border border-gold-300/30 bg-gradient-to-r from-gold-300/8 to-cocoa-300/6 px-6 py-3 text-sm text-gold-500 font-medium shadow-sm mb-6">
+              <div className="w-2.5 h-2.5 bg-gold-500 rounded-full mr-3"></div>
+              Questions & Answers
+            </div>
+            
+            <h2 className="font-serif text-3xl md:text-4xl text-charcoal-700 mb-4">
+              Frequently Asked <span className="relative">
+                <span className="text-transparent bg-gradient-to-r from-gold-500 to-cocoa-700 bg-clip-text">Questions</span>
+                <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-gold-300 to-cocoa-300 rounded-full opacity-50"></div>
+              </span>
+            </h2>
+          </div>
+          
+          <div className="space-y-4">
+            {[
+              {
+                question: "Is Whisker a substitute for a veterinarian?",
+                answer: "No, Whisker provides educational guidance only. For medical emergencies, always contact a licensed veterinarian immediately."
+              },
+              {
+                question: "When will the collar be available?",
+                answer: "The Whisker Collar is currently in development. We're planning a pilot program for early adopters—timing will be announced to waitlist members first."
+              },
+              {
+                question: "What data do you collect?",
+                answer: "We collect pet profile information, app usage data, and collar sensor data. All data is encrypted and secure. See our Privacy Policy for details."
+              },
+              {
+                question: "Is the collar safe for my pet?",
+                answer: "Yes, the Whisker Collar uses pet-safe materials, has no sharp edges, and is designed for comfortable daily wear."
+              }
+            ].map((faq, index) => (
+              <details key={index} className="group bg-white rounded-lg shadow-sm border border-sand-200/30 overflow-hidden">
+                <summary className="flex items-center justify-between p-4 cursor-pointer hover:bg-sand-100/50 transition-colors">
+                  <h3 className="font-medium text-charcoal-700">{faq.question}</h3>
+                  <svg 
+                    className="w-5 h-5 text-warmgray-600 transform transition-transform group-open:rotate-180" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+                </summary>
+                <div className="px-4 pb-4">
+                  <p className="text-sm text-warmgray-600">{faq.answer}</p>
+            </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

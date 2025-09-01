@@ -1,141 +1,81 @@
-'use client';
-
+"use client";
+import { SITE } from "@/lib/site";
 import { useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
 
-interface WaitlistFormInputs {
-  email: string;
-  name?: string;
-  petType?: string;
-}
-
-const WaitlistForm = () => {
-  const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<WaitlistFormInputs>();
-  const [success, setSuccess] = useState(false);
-
-  const onSubmit: SubmitHandler<WaitlistFormInputs> = async (data) => {
-    try {
-      const res = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (res.ok) {
-        setSuccess(true);
-        reset();
-        setTimeout(() => setSuccess(false), 3000);
-      } else {
-        console.error("Failed to sign up");
-      }
-    } catch (error) {
-      console.error("Error submitting form", error);
-    }
-  };
-
-  return (
-    <div className="relative w-full max-w-md mx-auto md:mx-0">
-      {/* Decorative elements */}
-      <div className="absolute -top-8 -left-8 w-32 h-32 bg-sage/20 rounded-full -z-10 animate-pulse"></div>
-      <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-terracotta/10 rounded-full -z-10 animate-pulse-slow"></div>
-      
-      <form onSubmit={handleSubmit(onSubmit)} className="bg-white p-8 md:p-10 rounded-xl shadow-xl space-y-6 relative z-10 border border-gray-100">
-        <div className="text-center mb-8">
-          <h3 className="text-2xl md:text-3xl font-display font-bold text-charcoal">Join Our Waitlist</h3>
-          <p className="text-md text-gray-500 mt-2">Early access gets 3 months premium free</p>
-        </div>
-        
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-charcoal mb-2">
-            Email Address <span className="text-terracotta">*</span>
-          </label>
-          <input 
-            type="email"
-            id="email"
-            {...register("email", { 
-              required: "Email is required", 
-              pattern: {
-                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "Please enter a valid email address"
-              }
-            })}
-            placeholder="youremail@example.com"
-            className="email-capture"
-          />
-          {errors.email && <span className="text-red-500 text-xs mt-1 block">{errors.email.message}</span>}
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-charcoal mb-2">
-              First Name
-            </label>
-            <input 
-              type="text"
-              id="name"
-              {...register("name")}
-              placeholder="Your name"
-              className="email-capture"
-            />
-          </div>
-          
-          <div>
-            <label htmlFor="petType" className="block text-sm font-medium text-charcoal mb-2">
-              Pet Type
-            </label>
-            <select 
-              id="petType"
-              {...register("petType")}
-              className="email-capture"
-              defaultValue=""
-            >
-              <option value="" disabled>Select pet type</option>
-              <option value="dog">Dog</option>
-              <option value="cat">Cat</option>
-              <option value="both">Both Dog & Cat</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-        </div>
-        
-        <button 
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-terracotta to-terracotta-dark hover:from-terracotta-dark hover:to-terracotta text-white font-bold py-4 px-6 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl flex items-center justify-center"
-        >
-          {isSubmitting ? (
-            <>
-              <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg>
-              Processing...
-            </>
-          ) : (
-            "Secure My Spot & Enter to Win"
-          )}
-        </button>
-        
-        {success && (
-          <div className="bg-green-50 text-green-700 p-4 rounded-lg text-center text-sm animate-fade-in">
-            <svg className="w-6 h-6 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-            </svg>
-            You're on the waitlist! Check your email for confirmation.
-          </div>
-        )}
-        
-        <p className="text-xs text-charcoal/60 text-center mt-2 flex items-center justify-center">
-          <svg className="w-4 h-4 mr-1 inline text-sage" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd"></path>
+export default function WaitlistForm() {
+  const [email, setEmail] = useState("");
+  const [ok, setOk] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  
+  async function submit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!ok) return alert("Please accept the privacy notice.");
+    
+    // Replace with your integration; we store consent timestamp locally here.
+    console.log("hardware_waitlist_signup", { email, product: "whisker_collar", consentAt: new Date().toISOString() });
+    setSubmitted(true);
+    setEmail("");
+    
+    setTimeout(() => setSubmitted(false), 3000);
+  }
+  
+  if (submitted) {
+    return (
+      <div className="bg-green-400/20 border border-green-400/30 rounded-2xl p-6 text-center">
+        <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
-          Your information is secure. No spam, ever.
-        </p>
+        </div>
+        <h3 className="font-semibold text-charcoal-700 mb-2">You're on the Whisker Collar pilot list!</h3>
+        <p className="text-warmgray-600 text-sm">We'll email you as soon as pilot spots open and hardware details are ready.</p>
+      </div>
+    );
+  }
+  
+  return (
+    <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
+      <div className="mb-6">
+        <h3 className="font-serif text-2xl font-bold text-charcoal-900 mb-2">Join the Smart Collar Waitlist</h3>
+        <p className="text-warmgray-600">Be first to access the Whisker Collar pilot and early hardware updates.</p>
+      </div>
+      
+      <form onSubmit={submit} className="space-y-4">
+        <div className="flex flex-col sm:flex-row gap-3">
+          <input
+            type="email"
+            required
+            placeholder="Enter your email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="px-6 py-4 rounded-pill border border-sand-200 bg-white shadow-sm w-full text-lg focus:ring-2 focus:ring-sky-400 focus:border-sky-400 transition-colors"
+          />
+          <button className="px-8 py-4 rounded-pill bg-cocoa-700 text-white hover:bg-cocoa-500 hover:shadow-xl transition-all duration-200 font-semibold whitespace-nowrap">
+            Join Collar Waitlist
+          </button>
+        </div>
+        
+        <label className="flex items-start gap-3 text-sm text-warmgray-600">
+          <input 
+            type="checkbox" 
+            checked={ok} 
+            onChange={(e) => setOk(e.target.checked)} 
+            className="mt-1 rounded border-sand-200 text-cocoa-700 focus:ring-sky-400"
+          />
+          <span>
+            By signing up, you agree to our{" "}
+            <a className="text-cocoa-500 underline hover:text-cocoa-700" href="/privacy">Privacy Policy</a>{" "}
+            and to receive updates about the Whisker Collar pilot program and hardware.
+          </span>
+        </label>
+        
+        <div className="flex items-center text-sm text-warmgray-600 pt-2">
+          <svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.75}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          <span>Free premium features for early adopters • No spam, ever</span>
+        </div>
       </form>
     </div>
   );
-};
-
-export default WaitlistForm; 
+}

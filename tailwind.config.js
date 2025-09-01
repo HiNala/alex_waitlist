@@ -1,34 +1,70 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: ["./src/app/**/*.{ts,tsx}", "./src/components/**/*.{ts,tsx}"],
   theme: {
     extend: {
       colors: {
+        // Pastel color palette
+        cocoa: { 
+          700: '#A67C6A',  // Pastel terracotta
+          500: '#B8897A',  // Lighter pastel terracotta
+          300: '#D4B5A8',  // Very light pastel terracotta
+        },
+        cream: { 
+          50: '#FAF6EF',   // Keep as is - already pastel
+          100: '#F5EFE7'   // Slightly deeper cream
+        },
+        sand: { 
+          100: '#EDE3D6',  // Keep as is - already pastel
+          200: '#E5D8C8'   // Slightly deeper sand
+        },
+        charcoal: { 
+          900: '#4A4A4A',  // Softer charcoal (not pure black)
+          700: '#6B6B6B'   // Lighter charcoal
+        },
+        warmgray: { 
+          600: '#8B8680',  // Softer warm gray
+          500: '#A19B94'   // Lighter warm gray
+        },
+        sky: { 
+          500: '#7FB3E3',  // Pastel blue
+          400: '#9BC5E8',  // Lighter pastel blue
+          300: '#B8D7ED'   // Very light pastel blue
+        },
+        gold: { 
+          500: '#E8C547',  // Pastel gold
+          400: '#EDD066',  // Lighter pastel gold
+          300: '#F2DB85'   // Very light pastel gold
+        },
+        green: {
+          500: '#90C695',  // Pastel green
+          400: '#A5D3A9',  // Lighter pastel green
+        },
+        // Keep legacy for compatibility
         terracotta: {
-          DEFAULT: "#914120",
-          light: "#B15B3A",
-          dark: "#7A3218",
+          DEFAULT: "#A67C6A",
+          light: "#B8897A",
+          dark: "#A67C6A",
         },
-        cream: {
-          DEFAULT: "#F9F5F0",
-          light: "#F5EFE6",
-          dark: "#E8DFD3",
-        },
-        sage: {
-          DEFAULT: "#8DAA9D",
-          light: "#9EBCAF",
-          dark: "#7A9589",
-        },
-        charcoal: "#2C2C2C",
-        gold: "rgba(218, 165, 32, 0.3)",
       },
       fontFamily: {
-        sans: ['Outfit', 'sans-serif'],
-        display: ['Fraunces', 'serif'],
+        serif: ['"Playfair Display"', 'serif'],
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+        display: ['"Playfair Display"', 'serif'],
+      },
+      borderRadius: {
+        lg: '16px',
+        xl: '24px',
+        pill: '9999px',
+      },
+      boxShadow: {
+        card: '0 6px 20px rgba(0,0,0,.06)',
+        hover: '0 10px 24px rgba(0,0,0,.10)',
+      },
+      container: { 
+        center: true, 
+        padding: '1rem' 
       },
       keyframes: {
         float: {
@@ -91,4 +127,5 @@ module.exports = {
     },
   },
   plugins: [],
-}; 
+};
+export default config; 

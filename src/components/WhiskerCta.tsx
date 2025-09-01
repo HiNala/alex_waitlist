@@ -24,54 +24,46 @@ const WhiskerCta = ({
   className
 }: WhiskerCtaProps) => {
   return (
-    <section className={cn("relative overflow-hidden py-16 md:py-24 w-full", className)}>
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 z-0">
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-[#e07a5f] via-[#d85c40] to-[#c54e31]"
-          style={{ backgroundSize: "400% 400%" }}
-          animate={{
-            backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut",
-          }}
-        />
-        
-        {/* Subtle floating orbs */}
-        <motion.div
-          className="absolute w-64 h-64 rounded-full bg-[#81B29A]/20 blur-3xl"
-          animate={{
-            x: ["-10%", "10%", "-10%"],
-            y: ["-5%", "15%", "-5%"],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut",
-          }}
-          style={{ top: "10%", left: "60%" }}
-        />
-        
-        <motion.div
-          className="absolute w-72 h-72 rounded-full bg-white/20 blur-3xl"
-          animate={{
-            x: ["5%", "-15%", "5%"],
-            y: ["10%", "-5%", "10%"],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "easeInOut",
-          }}
-          style={{ bottom: "10%", right: "60%" }}
-        />
-      </div>
+    <section className={cn("relative overflow-hidden py-20 md:py-24 w-full bg-cocoa-700", className)}>
+      {/* Subtle background pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.05] -z-10"
+        style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.4) 1px, transparent 0)`,
+          backgroundSize: '20px 20px'
+        }}
+      />
+      
+      {/* Floating elements */}
+      <motion.div
+        className="absolute w-32 h-32 rounded-full bg-gold-500/20 blur-2xl"
+        animate={{
+          x: ["-10%", "10%", "-10%"],
+          y: ["-5%", "15%", "-5%"],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "easeInOut",
+        }}
+        style={{ top: "20%", right: "10%" }}
+      />
+      
+      <motion.div
+        className="absolute w-24 h-24 rounded-full bg-sky-500/20 blur-xl"
+        animate={{
+          x: ["5%", "-15%", "5%"],
+          y: ["10%", "-5%", "10%"],
+        }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "easeInOut",
+        }}
+        style={{ bottom: "20%", left: "10%" }}
+      />
 
       <div className="container px-4 md:px-6 mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
@@ -80,9 +72,9 @@ const WhiskerCta = ({
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-sm text-white mb-4"
+              className="inline-flex items-center rounded-pill border border-white/20 bg-white/10 px-4 py-2 text-sm text-white mb-6"
             >
-              <PawPrintIcon className="mr-2 h-3.5 w-3.5" />
+              <PawPrintIcon className="mr-2 h-4 w-4" />
               <span>AI-Powered Pet Care</span>
             </motion.div>
             
@@ -90,7 +82,7 @@ const WhiskerCta = ({
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white"
+              className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight"
             >
               {heading}
             </motion.h2>
@@ -99,7 +91,7 @@ const WhiskerCta = ({
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-white/90 max-w-xl"
+              className="text-xl md:text-2xl text-white/90 max-w-2xl leading-relaxed"
             >
               {description}
             </motion.p>
@@ -127,18 +119,18 @@ const WhiskerCta = ({
                       <Input
                         id="email_address_cta"
                         name="email_address"
-                        placeholder="Enter your email"
+                        placeholder="Enter your email address"
                         type="email"
                         required
                         aria-label="Email"
-                        className="formkit-input bg-white/10 border-white/20 text-white placeholder:text-white/60 pr-12 focus-visible:ring-white/30 focus-visible:ring-offset-0"
+                        className="formkit-input bg-white/10 border-white/20 text-white placeholder:text-white/60 rounded-pill px-6 py-4 text-lg focus-visible:ring-sky-500 focus-visible:ring-offset-0"
                       />
                     </div>
                   </div>
                   
                   <button 
                     data-element="submit" 
-                    className="formkit-submit formkit-submit w-full bg-[#F2CC8F] hover:bg-[#E8B96C] text-[#3D405B] font-medium transition-all group flex items-center justify-center py-2 px-4 rounded-md"
+                    className="formkit-submit formkit-submit w-full bg-gold-500 hover:bg-gold-500/90 text-charcoal-900 font-semibold transition-all duration-200 group flex items-center justify-center py-4 px-6 rounded-pill text-lg shadow-lg hover:shadow-xl hover:scale-[1.02]"
                   >
                     <div className="formkit-spinner">
                       <div></div>
@@ -146,11 +138,11 @@ const WhiskerCta = ({
                       <div></div>
                     </div>
                     <span className="flex items-center">
-                      {buttonText} <ArrowRightIcon className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      {buttonText} <ArrowRightIcon className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-200" />
                     </span>
                   </button>
                   
-                  <p className="text-sm text-white/70 text-center">
+                  <p className="text-sm text-white/80 text-center leading-relaxed">
                     {privacyText}
                   </p>
                 </div>
@@ -162,32 +154,32 @@ const WhiskerCta = ({
             <motion.div 
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute -top-6 -left-6 w-12 h-12 rounded-full bg-[#81B29A] opacity-60"
+              className="absolute -top-6 -left-6 w-12 h-12 rounded-full bg-gold-500/30 opacity-60"
             ></motion.div>
             <motion.div 
               animate={{ rotate: -360 }}
               transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-              className="absolute -bottom-4 -right-4 w-8 h-8 rounded-full bg-[#F2CC8F] opacity-70"
+              className="absolute -bottom-4 -right-4 w-8 h-8 rounded-full bg-sky-500/30 opacity-70"
             ></motion.div>
             
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="relative bg-white/10 border border-white/20 rounded-xl p-6 backdrop-blur-sm"
+              className="relative bg-white/10 border border-white/20 rounded-xl p-8 backdrop-blur-sm shadow-lg"
             >
-              <div className="grid gap-4">
+              <div className="grid gap-6">
                 <motion.div 
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.2 }}
                   className="flex items-center space-x-4"
                 >
-                  <div className="h-10 w-10 rounded-full bg-[#81B29A] flex items-center justify-center">
-                    <PawPrintIcon className="h-5 w-5 text-white" />
+                  <div className="h-12 w-12 rounded-full bg-gold-500 flex items-center justify-center shadow-lg">
+                    <PawPrintIcon className="h-6 w-6 text-charcoal-900" />
                   </div>
                   <div>
-                    <h4 className="text-white font-medium">Personalized Care</h4>
-                    <p className="text-white/70 text-sm">Tailored to your pet's needs</p>
+                    <h4 className="text-white font-semibold text-lg">Personalized Care</h4>
+                    <p className="text-white/80 text-sm leading-relaxed">Tailored to your pet's needs</p>
                   </div>
                 </motion.div>
                 
@@ -196,12 +188,12 @@ const WhiskerCta = ({
                   transition={{ duration: 0.2 }}
                   className="flex items-center space-x-4"
                 >
-                  <div className="h-10 w-10 rounded-full bg-[#F2CC8F] flex items-center justify-center">
-                    <ClipboardIcon className="h-5 w-5 text-[#3D405B]" />
+                  <div className="h-12 w-12 rounded-full bg-sky-500 flex items-center justify-center shadow-lg">
+                    <ClipboardIcon className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-white font-medium">Health Tracking</h4>
-                    <p className="text-white/70 text-sm">Monitor vitals & behavior</p>
+                    <h4 className="text-white font-semibold text-lg">Health Tracking</h4>
+                    <p className="text-white/80 text-sm leading-relaxed">Monitor vitals & behavior</p>
                   </div>
                 </motion.div>
                 
@@ -210,12 +202,12 @@ const WhiskerCta = ({
                   transition={{ duration: 0.2 }}
                   className="flex items-center space-x-4"
                 >
-                  <div className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center">
-                    <ClockIcon className="h-5 w-5 text-white" />
+                  <div className="h-12 w-12 rounded-full bg-white/20 flex items-center justify-center shadow-lg">
+                    <ClockIcon className="h-6 w-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-white font-medium">24/7 Support</h4>
-                    <p className="text-white/70 text-sm">Expert help when you need it</p>
+                    <h4 className="text-white font-semibold text-lg">24/7 Support</h4>
+                    <p className="text-white/80 text-sm leading-relaxed">Expert help when you need it</p>
                   </div>
                 </motion.div>
               </div>

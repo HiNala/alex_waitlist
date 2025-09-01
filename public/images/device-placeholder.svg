@@ -1,0 +1,27 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6B3F2B" />
+      <stop offset="100%" stop-color="#8C4F39" />
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1024" height="1024" fill="#FAF6EF"/>
+  <g opacity="0.08">
+    <defs>
+      <pattern id="dots" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+        <circle cx="1" cy="1" r="1" fill="#6B3F2B" />
+      </pattern>
+    </defs>
+    <rect x="0" y="0" width="1024" height="1024" fill="url(#dots)" />
+  </g>
+  <g>
+    <rect x="112" y="420" width="800" height="184" rx="92" fill="url(#g)"/>
+    <rect x="164" y="452" width="696" height="120" rx="60" fill="#FFF" opacity="0.9"/>
+    <circle cx="220" cy="512" r="22" fill="#3B82F6"/>
+    <circle cx="272" cy="512" r="22" fill="#10B981"/>
+    <circle cx="324" cy="512" r="22" fill="#F59E0B"/>
+    <rect x="376" y="496" width="440" height="32" rx="16" fill="#D6C8B8"/>
+  </g>
+  <text x="512" y="780" text-anchor="middle" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="24" fill="#6A635B">Whisker Collar — Device Placeholder</text>
+</svg>
+
