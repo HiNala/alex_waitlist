@@ -24,7 +24,7 @@ export default function Header() {
         
         {/* Desktop CTA + Mobile Menu Button */}
         <div className="flex items-center gap-3">
-          <Link href="#waitlist" className="hidden sm:inline-flex px-3 md:px-4 py-2 rounded-pill bg-cocoa-700 text-white hover:shadow-xl transition text-sm md:text-base">
+          <Link href="#waitlist" className="hidden sm:inline-flex btn-primary text-sm md:text-base">
             <span className="hidden md:inline">Join Collar Waitlist</span>
             <span className="md:hidden">Join Waitlist</span>
           </Link>
@@ -51,7 +51,7 @@ export default function Header() {
             <Link href="#preview" className="block py-2 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>App Preview</Link>
             <Link href="#faq" className="block py-2 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>FAQ</Link>
             <Link href="/support" className="block py-2 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Support</Link>
-            <Link href="#waitlist" className="block w-full mt-4 px-4 py-3 rounded-pill bg-cocoa-700 text-white text-center font-medium" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="#waitlist" className="block w-full mt-4 btn-primary text-center" onClick={() => setMobileMenuOpen(false)}>
               Join Collar Waitlist
             </Link>
           </nav>

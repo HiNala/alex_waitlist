@@ -5,134 +5,57 @@ export default function Home() {
   return (
     <>
             {/* HERO */}
-      <section className="bg-white relative overflow-hidden py-12 md:py-16 lg:py-20">
-        {/* Enhanced background elements */}
-        <div className="absolute inset-0 -z-10">
-          {/* Organic blob shapes */}
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gradient-to-br from-cocoa-300/8 to-gold-300/6 blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-gradient-to-tl from-sky-300/6 to-cocoa-300/4 blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-          
-          {/* Subtle grid overlay */}
-          <div 
-            className="absolute inset-0 opacity-[0.01]"
-            style={{
-              backgroundImage: `radial-gradient(circle at 1px 1px, rgba(166, 124, 106, 0.3) 1px, transparent 0)`,
-              backgroundSize: '40px 40px'
-            }}
-          />
-          
-          {/* Accent lines */}
-          <div className="absolute top-1/4 left-0 w-24 h-px bg-gradient-to-r from-transparent via-cocoa-300/20 to-transparent"></div>
-          <div className="absolute top-1/2 right-0 w-32 h-px bg-gradient-to-l from-transparent via-sky-300/20 to-transparent"></div>
-          <div className="absolute bottom-1/3 left-1/3 w-20 h-px bg-gradient-to-r from-transparent via-gold-300/20 to-transparent"></div>
-        </div>
+      <section className="bg-white py-16 md:py-24">
         
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-[3.75rem] text-charcoal-900 leading-tight">
-                The future of <span className="text-transparent bg-gradient-to-r from-cocoa-700 via-cocoa-500 to-gold-500 bg-clip-text">pet care</span> is here
+              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-charcoal-900 leading-tight">
+                The future of <span className="text-cocoa-700">pet care</span> is here
                 </h1>
               
               <p className="text-base sm:text-lg md:text-xl text-warmgray-600 leading-relaxed max-w-xl">
                 Whisker combines a smart collar with AI-powered insights to give you a complete picture of your pet's health, behavior, and location.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <a href="#waitlist" className="group inline-flex items-center justify-center px-6 py-4 sm:py-3 rounded-full bg-gradient-to-r from-cocoa-700 to-cocoa-500 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 text-base sm:text-sm md:text-base">
-                  <span>Join Collar Waitlist</span>
-                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
+              <div className="flex flex-col sm:flex-row gap-4 pt-6">
+                <a href="#waitlist" className="btn-primary inline-flex items-center justify-center">
+                  Join Collar Waitlist
                 </a>
-                <a href="#device" className="inline-flex items-center justify-center px-6 py-4 sm:py-3 rounded-full bg-white text-cocoa-700 font-medium border border-cocoa-300/30 shadow-lg hover:shadow-xl hover:bg-sand-100 transition-all duration-300 text-base sm:text-sm md:text-base">
+                <a href="#device" className="btn-secondary inline-flex items-center justify-center">
                   See the Device
                 </a>
               </div>
               
-              {/* Enhanced trust indicators */}
-              <div className="flex flex-wrap items-center gap-4 pt-6">
-                {[
-                  { 
-                    icon: (
-                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                      </svg>
-                    ),
-                    label: "Vet-approved AI", 
-                    color: "bg-green-400" 
-                  },
-                  { 
-                    icon: (
-                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                      </svg>
-                    ),
-                    label: "GDPR compliant", 
-                    color: "bg-sky-400" 
-                  },
-                  { 
-                    icon: (
-                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                      </svg>
-                    ),
-                    label: "Pet-safe hardware", 
-                    color: "bg-gold-400" 
-                  }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-3 bg-white rounded-full px-4 py-2 shadow-sm border border-sand-200/40">
-                    <div className={`w-5 h-5 ${item.color} rounded-full flex items-center justify-center text-white`}>
-                      {item.icon}
-                    </div>
-                    <span className="text-sm font-medium text-warmgray-600">{item.label}</span>
-                  </div>
-                ))}
+              {/* Simple trust indicators */}
+              <div className="flex flex-wrap gap-6 pt-6 text-sm text-warmgray-600">
+                <span>Vet-approved AI</span>
+                <span>GDPR compliant</span>
+                <span>Pet-safe hardware</span>
               </div>
             </div>
             
             <div className="relative">
-              {/* Enhanced image composition */}
-              <div className="relative">
-                {/* Main image with enhanced styling */}
-                <div className="relative aspect-[4/5] max-w-md mx-auto rounded-2xl overflow-hidden shadow-xl border border-white/50 bg-gradient-to-br from-sand-100 to-cream-100">
-                  <Image src="/images/pet1.jpg" alt="Happy pet using Whisker" fill className="object-cover" />
-                  
-                  {/* Enhanced floating UI element */}
-                  <div className="absolute bottom-6 left-4 right-4">
-                    <div className="bg-white rounded-xl p-4 shadow-lg border border-white/30">
-                      <div className="flex items-center gap-3">
-                        <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                        <div className="flex-1">
-                          <div className="text-sm font-medium text-charcoal-700">Whisker AI</div>
-                          <div className="text-xs text-warmgray-600">Monitoring Max's activity</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                </div>
+              <div className="relative aspect-[4/5] max-w-md mx-auto rounded-2xl overflow-hidden">
+                <Image src="/images/pet1.jpg" alt="Happy pet using Whisker" fill className="object-cover" />
               </div>
             </div>
           </div>
           
-        {/* Section transition with subtle accent */}
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-cocoa-300/30 to-transparent"></div>
-        </section>
+        </div>
+      </section>
 
 
       {/* APP PREVIEW */}
-      <section id="preview" className="py-12 md:py-16 bg-white relative overflow-hidden">
-        
+      <section id="preview" className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-8 md:mb-12">
-            
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-charcoal-700 leading-tight mb-4">
-              The <span className="text-transparent bg-gradient-to-r from-sky-500 to-cocoa-700 bg-clip-text">Whisker Pet App</span>
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 leading-tight mb-4">
+              The <span className="text-cocoa-700">Whisker Pet App</span>
             </h2>
             
-            <p className="text-base sm:text-lg md:text-xl text-warmgray-600 leading-relaxed font-light max-w-2xl mx-auto px-4">
+            <p className="text-lg md:text-xl text-warmgray-600 leading-relaxed max-w-2xl mx-auto">
               Your AI companion for comprehensive pet care, powered by collar data.
             </p>
           </div>
@@ -143,7 +66,7 @@ export default function Home() {
               {/* Key benefits */}
               <div className="space-y-6">
                 {[
-                  {
+                  { 
                     icon: (
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
@@ -153,7 +76,7 @@ export default function Home() {
                     desc: "Get instant, personalized answers about your pet's training, nutrition, and behavior patterns.",
                     highlight: "Available 24/7"
                   },
-                  {
+                  { 
                     icon: (
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
@@ -163,7 +86,7 @@ export default function Home() {
                     desc: "Monitor your pet's wellness with real-time data from the collar sensors and AI analysis.",
                     highlight: "Early detection"
                   },
-                  {
+                  { 
                     icon: (
                       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -174,39 +97,14 @@ export default function Home() {
                     desc: "Always know where your pet is with GPS tracking and customizable safe zone alerts.",
                     highlight: "Peace of mind"
                   }
-                ].map((feature, idx) => (
-                  <div key={idx} className="flex items-start gap-5">
-                    <div className="w-6 h-6 text-sky-500">
-                      {feature.icon}
-                    </div>
-                    <div className="flex-1 space-y-2">
-                      <div className="flex items-center gap-3">
-                        <h3 className="font-semibold text-charcoal-700">{feature.title}</h3>
-                        <span className="inline-flex items-center px-2 py-1 rounded-full bg-cocoa-300/10 text-xs font-medium text-cocoa-700">
-                          {feature.highlight}
-                        </span>
-                      </div>
-                      <p className="text-sm text-warmgray-600 leading-relaxed">{feature.desc}</p>
-                    </div>
+                                ].map((feature, idx) => (
+                  <div key={idx} className="space-y-2">
+                    <h3 className="font-semibold text-charcoal-900">{feature.title}</h3>
+                    <p className="text-warmgray-600 leading-relaxed">{feature.desc}</p>
                   </div>
                 ))}
               </div>
-              
-              {/* Stats */}
-              <div className="rounded-2xl p-6 border border-sand-200/40">
-                <h4 className="font-semibold text-charcoal-700 mb-4">Trusted by Pet Parents</h4>
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-sky-500 mb-1">10,000+</div>
-                    <div className="text-sm text-warmgray-600">Waitlist Members</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-cocoa-700 mb-1">98%</div>
-                    <div className="text-sm text-warmgray-600">AI Accuracy</div>
-                  </div>
-                </div>
-              </div>
-              
+            
                           {/* App store badges */}
             <div className="space-y-4">
               <div className="text-sm text-warmgray-600 font-medium">Download when available:</div>
@@ -224,104 +122,45 @@ export default function Home() {
             </div>
             </div>
             
-                      {/* Right side iPhone mockup */}
+                                            {/* Right side simple mockup */}
           <div className="flex justify-center">
-            <div className="relative">
-              {/* iPhone frame */}
-              <div className="w-56 sm:w-64 md:w-72 aspect-[9/19] bg-charcoal-900 rounded-[2.5rem] p-2 shadow-2xl">
-                <div className="w-full h-full bg-sand-100 rounded-[2rem] overflow-hidden relative flex items-center justify-center">
-                  {/* Placeholder for app screen recording */}
-                  <div className="text-center space-y-4">
-                    <div className="w-8 h-8 text-cocoa-700 mx-auto">
-                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" d="m9 12l2 2 4-4" />
-                      </svg>
-                    </div>
-                    <div className="text-warmgray-600">
-                      <div className="font-medium text-charcoal-700 mb-1">Whisker Pet App Preview</div>
-                      <div className="text-sm">Screen recording coming soon</div>
-                    </div>
+            <div className="w-64 md:w-80 aspect-[9/19] bg-charcoal-900 rounded-3xl p-2">
+              <div className="w-full h-full bg-sand-100 rounded-2xl flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-charcoal-700 mb-2">
+                    <svg className="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m9 12l2 2 4-4" />
+                    </svg>
                   </div>
-                  
-                  {/* iOS notch */}
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 sm:w-28 md:w-32 h-6 bg-charcoal-900 rounded-b-2xl"></div>
-                </div>
-              </div>
-              
-              {/* Floating badge */}
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-full px-3 sm:px-4 py-1.5 sm:py-2 shadow-lg border border-white/50">
-                <div className="flex items-center gap-2 text-xs sm:text-sm">
-                  <svg className="w-4 h-4 text-cocoa-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
-                  </svg>
-                  <span className="font-medium text-charcoal-700">iOS & Android</span>
+                  <div className="font-medium text-charcoal-700">Coming Soon</div>
                 </div>
               </div>
             </div>
-          </div>
+            </div>
           </div>
         </div>
-        
-        {/* Section transition */}
-        <div className="absolute bottom-0 right-1/3 w-36 h-px bg-gradient-to-l from-transparent via-gold-300/30 to-transparent"></div>
       </section>
 
       {/* DEVICE PREVIEW */}
-      <section id="device" className="py-12 md:py-16 lg:py-20 bg-white relative overflow-hidden">
-        {/* Subtle decorative elements */}
-        <div className="absolute top-1/4 left-0 w-32 h-px bg-gradient-to-r from-transparent to-sky-300/20"></div>
-        <div className="absolute bottom-1/4 right-0 w-40 h-px bg-gradient-to-l from-transparent to-cocoa-300/20"></div>
-        
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
-                        <div className="lg:col-span-5 relative">
-              {/* Enhanced device showcase with real image */}
-              <div className="relative">
-                {/* Glow effect */}
-                <div className="absolute inset-0 rounded-3xl blur-2xl scale-110"></div>
-                
-                <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border border-cocoa-300/20">
-                  <Image src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Smart collar device technology" fill className="object-cover" />
-                  <div className="absolute inset-0"></div>
-                  
-                  {/* Status indicators */}
-                  <div className="absolute top-6 right-6 bg-green-400 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                      Connected
-                    </div>
-                  </div>
-                  
-                  {/* Live data overlay */}
-                  <div className="absolute bottom-6 left-6 right-6 bg-white rounded-2xl p-4 shadow-xl border border-white/40">
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                        <span className="text-warmgray-600">Battery: <span className="font-medium text-charcoal-700">85%</span></span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-2 h-2 bg-sky-400 rounded-full"></div>
-                        <span className="text-warmgray-600">Signal: <span className="font-medium text-charcoal-700">Strong</span></span>
-                      </div>
-                  </div>
-                  </div>
-                </div>
+      <section id="device" className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              <div className="aspect-square rounded-2xl overflow-hidden">
+                <Image src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Smart collar device technology" fill className="object-cover" />
               </div>
             </div>
             
-                        <div className="lg:col-span-7 space-y-8">
+            <div className="space-y-8">
               <div className="space-y-6">
+                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 leading-tight">
+                  Meet the <span className="text-cocoa-700">Whisker Collar</span>
+                </h2>
                 
-                <div className="space-y-6">
-                  <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-charcoal-700 leading-tight">
-                    Meet the <span className="text-transparent bg-gradient-to-r from-cocoa-700 to-gold-500 bg-clip-text">Whisker Collar</span>
-            </h2>
-            
-                  <p className="text-base sm:text-lg md:text-xl text-warmgray-600 leading-relaxed font-light max-w-xl">
-                    A breakthrough companion device that combines GPS tracking, activity monitoring, and health sensors—giving you complete insight into your pet's world.
-                  </p>
-                </div>
+                <p className="text-lg md:text-xl text-warmgray-600 leading-relaxed">
+                  A breakthrough companion device that combines GPS tracking, activity monitoring, and health sensors—giving you complete insight into your pet's world.
+                </p>
               </div>
               
               {/* Minimalist feature list */}
@@ -373,67 +212,30 @@ export default function Home() {
                     iconBg: "bg-gold-400"
                   }
                 ].map((feature, idx) => (
-                  <div key={idx} className="group flex items-start gap-4 py-3 border-l-2 border-sand-200 pl-4 hover:border-l-cocoa-300 transition-colors duration-300">
-                    <div className="w-6 h-6 text-cocoa-700 mt-1">
-                      {feature.icon}
-                    </div>
-                    <div className="flex-1 space-y-1">
-                      <h4 className={`font-semibold ${feature.color} group-hover:text-cocoa-700 transition-colors duration-300`}>
-                        {feature.title}
-                      </h4>
-                      <p className="text-sm text-warmgray-600 leading-relaxed">
-                        {feature.desc}
-                      </p>
-                    </div>
+                  <div key={idx} className="space-y-2">
+                    <h4 className="font-semibold text-charcoal-900">
+                      {feature.title}
+                    </h4>
+                    <p className="text-warmgray-600 leading-relaxed">
+                      {feature.desc}
+                    </p>
                   </div>
                 ))}
               </div>
-              
-              {/* Minimalist specs */}
-              <div className="space-y-4 pt-6 border-t border-sand-200">
-                <h4 className="font-semibold text-charcoal-700">Technical Specifications</h4>
-                <div className="grid grid-cols-2 gap-x-6 gap-y-3">
-                  {[
-                    { label: "Weight", value: "45g", color: "bg-cocoa-300" },
-                    { label: "Battery", value: "7 days", color: "bg-sky-300" },
-                    { label: "Range", value: "2km", color: "bg-gold-300" },
-                    { label: "Rating", value: "IP67", color: "bg-green-400" }
-                  ].map((spec, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <div className={`w-2 h-2 ${spec.color} rounded-full`}></div>
-                      <span className="text-warmgray-600 text-sm">
-                        {spec.label}: <span className="font-medium text-charcoal-700">{spec.value}</span>
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                
-                <p className="text-xs text-warmgray-500 italic pt-2">
-                  † Currently in development. Not a medical device. Not for emergencies.
-                </p>
-              </div>
             </div>
           </div>
-                  </div>
-        
-        {/* Section transition */}
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-cocoa-300/50 to-transparent"></div>
-        </section>
+        </div>
+      </section>
 
       {/* FEATURES */}
-      <section id="features" className="py-12 md:py-16 lg:py-20 bg-white relative overflow-hidden">
-        {/* Subtle accent lines */}
-        <div className="absolute top-1/4 left-1/2 w-px h-20 bg-gradient-to-b from-transparent via-cocoa-300/20 to-transparent"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-24 h-px bg-gradient-to-l from-transparent via-sky-300/20 to-transparent"></div>
-        
-        <div className="container mx-auto">
+      <section id="features" className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-16">
-            
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-charcoal-700 leading-tight mb-4">
-              Why choose <span className="text-transparent bg-gradient-to-r from-cocoa-700 to-gold-500 bg-clip-text">Whisker</span>
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 leading-tight mb-4">
+              Why choose <span className="text-cocoa-700">Whisker</span>
             </h2>
             
-            <p className="text-base sm:text-lg md:text-xl text-warmgray-600 leading-relaxed font-light max-w-2xl mx-auto px-4">
+            <p className="text-lg md:text-xl text-warmgray-600 leading-relaxed max-w-2xl mx-auto">
               The perfect combination of smart hardware and AI creates insights you can't get anywhere else.
             </p>
           </div>
@@ -478,17 +280,9 @@ export default function Home() {
                   highlight: "Peace of mind"
                 }
               ].map((feature, index) => (
-                <div key={index} className="group bg-gradient-to-br from-white to-sand-100/30 rounded-2xl p-6 border border-sand-200/40 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-6 h-6 text-cocoa-700">
-                      {feature.icon}
-                    </div>
-                    <span className="inline-flex items-center px-2 py-1 rounded-full bg-cocoa-300/10 text-xs font-medium text-cocoa-700">
-                      {feature.highlight}
-                    </span>
-                  </div>
-                  <h3 className="font-semibold text-charcoal-700 mb-3">{feature.title}</h3>
-                  <p className="text-sm text-warmgray-600 leading-relaxed">{feature.description}</p>
+                <div key={index} className="space-y-4">
+                  <h3 className="font-semibold text-charcoal-900">{feature.title}</h3>
+                  <p className="text-warmgray-600 leading-relaxed">{feature.description}</p>
                 </div>
               ))}
             </div>
@@ -530,76 +324,30 @@ export default function Home() {
                   highlight: "Centralized"
                 }
               ].map((feature, index) => (
-                <div key={index} className="group bg-gradient-to-br from-white to-sand-100/30 rounded-2xl p-6 border border-sand-200/40 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-6 h-6 text-cocoa-700">
-                      {feature.icon}
-                    </div>
-                    <span className="inline-flex items-center px-2 py-1 rounded-full bg-cocoa-300/10 text-xs font-medium text-cocoa-700">
-                      {feature.highlight}
-                    </span>
-                  </div>
-                  <h3 className="font-semibold text-charcoal-700 mb-3">{feature.title}</h3>
-                  <p className="text-sm text-warmgray-600 leading-relaxed">{feature.description}</p>
+                <div key={index} className="space-y-4">
+                  <h3 className="font-semibold text-charcoal-900">{feature.title}</h3>
+                  <p className="text-warmgray-600 leading-relaxed">{feature.description}</p>
                 </div>
               ))}
             </div>
           </div>
-
-          {/* Stats section */}
-          <div className="mt-16 bg-gradient-to-r from-sky-400/5 to-cocoa-700/5 rounded-3xl p-8 border border-sand-200/30">
-            <div className="text-center mb-6">
-              <h3 className="font-serif text-2xl text-charcoal-700 mb-2">Trusted by Pet Parents Worldwide</h3>
-              <p className="text-warmgray-600">Join thousands who are already improving their pets' lives</p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-sky-400 mb-1">10,000+</div>
-                <div className="text-sm text-warmgray-600">Waitlist Members</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-cocoa-500 mb-1">98%</div>
-                <div className="text-sm text-warmgray-600">AI Accuracy</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-green-400 mb-1">24/7</div>
-                <div className="text-sm text-warmgray-600">Pet Monitoring</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gold-400 mb-1">500+</div>
-                <div className="text-sm text-warmgray-600">Vet Partners</div>
-              </div>
-            </div>
-          </div>
         </div>
-        
-        {/* Section transition */}
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-28 h-px bg-gradient-to-r from-transparent via-gold-300/30 to-transparent"></div>
-        </section>
+      </section>
 
       {/* ROADMAP */}
-      <section className="py-12 md:py-16 bg-white relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-1/4 right-1/4 w-20 h-px bg-gradient-to-l from-transparent via-cocoa-300/20 to-transparent"></div>
-        <div className="absolute bottom-1/3 left-1/5 w-24 h-px bg-gradient-to-r from-transparent via-sky-300/20 to-transparent"></div>
-        
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-12">
-            
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-charcoal-700 leading-tight mb-4">
-              Product <span className="text-transparent bg-gradient-to-r from-sky-500 to-cocoa-700 bg-clip-text">Roadmap</span>
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 leading-tight mb-4">
+              Product <span className="text-cocoa-700">Roadmap</span>
             </h2>
             
-            <p className="text-base sm:text-lg md:text-xl text-warmgray-600 leading-relaxed font-light px-4">
+            <p className="text-lg md:text-xl text-warmgray-600 leading-relaxed max-w-2xl mx-auto">
               Here's what we're building and when you can expect it.
             </p>
           </div>
           
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-0 right-0 top-4 h-px bg-sand-100"></div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
               {[
                 {
                   phase: "Now",
@@ -637,63 +385,29 @@ export default function Home() {
                   progress: 0
                 }
               ].map((phase, index) => (
-                <div key={index} className="relative pt-8 text-center">
-                  {/* Timeline dot */}
-                  <div className={`absolute left-1/2 top-2 -translate-x-1/2 w-3 h-3 rounded-full ${phase.color}`}></div>
-                  
-                                    {/* Content */}
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-sand-200/30">
-                    <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium mb-3 ${
-                      phase.status === 'active' ? 'bg-cocoa-300/20 text-cocoa-700' :
-                      phase.status === 'coming' ? 'bg-sky-300/20 text-sky-500' :
-                      'bg-gold-300/20 text-gold-500'
-                    }`}>
-                      {phase.phase}
-                    </div>
-                    
-                    <h4 className="font-medium text-charcoal-700 mb-2">{phase.title}</h4>
-                    
-                    {phase.progress > 0 && (
-                      <div className="mb-3">
-                        <div className="flex justify-between text-xs text-warmgray-600 mb-1">
-                          <span>Progress</span>
-                          <span>{phase.progress}%</span>
-                        </div>
-                        <div className="w-full bg-sand-100 rounded-full h-1.5">
-                          <div className={`h-1.5 rounded-full ${phase.color}`} style={{width: `${phase.progress}%`}}></div>
-                        </div>
-                      </div>
-                    )}
-                    
-                    <p className="text-sm text-warmgray-600">
-                      {phase.status === 'active' ? 'Building core features and gathering signups' :
-                       phase.status === 'coming' ? 'Smart collar pilot with early adopters' :
-                       'Advanced AI capabilities and integrations'}
-                    </p>
-                  </div>
+                <div key={index} className="text-center space-y-4">
+                  <div className="text-sm font-medium text-cocoa-700">{phase.phase}</div>
+                  <h4 className="font-semibold text-charcoal-900">{phase.title}</h4>
+                  <p className="text-sm text-warmgray-600">
+                    {phase.status === 'active' ? 'Building core features and gathering signups' :
+                     phase.status === 'coming' ? 'Smart collar pilot with early adopters' :
+                     'Advanced AI capabilities and integrations'}
+                  </p>
                 </div>
               ))}
             </div>
-            </div>
-          </div>
-        {/* Accent separator to next section */}
-        <div className="absolute -bottom-3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cocoa-300/40 to-transparent"></div>
+        </div>
       </section>
         
       {/* PRIVACY & SAFETY */}
-      <section id="privacy" className="py-12 md:py-16 bg-white relative overflow-hidden">
-        {/* Decorative accent lines */}
-        <div className="absolute top-1/3 left-0 w-24 h-px bg-gradient-to-r from-transparent via-cocoa-300/25 to-transparent"></div>
-        <div className="absolute bottom-1/3 right-0 w-32 h-px bg-gradient-to-l from-transparent via-sky-300/25 to-transparent"></div>
-        
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center mb-12">
-            
-            <h2 className="font-serif text-4xl md:text-5xl text-charcoal-700 leading-tight mb-4">
+      <section id="privacy" className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 leading-tight mb-4">
               Privacy & Safety <span className="text-cocoa-700">by Design</span>
             </h2>
             
-            <p className="text-xl text-warmgray-600 leading-relaxed font-light max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-warmgray-600 leading-relaxed max-w-2xl mx-auto">
               Your pet's data belongs to you. We're built on transparency and user control.
             </p>
           </div>
@@ -736,50 +450,13 @@ export default function Home() {
                 color: "bg-gold-400"
               }
             ].map((principle, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg border border-sand-200/40 hover:shadow-xl transition-shadow">
-                <div className="w-6 h-6 text-cocoa-700 mb-4">
-                  {principle.icon}
-                </div>
-                <h3 className="font-semibold text-charcoal-700 mb-3">{principle.title}</h3>
-                <p className="text-sm text-warmgray-600 leading-relaxed mb-4">{principle.description}</p>
-                <div className="space-y-2">
-                  {principle.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <div className="w-2.5 h-2.5 text-green-600">
-                        <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                        </svg>
-                      </div>
-                      <span className="text-xs text-warmgray-600">{feature}</span>
-                    </div>
-                  ))}
-                </div>
+              <div key={index} className="space-y-4">
+                <h3 className="font-semibold text-charcoal-900">{principle.title}</h3>
+                <p className="text-warmgray-600 leading-relaxed">{principle.description}</p>
               </div>
             ))}
           </div>
-          
-          {/* Bottom info */}
-          <div className="text-center space-y-4">
-            <a href="/terms" className="text-sm font-medium text-cocoa-700 hover:text-cocoa-500 transition-colors">
-              Read our full Terms of Service →
-            </a>
-            
-            {/* Trust badge */}
-            <div className="flex justify-center">
-              <div className="bg-white rounded-full px-6 py-3 shadow-lg border border-sand-200/50 flex items-center gap-3">
-                <div className="w-5 h-5 text-green-600">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                  </svg>
-                </div>
-                <span className="text-sm font-medium text-charcoal-700">GDPR & CCPA Compliant</span>
-              </div>
-            </div>
-          </div>
         </div>
-        
-        {/* Section transition */}
-        <div className="absolute bottom-0 left-1/3 w-32 h-px bg-gradient-to-r from-transparent via-gold-300/30 to-transparent"></div>
       </section>
 
       {/* WAITLIST */}
@@ -810,13 +487,11 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-12 md:py-16 bg-white relative overflow-hidden">
-        
-        <div className="container mx-auto max-w-3xl">
-          <div className="text-center mb-12">
-            
-            <h2 className="font-serif text-4xl md:text-5xl text-charcoal-700 leading-tight mb-4">
-              Frequently Asked <span className="text-transparent bg-gradient-to-r from-gold-500 to-cocoa-700 bg-clip-text">Questions</span>
+      <section id="faq" className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 leading-tight mb-4">
+              Frequently Asked <span className="text-cocoa-700">Questions</span>
             </h2>
           </div>
           
@@ -839,9 +514,9 @@ export default function Home() {
                 answer: "Yes, the Whisker Collar uses pet-safe materials, has no sharp edges, and is designed for comfortable daily wear."
               }
             ].map((faq, index) => (
-              <details key={index} className="group bg-white rounded-lg shadow-sm border border-sand-200/30 overflow-hidden">
-                <summary className="flex items-center justify-between p-5 cursor-pointer hover:bg-sand-100/50 transition-colors">
-                  <h3 className="font-semibold text-lg text-charcoal-700">{faq.question}</h3>
+              <details key={index} className="group border-b border-sand-200 py-6">
+                <summary className="flex items-center justify-between cursor-pointer">
+                  <h3 className="font-semibold text-lg text-charcoal-900">{faq.question}</h3>
                   <svg 
                     className="w-5 h-5 text-warmgray-600 transform transition-transform group-open:rotate-180" 
                     fill="none" 
@@ -852,9 +527,9 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
                 </summary>
-                <div className="px-5 pb-5">
-                  <p className="text-base text-warmgray-600 leading-relaxed">{faq.answer}</p>
-            </div>
+                <div className="pt-4">
+                  <p className="text-warmgray-600 leading-relaxed">{faq.answer}</p>
+                </div>
               </details>
             ))}
           </div>
