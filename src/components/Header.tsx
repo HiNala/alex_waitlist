@@ -3,10 +3,10 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 backdrop-blur bg-cream-50/70 border-b border-sand-200/50">
-      <div className="container mx-auto flex items-center justify-between py-3">
-        <Link href="/" className="flex items-center gap-2 font-serif text-2xl text-charcoal-900">
-          <span className="inline-block w-8 h-8 rounded-lg bg-cocoa-700"></span>
+    <header className="sticky top-0 z-50 bg-white border-b border-sand-200/50 shadow-sm">
+      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between py-3">
+        <Link href="/" className="flex items-center gap-3 font-serif text-2xl text-charcoal-900">
+          <img src="/logo/Whisker_button_logo.svg" alt="Whisker" className="w-14 h-14 md:w-16 md:h-16" />
           Whisker
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-warmgray-600">

@@ -5,47 +5,47 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Pastel color palette
+        // Pastel color palette via CSS variables
         cocoa: { 
-          700: '#A67C6A',  // Pastel terracotta
-          500: '#B8897A',  // Lighter pastel terracotta
-          300: '#D4B5A8',  // Very light pastel terracotta
+          700: 'var(--color-cocoa-700)',
+          500: 'var(--color-cocoa-500)',
+          300: 'var(--color-cocoa-300)',
         },
         cream: { 
-          50: '#FAF6EF',   // Keep as is - already pastel
-          100: '#F5EFE7'   // Slightly deeper cream
+          50: 'var(--color-cream-50)',
+          100: 'var(--color-cream-100)'
         },
         sand: { 
-          100: '#EDE3D6',  // Keep as is - already pastel
-          200: '#E5D8C8'   // Slightly deeper sand
+          100: 'var(--color-sand-100)',
+          200: 'var(--color-sand-200)'
         },
         charcoal: { 
-          900: '#4A4A4A',  // Softer charcoal (not pure black)
-          700: '#6B6B6B'   // Lighter charcoal
+          900: 'var(--color-charcoal-900)',
+          700: 'var(--color-charcoal-700)'
         },
         warmgray: { 
-          600: '#8B8680',  // Softer warm gray
-          500: '#A19B94'   // Lighter warm gray
+          600: 'var(--color-warmgray-600)',
+          500: 'var(--color-warmgray-500)'
         },
         sky: { 
-          500: '#7FB3E3',  // Pastel blue
-          400: '#9BC5E8',  // Lighter pastel blue
-          300: '#B8D7ED'   // Very light pastel blue
+          500: 'var(--color-sky-500)',
+          400: 'var(--color-sky-400)',
+          300: 'var(--color-sky-300)'
         },
         gold: { 
-          500: '#E8C547',  // Pastel gold
-          400: '#EDD066',  // Lighter pastel gold
-          300: '#F2DB85'   // Very light pastel gold
+          500: 'var(--color-gold-500)',
+          400: 'var(--color-gold-400)',
+          300: 'var(--color-gold-300)'
         },
         green: {
-          500: '#90C695',  // Pastel green
-          400: '#A5D3A9',  // Lighter pastel green
+          500: 'var(--color-green-500)',
+          400: 'var(--color-green-400)',
         },
         // Keep legacy for compatibility
         terracotta: {
-          DEFAULT: "#A67C6A",
-          light: "#B8897A",
-          dark: "#A67C6A",
+          DEFAULT: 'var(--color-cocoa-700)',
+          light: 'var(--color-cocoa-500)',
+          dark: 'var(--color-cocoa-700)',
         },
       },
       fontFamily: {

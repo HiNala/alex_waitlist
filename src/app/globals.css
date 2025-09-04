@@ -3,12 +3,50 @@
 @tailwind utilities;
 
 :root {
+  /* Radius */
   --radius: 16px;
+
+  /* Semantic colors (mapped to Tailwind via CSS vars) */
+  --color-cream-50: #FAF6EF;
+  --color-cream-100: #F5EFE7;
+  --color-sand-100: #EDE3D6;
+  --color-sand-200: #E5D8C8;
+
+  /* Increase contrast slightly */
+  --color-charcoal-900: #3E3E3E; /* was #4A4A4A */
+  --color-charcoal-700: #5C5C5C; /* was #6B6B6B */
+  --color-warmgray-600: #7F7A74; /* was #8B8680 */
+  --color-warmgray-500: #968F88; /* was #A19B94 */
+
+  --color-sky-500: #7FB3E3;
+  --color-sky-400: #9BC5E8;
+  --color-sky-300: #B8D7ED;
+
+  --color-gold-500: #E8C547;
+  --color-gold-400: #EDD066;
+  --color-gold-300: #F2DB85;
+
+  --color-green-500: #90C695;
+  --color-green-400: #A5D3A9;
+
+  /* Brand color from Whisker_button_logo.svg */
+  --color-cocoa-700: #b35c36;
+  --color-cocoa-500: #c7734d;
+  --color-cocoa-300: #e2a688;
+
+  /* Semantic text tokens */
+  --text-primary: var(--color-charcoal-900);
+  --text-secondary: var(--color-warmgray-600);
+  --text-on-dark: #FFFFFF;
 }
 
 html, body { 
   scroll-behavior: smooth; 
 }
+
+/* Slight global type scale bump */
+html { font-size: 16.5px; }
+body { color: var(--text-secondary); }
 
 /* Counter-scrolling animations */
 @keyframes scrollDown {
