@@ -6,11 +6,11 @@ export default function Footer() {
   return (
     <footer className="mt-24 border-t border-sand-200/50 bg-transparent relative">
       <div className="container mx-auto px-4 py-14">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-12 gap-10 lg:gap-14">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 lg:gap-14">
           <div className="md:col-span-6">
-            <div className="flex items-center gap-4 mb-6">
-              <Image src="/logo/Whisker_button_logo.svg" alt="Whisker" width={64} height={64} />
-              <div className="font-serif text-3xl text-charcoal-900">Whisker</div>
+            <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+              <Image src="/logo/Whisker_button_logo.svg" alt="Whisker" width={48} height={48} className="sm:w-16 sm:h-16 md:w-20 md:h-20" />
+              <div className="font-serif text-2xl sm:text-3xl text-charcoal-900">Whisker</div>
             </div>
             <p className="text-sm text-charcoal-700 leading-relaxed mb-4 max-w-xl">
             {SITE.description}
@@ -20,7 +20,7 @@ export default function Footer() {
           </p>
           </div>
 
-          <div className="md:col-span-3">
+          <div className="md:col-span-3 mt-8 md:mt-0">
             <div className="text-sm font-semibold text-charcoal-900 mb-4 tracking-wide">Product</div>
             <ul className="space-y-3 text-charcoal-700">
               <li><a href="#features" className="hover:text-cocoa-500 transition-colors">Features</a></li>
@@ -39,7 +39,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="md:col-span-3">
+          <div className="md:col-span-3 mt-8 md:mt-0">
             <div className="text-sm font-semibold text-charcoal-900 mb-4 tracking-wide">Download App</div>
             <div className="space-y-4">
               <a href="#" className="block hover:opacity-80 transition-opacity">

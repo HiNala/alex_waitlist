@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
             {/* HERO */}
-      <section className="bg-white relative overflow-hidden py-16 md:py-20">
+      <section className="bg-white relative overflow-hidden py-12 md:py-16 lg:py-20">
         {/* Enhanced background elements */}
         <div className="absolute inset-0 -z-10">
           {/* Organic blob shapes */}
@@ -31,25 +31,22 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               
-              <h1 className="font-serif text-[2.6rem] md:text-6xl lg:text-[3.75rem] text-charcoal-900 leading-tight">
-                The future of <span className="relative">
-                  <span className="text-transparent bg-gradient-to-r from-cocoa-700 via-cocoa-500 to-gold-500 bg-clip-text">pet care</span>
-                  <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-cocoa-300 to-gold-300 rounded-full opacity-50"></div>
-                </span> is here
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-[3.75rem] text-charcoal-900 leading-tight">
+                The future of <span className="text-transparent bg-gradient-to-r from-cocoa-700 via-cocoa-500 to-gold-500 bg-clip-text">pet care</span> is here
                 </h1>
               
-              <p className="text-[1.075rem] text-warmgray-600 leading-relaxed max-w-xl">
+              <p className="text-base sm:text-lg md:text-xl text-warmgray-600 leading-relaxed max-w-xl">
                 Whisker combines a smart collar with AI-powered insights to give you a complete picture of your pet's health, behavior, and location.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <a href="#waitlist" className="group inline-flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-cocoa-700 to-cocoa-500 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300">
+                <a href="#waitlist" className="group inline-flex items-center justify-center px-6 py-4 sm:py-3 rounded-full bg-gradient-to-r from-cocoa-700 to-cocoa-500 text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 text-base sm:text-sm md:text-base">
                   <span>Join Collar Waitlist</span>
                   <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
                 </a>
-                <a href="#device" className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-white text-cocoa-700 font-medium border border-cocoa-300/30 shadow-lg hover:shadow-xl hover:bg-sand-100 transition-all duration-300">
+                <a href="#device" className="inline-flex items-center justify-center px-6 py-4 sm:py-3 rounded-full bg-white text-cocoa-700 font-medium border border-cocoa-300/30 shadow-lg hover:shadow-xl hover:bg-sand-100 transition-all duration-300 text-base sm:text-sm md:text-base">
                   See the Device
                 </a>
               </div>
@@ -126,21 +123,21 @@ export default function Home() {
 
 
       {/* APP PREVIEW */}
-      <section id="preview" className="py-16 bg-white relative overflow-hidden">
+      <section id="preview" className="py-12 md:py-16 bg-white relative overflow-hidden">
         
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 md:mb-12">
             
-            <h2 className="font-serif text-4xl md:text-5xl text-charcoal-700 leading-tight mb-4">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-charcoal-700 leading-tight mb-4">
               The <span className="text-transparent bg-gradient-to-r from-sky-500 to-cocoa-700 bg-clip-text">Whisker Pet App</span>
             </h2>
             
-            <p className="text-xl text-warmgray-600 leading-relaxed font-light max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-warmgray-600 leading-relaxed font-light max-w-2xl mx-auto px-4">
               Your AI companion for comprehensive pet care, powered by collar data.
             </p>
           </div>
           
-                    <div className="grid lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
+                    <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start max-w-6xl mx-auto">
             {/* Left side enhanced content */}
             <div className="space-y-8">
               {/* Key benefits */}
@@ -179,7 +176,7 @@ export default function Home() {
                   }
                 ].map((feature, idx) => (
                   <div key={idx} className="flex items-start gap-5">
-                    <div className="w-12 h-12 bg-gradient-to-br from-sky-400 to-sky-500 rounded-2xl flex items-center justify-center text-white shadow-sm">
+                    <div className="w-6 h-6 text-sky-500">
                       {feature.icon}
                     </div>
                     <div className="flex-1 space-y-2">
@@ -235,7 +232,7 @@ export default function Home() {
                 <div className="w-full h-full bg-sand-100 rounded-[2rem] overflow-hidden relative flex items-center justify-center">
                   {/* Placeholder for app screen recording */}
                   <div className="text-center space-y-4">
-                    <div className="w-16 h-16 bg-cocoa-500 rounded-2xl flex items-center justify-center text-white mx-auto">
+                    <div className="w-8 h-8 text-cocoa-700 mx-auto">
                       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" d="m9 12l2 2 4-4" />
@@ -271,13 +268,13 @@ export default function Home() {
       </section>
 
       {/* DEVICE PREVIEW */}
-      <section id="device" className="py-20 bg-white relative overflow-hidden">
+      <section id="device" className="py-12 md:py-16 lg:py-20 bg-white relative overflow-hidden">
         {/* Subtle decorative elements */}
         <div className="absolute top-1/4 left-0 w-32 h-px bg-gradient-to-r from-transparent to-sky-300/20"></div>
         <div className="absolute bottom-1/4 right-0 w-40 h-px bg-gradient-to-l from-transparent to-cocoa-300/20"></div>
         
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-12 gap-16 items-center max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
                         <div className="lg:col-span-5 relative">
               {/* Enhanced device showcase with real image */}
               <div className="relative">
@@ -317,11 +314,11 @@ export default function Home() {
               <div className="space-y-6">
                 
                 <div className="space-y-6">
-                  <h2 className="font-serif text-4xl md:text-5xl text-charcoal-700 leading-tight">
+                  <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-charcoal-700 leading-tight">
                     Meet the <span className="text-transparent bg-gradient-to-r from-cocoa-700 to-gold-500 bg-clip-text">Whisker Collar</span>
             </h2>
             
-                  <p className="text-xl text-warmgray-600 leading-relaxed font-light max-w-xl">
+                  <p className="text-base sm:text-lg md:text-xl text-warmgray-600 leading-relaxed font-light max-w-xl">
                     A breakthrough companion device that combines GPS tracking, activity monitoring, and health sensors—giving you complete insight into your pet's world.
                   </p>
                 </div>
@@ -377,7 +374,7 @@ export default function Home() {
                   }
                 ].map((feature, idx) => (
                   <div key={idx} className="group flex items-start gap-4 py-3 border-l-2 border-sand-200 pl-4 hover:border-l-cocoa-300 transition-colors duration-300">
-                    <div className={`w-10 h-10 ${feature.iconBg} rounded-xl flex items-center justify-center text-white mt-1`}>
+                    <div className="w-6 h-6 text-cocoa-700 mt-1">
                       {feature.icon}
                     </div>
                     <div className="flex-1 space-y-1">
@@ -424,7 +421,7 @@ export default function Home() {
         </section>
 
       {/* FEATURES */}
-      <section id="features" className="py-20 bg-white relative overflow-hidden">
+      <section id="features" className="py-12 md:py-16 lg:py-20 bg-white relative overflow-hidden">
         {/* Subtle accent lines */}
         <div className="absolute top-1/4 left-1/2 w-px h-20 bg-gradient-to-b from-transparent via-cocoa-300/20 to-transparent"></div>
         <div className="absolute bottom-1/4 right-1/4 w-24 h-px bg-gradient-to-l from-transparent via-sky-300/20 to-transparent"></div>
@@ -432,11 +429,11 @@ export default function Home() {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             
-            <h2 className="font-serif text-4xl md:text-5xl text-charcoal-700 leading-tight mb-4">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-charcoal-700 leading-tight mb-4">
               Why choose <span className="text-transparent bg-gradient-to-r from-cocoa-700 to-gold-500 bg-clip-text">Whisker</span>
             </h2>
             
-            <p className="text-xl text-warmgray-600 leading-relaxed font-light max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-warmgray-600 leading-relaxed font-light max-w-2xl mx-auto px-4">
               The perfect combination of smart hardware and AI creates insights you can't get anywhere else.
             </p>
           </div>
@@ -445,7 +442,7 @@ export default function Home() {
           <div className="space-y-8 max-w-6xl mx-auto">
             
             {/* First row - 3 cards */}
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
               {[
                 {
                   icon: (
@@ -483,7 +480,7 @@ export default function Home() {
               ].map((feature, index) => (
                 <div key={index} className="group bg-gradient-to-br from-white to-sand-100/30 rounded-2xl p-6 border border-sand-200/40 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className={`w-12 h-12 ${feature.color} rounded-2xl flex items-center justify-center text-white shadow-sm group-hover:scale-110 transition-transform duration-300`}>
+                    <div className="w-6 h-6 text-cocoa-700">
                       {feature.icon}
                     </div>
                     <span className="inline-flex items-center px-2 py-1 rounded-full bg-cocoa-300/10 text-xs font-medium text-cocoa-700">
@@ -497,7 +494,7 @@ export default function Home() {
             </div>
 
             {/* Second row - 3 cards */}
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
               {[
                 {
                   icon: (
@@ -535,7 +532,7 @@ export default function Home() {
               ].map((feature, index) => (
                 <div key={index} className="group bg-gradient-to-br from-white to-sand-100/30 rounded-2xl p-6 border border-sand-200/40 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className={`w-12 h-12 ${feature.color} rounded-2xl flex items-center justify-center text-white shadow-sm group-hover:scale-110 transition-transform duration-300`}>
+                    <div className="w-6 h-6 text-cocoa-700">
                       {feature.icon}
                     </div>
                     <span className="inline-flex items-center px-2 py-1 rounded-full bg-cocoa-300/10 text-xs font-medium text-cocoa-700">
@@ -581,7 +578,7 @@ export default function Home() {
         </section>
 
       {/* ROADMAP */}
-      <section className="py-16 bg-white relative overflow-hidden">
+      <section className="py-12 md:py-16 bg-white relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-1/4 right-1/4 w-20 h-px bg-gradient-to-l from-transparent via-cocoa-300/20 to-transparent"></div>
         <div className="absolute bottom-1/3 left-1/5 w-24 h-px bg-gradient-to-r from-transparent via-sky-300/20 to-transparent"></div>
@@ -589,11 +586,11 @@ export default function Home() {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             
-            <h2 className="font-serif text-4xl md:text-5xl text-charcoal-700 leading-tight mb-4">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-charcoal-700 leading-tight mb-4">
               Product <span className="text-transparent bg-gradient-to-r from-sky-500 to-cocoa-700 bg-clip-text">Roadmap</span>
             </h2>
             
-            <p className="text-xl text-warmgray-600 leading-relaxed font-light">
+            <p className="text-base sm:text-lg md:text-xl text-warmgray-600 leading-relaxed font-light px-4">
               Here's what we're building and when you can expect it.
             </p>
           </div>
@@ -602,7 +599,7 @@ export default function Home() {
             {/* Timeline line */}
             <div className="absolute left-0 right-0 top-4 h-px bg-sand-100"></div>
             
-            <div className="grid md:grid-cols-5 gap-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-12">
               {[
                 {
                   phase: "Now",
@@ -684,7 +681,7 @@ export default function Home() {
       </section>
         
       {/* PRIVACY & SAFETY */}
-      <section id="privacy" className="py-16 bg-white relative overflow-hidden">
+      <section id="privacy" className="py-12 md:py-16 bg-white relative overflow-hidden">
         {/* Decorative accent lines */}
         <div className="absolute top-1/3 left-0 w-24 h-px bg-gradient-to-r from-transparent via-cocoa-300/25 to-transparent"></div>
         <div className="absolute bottom-1/3 right-0 w-32 h-px bg-gradient-to-l from-transparent via-sky-300/25 to-transparent"></div>
@@ -702,7 +699,7 @@ export default function Home() {
           </div>
           
           {/* Compact grid layout */}
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8">
             {[
               {
                 icon: (
@@ -740,7 +737,7 @@ export default function Home() {
               }
             ].map((principle, index) => (
               <div key={index} className="bg-white rounded-2xl p-6 shadow-lg border border-sand-200/40 hover:shadow-xl transition-shadow">
-                <div className={`w-12 h-12 ${principle.color} rounded-2xl flex items-center justify-center text-white shadow-sm mb-4`}>
+                <div className="w-6 h-6 text-cocoa-700 mb-4">
                   {principle.icon}
                 </div>
                 <h3 className="font-semibold text-charcoal-700 mb-3">{principle.title}</h3>
@@ -748,8 +745,8 @@ export default function Home() {
                 <div className="space-y-2">
                   {principle.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-2">
-                      <div className="w-4 h-4 rounded-full bg-green-400/20 flex items-center justify-center">
-                        <svg className="w-2.5 h-2.5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <div className="w-2.5 h-2.5 text-green-600">
+                        <svg className="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                         </svg>
                       </div>
@@ -770,7 +767,7 @@ export default function Home() {
             {/* Trust badge */}
             <div className="flex justify-center">
               <div className="bg-white rounded-full px-6 py-3 shadow-lg border border-sand-200/50 flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-green-400/20 flex items-center justify-center text-green-600">
+                <div className="w-5 h-5 text-green-600">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                   </svg>
@@ -813,7 +810,7 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-16 bg-white relative overflow-hidden">
+      <section id="faq" className="py-12 md:py-16 bg-white relative overflow-hidden">
         
         <div className="container mx-auto max-w-3xl">
           <div className="text-center mb-12">
