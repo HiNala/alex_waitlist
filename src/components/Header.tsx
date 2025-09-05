@@ -18,6 +18,7 @@ export default function Header() {
           <Link href="#features" className="hover:text-cocoa-500 transition-colors">Features</Link>
           <Link href="#device" className="hover:text-cocoa-500 transition-colors">Device</Link>
           <Link href="#preview" className="hover:text-cocoa-500 transition-colors">App Preview</Link>
+          <Link href="/pre-order" className="hover:text-cocoa-500 transition-colors">Pre-Order</Link>
           <Link href="#faq" className="hover:text-cocoa-500 transition-colors">FAQ</Link>
           <Link href="/support" className="hover:text-cocoa-500 transition-colors">Support</Link>
         </nav>
@@ -49,6 +50,7 @@ export default function Header() {
             <Link href="#features" className="block py-2 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Features</Link>
             <Link href="#device" className="block py-2 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Device</Link>
             <Link href="#preview" className="block py-2 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>App Preview</Link>
+            <Link href="/pre-order" className="block py-2 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Pre-Order</Link>
             <Link href="#faq" className="block py-2 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>FAQ</Link>
             <Link href="/support" className="block py-2 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Support</Link>
             <Link href="#waitlist" className="block w-full mt-4 btn-primary text-center" onClick={() => setMobileMenuOpen(false)}>

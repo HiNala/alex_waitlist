@@ -49,6 +49,14 @@ const config: Config = {
           500: 'var(--color-green-500)',
           400: 'var(--color-green-400)',
         },
+        yellow: {
+          50: '#FFFEF7',
+          100: '#FFFBEB',
+          200: '#FEF3C7',
+          300: '#FDE68A',
+          400: '#FACC15',
+          500: '#EAB308',
+        },
         // Keep legacy for compatibility
         terracotta: {
           DEFAULT: 'var(--color-cocoa-700)',

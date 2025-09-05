@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import WaitlistForm from "@/components/WaitlistForm";
 import SectionPanel from "@/components/SectionPanel";
 import Timeline from "@/components/Timeline";
@@ -22,12 +23,12 @@ export default function Home() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6 justify-center lg:justify-start">
-                <a href="#waitlist" className="btn-primary inline-flex items-center justify-center text-sm sm:text-base py-3 sm:py-3 px-6 sm:px-8">
-                  Join Collar Waitlist
-                </a>
-                <a href="#device" className="btn-secondary inline-flex items-center justify-center text-sm sm:text-base py-3 sm:py-3 px-6 sm:px-8">
-                  See the Device
-                </a>
+                <Link href="/pre-order" className="btn-primary inline-flex items-center justify-center text-sm sm:text-base py-3 sm:py-3 px-6 sm:px-8">
+                  Pre-Order Now
+                </Link>
+                <Link href="/collar-funnel" className="btn-secondary inline-flex items-center justify-center text-sm sm:text-base py-3 sm:py-3 px-6 sm:px-8">
+                  Fun Ordering Experience
+                </Link>
               </div>
               
               {/* Simple trust indicators */}
