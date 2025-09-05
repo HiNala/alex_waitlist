@@ -1,11 +1,13 @@
 import Image from "next/image";
 import WaitlistForm from "@/components/WaitlistForm";
+import SectionPanel from "@/components/SectionPanel";
+import Timeline from "@/components/Timeline";
 
 export default function Home() {
   return (
     <>
             {/* HERO */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="bg-white pt-4 pb-16 md:pt-6 md:pb-24">
         
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -60,7 +62,7 @@ export default function Home() {
             </p>
           </div>
           
-                    <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start max-w-6xl mx-auto">
+                    <div className="grid lg:grid-cols-2 gap-6 md:gap-10 lg:gap-12 items-center max-w-6xl mx-auto">
             {/* Left side enhanced content */}
             <div className="space-y-8">
               {/* Key benefits */}
@@ -124,7 +126,7 @@ export default function Home() {
             
                                             {/* Right side simple mockup */}
           <div className="flex justify-center">
-            <div className="w-64 md:w-80 aspect-[9/19] bg-charcoal-900 rounded-3xl p-2">
+            <div className="w-48 sm:w-56 md:w-64 lg:w-64 aspect-[9/19] bg-charcoal-900 rounded-3xl p-2">
               <div className="w-full h-full bg-sand-100 rounded-2xl flex items-center justify-center">
                 <div className="text-center">
                   <div className="text-charcoal-700 mb-2">
@@ -240,169 +242,68 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Two rows of feature cards */}
-          <div className="space-y-8 max-w-6xl mx-auto">
-            
+          <SectionPanel className="rounded-3xl" accentCorner="tr">
+            <div className="space-y-8">
             {/* First row - 3 cards */}
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
               {[
                 {
-                  icon: (
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-                    </svg>
-                  ),
                   title: "Real-time insights",
-                  description: "Collar sensors feed live data to AI models for instant behavior understanding.",
-                  color: "bg-sky-400",
-                  highlight: "Available 24/7"
+                  description: "Collar sensors feed live data to AI models for instant behavior understanding."
                 },
                 {
-                  icon: (
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-                    </svg>
-                  ),
                   title: "Expert guidance",
-                  description: "AI trained on veterinary knowledge with access to real professionals.",
-                  color: "bg-cocoa-500",
-                  highlight: "Vet-trained AI"
+                  description: "AI trained on veterinary knowledge with access to real professionals."
                 },
                 {
-                  icon: (
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" />
-                    </svg>
-                  ),
                   title: "Preventive care",
-                  description: "Early health detection and timely checkup reminders.",
-                  color: "bg-green-400",
-                  highlight: "Peace of mind"
+                  description: "Early health detection and timely checkup reminders."
                 }
               ].map((feature, index) => (
-                <div key={index} className="space-y-4">
-                  <h3 className="font-semibold text-charcoal-900">{feature.title}</h3>
-                  <p className="text-warmgray-600 leading-relaxed">{feature.description}</p>
+                <div key={index} className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-cocoa-500 font-bold">—</span>
+                    <h3 className="font-semibold text-charcoal-900">{feature.title}</h3>
+                  </div>
+                  <p className="text-warmgray-600 leading-relaxed pl-5">{feature.description}</p>
                 </div>
               ))}
             </div>
 
             {/* Second row - 3 cards */}
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
               {[
                 {
-                  icon: (
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                    </svg>
-                  ),
                   title: "Personalized nutrition",
-                  description: "Custom diet plans based on breed, age, and activity.",
-                  color: "bg-gold-400",
-                  highlight: "Tailored plans"
+                  description: "Custom diet plans based on breed, age, and activity."
                 },
                 {
-                  icon: (
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                    </svg>
-                  ),
                   title: "Training support",
-                  description: "Adaptive training plans with progress tracking.",
-                  color: "bg-cocoa-500",
-                  highlight: "Progress tracking"
+                  description: "Adaptive training plans with progress tracking."
                 },
                 {
-                  icon: (
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                    </svg>
-                  ),
                   title: "Complete records",
-                  description: "All pet information organized in one place.",
-                  color: "bg-warmgray-500",
-                  highlight: "Centralized"
+                  description: "All pet information organized in one place."
                 }
               ].map((feature, index) => (
-                <div key={index} className="space-y-4">
-                  <h3 className="font-semibold text-charcoal-900">{feature.title}</h3>
-                  <p className="text-warmgray-600 leading-relaxed">{feature.description}</p>
+                <div key={index} className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-cocoa-500 font-bold">—</span>
+                    <h3 className="font-semibold text-charcoal-900">{feature.title}</h3>
+                  </div>
+                  <p className="text-warmgray-600 leading-relaxed pl-5">{feature.description}</p>
                 </div>
               ))}
             </div>
-          </div>
+            </div>
+          </SectionPanel>
         </div>
       </section>
 
-      {/* ROADMAP */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 leading-tight mb-4">
-              Product <span className="text-cocoa-700">Roadmap</span>
-            </h2>
-            
-            <p className="text-lg md:text-xl text-warmgray-600 leading-relaxed max-w-2xl mx-auto">
-              Here's what we're building and when you can expect it.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-              {[
-                {
-                  phase: "Now",
-                  title: "App Beta & Collar Waitlist",
-                  status: "active",
-                  color: "bg-cocoa-700",
-                  progress: 85
-                },
-                {
-                  phase: "Next",
-                  title: "Collar Pilot Program",
-                  status: "coming",
-                  color: "bg-sky-500",
-                  progress: 0
-                },
-                {
-                  phase: "Stage 3",
-                  title: "Public App Launch",
-                  status: "coming",
-                  color: "bg-gold-500",
-                  progress: 0
-                },
-                {
-                  phase: "Stage 4",
-                  title: "Collar Gen 1 Shipping",
-                  status: "coming",
-                  color: "bg-green-400",
-                  progress: 0
-                },
-                {
-                  phase: "Stage 5",
-                  title: "Advanced Intelligence",
-                  status: "research",
-                  color: "bg-cocoa-500",
-                  progress: 0
-                }
-              ].map((phase, index) => (
-                <div key={index} className="text-center space-y-4">
-                  <div className="text-sm font-medium text-cocoa-700">{phase.phase}</div>
-                  <h4 className="font-semibold text-charcoal-900">{phase.title}</h4>
-                  <p className="text-sm text-warmgray-600">
-                    {phase.status === 'active' ? 'Building core features and gathering signups' :
-                     phase.status === 'coming' ? 'Smart collar pilot with early adopters' :
-                     'Advanced AI capabilities and integrations'}
-                  </p>
-                </div>
-              ))}
-            </div>
-        </div>
-      </section>
-        
       {/* PRIVACY & SAFETY */}
       <section id="privacy" className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-12">
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 leading-tight mb-4">
               Privacy & Safety <span className="text-cocoa-700">by Design</span>
             </h2>
@@ -411,54 +312,73 @@ export default function Home() {
               Your pet's data belongs to you. We're built on transparency and user control.
             </p>
           </div>
-          
-          {/* Compact grid layout */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                icon: (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-                  </svg>
-                ),
                 title: "Your Data, Your Control",
-                description: "All pet data is encrypted end-to-end and stored securely. You maintain complete ownership and control over your information.",
-                features: ["Export data anytime", "Request deletion"],
-                color: "bg-cocoa-500"
+                description: "All pet data is encrypted end-to-end and stored securely. You maintain complete ownership and control over your information."
               },
               {
-                icon: (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                ),
                 title: "Transparent Analytics",
-                description: "We're clear about what data we collect and why. Our analytics are designed to improve your pet's experience while respecting your privacy.",
-                features: ["Privacy Controls", "Adjust settings anytime"],
-                color: "bg-sky-400"
+                description: "We're clear about what data we collect and why. Our analytics are designed to improve your pet's experience while respecting your privacy."
               },
               {
-                icon: (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
-                  </svg>
-                ),
                 title: "Educational Guidance",
-                description: "Whisker provides educational information only. For medical emergencies, always consult a licensed veterinarian.",
-                features: ["Important Health Notice", "Always consult your vet"],
-                color: "bg-gold-400"
+                description: "Whisker provides educational information only. For medical emergencies, always consult a licensed veterinarian."
               }
             ].map((principle, index) => (
-              <div key={index} className="space-y-4">
-                <h3 className="font-semibold text-charcoal-900">{principle.title}</h3>
-                <p className="text-warmgray-600 leading-relaxed">{principle.description}</p>
+              <div key={index} className="space-y-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-cocoa-500 font-bold">—</span>
+                  <h3 className="font-semibold text-charcoal-900">{principle.title}</h3>
+                </div>
+                <p className="text-warmgray-600 leading-relaxed pl-5">{principle.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* ROADMAP */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="text-center mb-10 md:mb-12">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 leading-tight mb-4">
+              Product <span className="text-cocoa-700">Roadmap</span>
+            </h2>
+            
+            <p className="text-lg md:text-xl text-warmgray-600 leading-relaxed max-w-2xl mx-auto">
+              Here's what we're building and when you can expect it.
+            </p>
+          </div>
+          <SectionPanel className="rounded-3xl" accentCorner="bl">
+            <Timeline
+              items={[
+                { label: "Now", title: "App Beta & Collar Waitlist", description: "Building core features and gathering signups", status: "active" },
+                { label: "Next", title: "Collar Pilot Program", description: "Smart collar pilot with early adopters", status: "future" },
+                { label: "Stage 3", title: "Public App Launch", description: "App available broadly", status: "future" },
+                { label: "Stage 4", title: "Collar Gen 1 Shipping", description: "Hardware shipped to customers", status: "future" },
+                { label: "Stage 5", title: "Advanced Intelligence", description: "New AI capabilities and integrations", status: "future" },
+              ]}
+            />
+          </SectionPanel>
+          
+          <div className="text-center mt-8">
+            <p className="text-warmgray-600 leading-relaxed max-w-2xl mx-auto">
+              Join our waitlist to get early access and be the first to know when each stage launches. We're committed to building something truly special for you and your pet.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* DIVIDER */}
+      <div className="pt-8 pb-16 md:pt-10 md:pb-20 bg-white">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="w-24 h-0.5 bg-cocoa-500 mx-auto"></div>
+        </div>
+      </div>
+        
       {/* WAITLIST */}
       <section id="waitlist" className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">
@@ -487,10 +407,10 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-16 md:py-24 bg-white">
+      <section id="faq" className="pt-16 pb-12 md:pt-20 md:pb-16 bg-white">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 leading-tight mb-4">
+          <div className="text-center mb-10">
+            <h2 className="font-serif text-3xl sm:text-4xl text-charcoal-900 leading-tight mb-4">
               Frequently Asked <span className="text-cocoa-700">Questions</span>
             </h2>
           </div>
@@ -514,11 +434,11 @@ export default function Home() {
                 answer: "Yes, the Whisker Collar uses pet-safe materials, has no sharp edges, and is designed for comfortable daily wear."
               }
             ].map((faq, index) => (
-              <details key={index} className="group border-b border-sand-200 py-6">
+              <details key={index} className="group border-b border-sand-200 py-4">
                 <summary className="flex items-center justify-between cursor-pointer">
-                  <h3 className="font-semibold text-lg text-charcoal-900">{faq.question}</h3>
+                  <h3 className="font-semibold text-base text-charcoal-900">{faq.question}</h3>
                   <svg 
-                    className="w-5 h-5 text-warmgray-600 transform transition-transform group-open:rotate-180" 
+                    className="w-5 h-5 text-warmgray-600 transform transition-transform group-open:rotate-180 flex-shrink-0 ml-4" 
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24"
@@ -527,8 +447,8 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
                 </summary>
-                <div className="pt-4">
-                  <p className="text-warmgray-600 leading-relaxed">{faq.answer}</p>
+                <div className="pt-3">
+                  <p className="text-warmgray-600 leading-relaxed text-sm">{faq.answer}</p>
                 </div>
               </details>
             ))}

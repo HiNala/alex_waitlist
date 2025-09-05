@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <Image src="/logo/Whisker_button_logo.svg" alt="Whisker" width={48} height={48} />
+              <Image src="/logo/Whisker_button_logo.svg" alt="Whisker" width={64} height={64} />
               <div className="font-serif text-2xl text-charcoal-900">Whisker</div>
             </div>
             <p className="text-warmgray-600 leading-relaxed max-w-md">

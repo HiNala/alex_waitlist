@@ -9,7 +9,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-white border-b border-sand-200/50 shadow-sm">
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between py-3">
         <Link href="/" className="flex items-center gap-2 md:gap-3 font-serif text-xl md:text-2xl text-charcoal-900">
-          <img src="/logo/Whisker_button_logo.svg" alt="Whisker" className="w-12 h-12 md:w-16 md:h-16" />
+          <img src="/logo/Whisker_button_logo.svg" alt="Whisker" className="w-14 h-14 md:w-20 md:h-20" />
           <span className="hidden sm:block">Whisker</span>
         </Link>
         
