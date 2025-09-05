@@ -34,51 +34,51 @@ export default function WaitlistForm() {
   }
   
   return (
-    <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-white/20">
-      <div className="mb-6">
-        <h3 className="font-serif text-2xl font-bold text-charcoal-900 mb-3">Join the Smart Collar Waitlist</h3>
-        <p className="text-warmgray-600 text-lg leading-relaxed">Be first to access the Whisker Collar pilot and early hardware updates.</p>
+    <div className="bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl border border-white/20">
+      <div className="mb-4 sm:mb-6">
+        <h3 className="font-serif text-lg sm:text-xl md:text-2xl font-bold text-charcoal-900 mb-2 sm:mb-3 text-center sm:text-left">Join the Smart Collar Waitlist</h3>
+        <p className="text-warmgray-600 text-sm sm:text-base md:text-lg leading-relaxed text-center sm:text-left">Be first to access the Whisker Collar pilot and early hardware updates.</p>
       </div>
       
-      <form onSubmit={submit} className="space-y-5">
-        <div className="flex flex-col sm:flex-row gap-3">
+      <form onSubmit={submit} className="space-y-4 sm:space-y-5">
+        <div className="flex flex-col gap-3 sm:gap-4">
           <input
             type="email"
             required
             placeholder="Enter your email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="px-6 py-4 rounded-pill border border-sand-200 bg-white shadow-sm w-full text-lg focus:ring-2 focus:ring-cocoa-500 focus:border-cocoa-500 transition-colors placeholder:text-warmgray-400"
+            className="px-4 sm:px-6 py-3 sm:py-4 rounded-pill border border-sand-200 bg-white shadow-sm w-full text-sm sm:text-base md:text-lg focus:ring-2 focus:ring-cocoa-500 focus:border-cocoa-500 transition-colors placeholder:text-warmgray-400"
           />
-          <button className="px-8 py-4 rounded-pill bg-cocoa-700 text-white hover:bg-cocoa-500 hover:shadow-xl transition-all duration-200 font-semibold whitespace-nowrap text-lg">
+          <button className="px-6 sm:px-8 py-3 sm:py-4 rounded-pill bg-cocoa-700 text-white hover:bg-cocoa-500 hover:shadow-xl transition-all duration-200 font-semibold text-sm sm:text-base md:text-lg">
             Join Collar Waitlist
           </button>
         </div>
         
-        <label className="flex items-start gap-3 text-sm text-warmgray-600 leading-relaxed">
+        <label className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm text-warmgray-600 leading-relaxed">
           <input 
             type="checkbox" 
             checked={ok} 
             onChange={(e) => setOk(e.target.checked)} 
-            className="mt-1 rounded border-sand-200 text-cocoa-700 focus:ring-cocoa-400"
+            className="mt-1 rounded border-sand-200 text-cocoa-700 focus:ring-cocoa-400 flex-shrink-0"
           />
-          <span>
+          <span className="text-left">
             By signing up, you agree to our{" "}
             <a className="text-cocoa-600 underline hover:text-cocoa-700 font-medium" href="/privacy">Privacy Policy</a>{" "}
             and to receive updates about the Whisker Collar pilot program and hardware.
           </span>
         </label>
         
-        <div className="space-y-2 pt-3">
-          <div className="flex items-center text-sm text-warmgray-600">
+        <div className="space-y-1 sm:space-y-2 pt-2 sm:pt-3">
+          <div className="flex items-center text-xs sm:text-sm text-warmgray-600">
             <span className="text-cocoa-500 font-bold mr-2">—</span>
             <span>Free premium features for early adopters</span>
           </div>
-          <div className="flex items-center text-sm text-warmgray-600">
+          <div className="flex items-center text-xs sm:text-sm text-warmgray-600">
             <span className="text-cocoa-500 font-bold mr-2">—</span>
             <span>Priority access to pilot program</span>
           </div>
-          <div className="flex items-center text-sm text-warmgray-600">
+          <div className="flex items-center text-xs sm:text-sm text-warmgray-600">
             <span className="text-cocoa-500 font-bold mr-2">—</span>
             <span>No spam, unsubscribe anytime</span>
           </div>

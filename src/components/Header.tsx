@@ -7,10 +7,10 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-sand-200/50 shadow-sm">
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between py-3">
-        <Link href="/" className="flex items-center gap-2 md:gap-3 font-serif text-xl md:text-2xl text-charcoal-900">
-          <img src="/logo/Whisker_button_logo.svg" alt="Whisker" className="w-14 h-14 md:w-20 md:h-20" />
-          <span className="hidden sm:block">Whisker</span>
+      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between py-2 sm:py-3">
+        <Link href="/" className="flex items-center gap-2 sm:gap-3 font-serif text-lg sm:text-xl md:text-2xl text-charcoal-900">
+          <img src="/logo/Whisker_button_logo.svg" alt="Whisker" className="w-12 h-12 sm:w-14 sm:h-14 md:w-18 md:h-18 lg:w-20 lg:h-20" />
+          <span className="hidden xs:block">Whisker</span>
         </Link>
         
         {/* Desktop Navigation */}
@@ -23,10 +23,10 @@ export default function Header() {
         </nav>
         
         {/* Desktop CTA + Mobile Menu Button */}
-        <div className="flex items-center gap-3">
-          <Link href="#waitlist" className="hidden sm:inline-flex btn-primary text-sm md:text-base">
-            <span className="hidden md:inline">Join Collar Waitlist</span>
-            <span className="md:hidden">Join Waitlist</span>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Link href="#waitlist" className="hidden sm:inline-flex btn-primary text-xs sm:text-sm md:text-base py-2 sm:py-3 px-4 sm:px-6">
+            <span className="hidden lg:inline">Join Collar Waitlist</span>
+            <span className="lg:hidden">Join Waitlist</span>
           </Link>
           
           {/* Mobile menu button */}

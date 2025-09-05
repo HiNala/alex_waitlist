@@ -7,39 +7,48 @@ export default function Home() {
   return (
     <>
             {/* HERO */}
-      <section className="bg-white pt-4 pb-16 md:pt-6 md:pb-24">
+      <section className="bg-white pt-2 pb-12 sm:pt-4 sm:pb-16 md:pt-6 md:pb-20 lg:pb-24">
         
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
+            <div className="space-y-4 sm:space-y-6 lg:space-y-8 text-center lg:text-left">
               
-              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-charcoal-900 leading-tight">
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-charcoal-900 leading-tight">
                 The future of <span className="text-cocoa-700">pet care</span> is here
-                </h1>
+              </h1>
               
-              <p className="text-base sm:text-lg md:text-xl text-warmgray-600 leading-relaxed max-w-xl">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-warmgray-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 Whisker combines a smart collar with AI-powered insights to give you a complete picture of your pet's health, behavior, and location.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                <a href="#waitlist" className="btn-primary inline-flex items-center justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6 justify-center lg:justify-start">
+                <a href="#waitlist" className="btn-primary inline-flex items-center justify-center text-sm sm:text-base py-3 sm:py-3 px-6 sm:px-8">
                   Join Collar Waitlist
                 </a>
-                <a href="#device" className="btn-secondary inline-flex items-center justify-center">
+                <a href="#device" className="btn-secondary inline-flex items-center justify-center text-sm sm:text-base py-3 sm:py-3 px-6 sm:px-8">
                   See the Device
                 </a>
               </div>
               
               {/* Simple trust indicators */}
-              <div className="flex flex-wrap gap-6 pt-6 text-sm text-warmgray-600">
-                <span>Vet-approved AI</span>
-                <span>GDPR compliant</span>
-                <span>Pet-safe hardware</span>
+              <div className="flex flex-wrap gap-4 sm:gap-6 pt-4 sm:pt-6 text-xs sm:text-sm text-warmgray-600 justify-center lg:justify-start">
+                <span className="flex items-center gap-1">
+                  <div className="w-1 h-1 bg-cocoa-500 rounded-full"></div>
+                  Vet-approved AI
+                </span>
+                <span className="flex items-center gap-1">
+                  <div className="w-1 h-1 bg-cocoa-500 rounded-full"></div>
+                  GDPR compliant
+                </span>
+                <span className="flex items-center gap-1">
+                  <div className="w-1 h-1 bg-cocoa-500 rounded-full"></div>
+                  Pet-safe hardware
+                </span>
               </div>
             </div>
             
-            <div className="relative">
-              <div className="relative aspect-[4/5] max-w-md mx-auto rounded-2xl overflow-hidden">
+            <div className="relative order-first lg:order-last">
+              <div className="relative aspect-[4/5] w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-md mx-auto rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl">
                 <Image src="/images/pet1.jpg" alt="Happy pet using Whisker" fill className="object-cover" />
               </div>
             </div>
@@ -50,175 +59,171 @@ export default function Home() {
 
 
       {/* APP PREVIEW */}
-      <section id="preview" className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 leading-tight mb-4">
+      <section id="preview" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-charcoal-900 leading-tight mb-3 sm:mb-4">
               The <span className="text-cocoa-700">Whisker Pet App</span>
             </h2>
             
-            <p className="text-lg md:text-xl text-warmgray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-warmgray-600 leading-relaxed max-w-2xl mx-auto px-4">
               Your AI companion for comprehensive pet care, powered by collar data.
             </p>
           </div>
           
-                    <div className="grid lg:grid-cols-2 gap-6 md:gap-10 lg:gap-12 items-center max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-5 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center max-w-7xl mx-auto">
             {/* Left side enhanced content */}
-            <div className="space-y-8">
+            <div className="lg:col-span-3 space-y-6 sm:space-y-8 order-2 lg:order-1">
               {/* Key benefits */}
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {[
                   { 
-                    icon: (
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-                      </svg>
-                    ),
                     title: "AI-Powered Assistant",
-                    desc: "Get instant, personalized answers about your pet's training, nutrition, and behavior patterns.",
-                    highlight: "Available 24/7"
+                    desc: "Get instant, personalized answers about your pet's training, nutrition, and behavior patterns."
                   },
                   { 
-                    icon: (
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                      </svg>
-                    ),
                     title: "Health Dashboard",
-                    desc: "Monitor your pet's wellness with real-time data from the collar sensors and AI analysis.",
-                    highlight: "Early detection"
+                    desc: "Monitor your pet's wellness with real-time data from the collar sensors and AI analysis."
                   },
                   { 
-                    icon: (
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                      </svg>
-                    ),
                     title: "Location & Safety",
-                    desc: "Always know where your pet is with GPS tracking and customizable safe zone alerts.",
-                    highlight: "Peace of mind"
+                    desc: "Always know where your pet is with GPS tracking and customizable safe zone alerts."
                   }
-                                ].map((feature, idx) => (
+                ].map((feature, idx) => (
                   <div key={idx} className="space-y-2">
-                    <h3 className="font-semibold text-charcoal-900">{feature.title}</h3>
-                    <p className="text-warmgray-600 leading-relaxed">{feature.desc}</p>
+                    <h3 className="font-semibold text-base sm:text-lg text-charcoal-900">{feature.title}</h3>
+                    <p className="text-sm sm:text-base text-warmgray-600 leading-relaxed">{feature.desc}</p>
                   </div>
                 ))}
               </div>
             
-                          {/* App store badges */}
-            <div className="space-y-4">
-              <div className="text-sm text-warmgray-600 font-medium">Download when available:</div>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#" className="block hover:opacity-80 transition-opacity">
-                  <Image src="/images/app-store-badge.svg" alt="Download on the App Store" width={160} height={48} className="h-10 sm:h-12 w-auto" />
-                </a>
-                <a href="#" className="block hover:opacity-80 transition-opacity">
-                  <Image src="/images/google-play-badge.svg" alt="Get it on Google Play" width={160} height={48} className="h-10 sm:h-12 w-auto" />
-                </a>
-              </div>
-              <div className="text-xs text-warmgray-500">
-                Join the waitlist to be notified when the app launches
-              </div>
-            </div>
-            </div>
-            
-                                            {/* Right side simple mockup */}
-          <div className="flex justify-center">
-            <div className="w-48 sm:w-56 md:w-64 lg:w-64 aspect-[9/19] bg-charcoal-900 rounded-3xl p-2">
-              <div className="w-full h-full bg-sand-100 rounded-2xl flex items-center justify-center">
-                <div className="text-center">
-                  <div className="text-charcoal-700 mb-2">
-                    <svg className="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m9 12l2 2 4-4" />
-                    </svg>
-                  </div>
-                  <div className="font-medium text-charcoal-700">Coming Soon</div>
+              {/* App store badges */}
+              <div className="space-y-3 sm:space-y-4">
+                <div className="text-xs sm:text-sm text-warmgray-600 font-medium">Download when available:</div>
+                <div className="flex flex-col xs:flex-row gap-3 sm:gap-4">
+                  <a href="#" className="block hover:opacity-80 transition-opacity">
+                    <Image src="/images/app-store-badge.svg" alt="Download on the App Store" width={140} height={42} className="h-8 sm:h-10 md:h-12 w-auto" />
+                  </a>
+                  <a href="#" className="block hover:opacity-80 transition-opacity">
+                    <Image src="/images/google-play-badge.svg" alt="Get it on Google Play" width={140} height={42} className="h-8 sm:h-10 md:h-12 w-auto" />
+                  </a>
+                </div>
+                <div className="text-xs text-warmgray-500">
+                  Join the waitlist to be notified when the app launches
                 </div>
               </div>
             </div>
+            
+            {/* Right side phone mockup - perfectly responsive */}
+            <div className="lg:col-span-2 flex justify-center order-1 lg:order-2">
+              <div className="relative">
+                {/* Phone frame - responsive sizing */}
+                <div className="relative w-[280px] h-[570px] sm:w-[300px] sm:h-[610px] md:w-[320px] md:h-[650px] lg:w-[300px] lg:h-[610px] xl:w-[320px] xl:h-[650px]">
+                  {/* Phone outer frame */}
+                  <div className="absolute inset-0 bg-charcoal-900 rounded-[32px] sm:rounded-[36px] md:rounded-[40px] shadow-2xl">
+                    {/* Screen area */}
+                    <div className="absolute inset-[8px] sm:inset-[10px] md:inset-[12px] bg-white rounded-[24px] sm:rounded-[26px] md:rounded-[28px] overflow-hidden">
+                      {/* Status bar */}
+                      <div className="flex justify-between items-center px-4 sm:px-5 md:px-6 py-2 sm:py-3 bg-white">
+                        <div className="text-[10px] sm:text-xs font-medium text-charcoal-900">9:41</div>
+                        <div className="flex items-center gap-1">
+                          <div className="w-4 h-2 sm:w-5 sm:h-2.5 border border-charcoal-900 rounded-sm">
+                            <div className="w-3/4 h-full bg-charcoal-900 rounded-sm"></div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* App content */}
+                      <div className="flex-1 bg-gradient-to-br from-cream-50 to-sand-100 flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 text-center min-h-[400px] sm:min-h-[450px] md:min-h-[500px]">
+                        <div className="bg-cocoa-500/10 rounded-full p-6 sm:p-8 md:p-10 mb-4 sm:mb-6">
+                          <svg className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-cocoa-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="m9 12l2 2 4-4" />
+                          </svg>
+                        </div>
+                        <h3 className="font-serif text-lg sm:text-xl md:text-2xl font-bold text-charcoal-900 mb-2 sm:mb-3">Coming Soon</h3>
+                        <p className="text-xs sm:text-sm text-warmgray-600 leading-relaxed max-w-[200px] sm:max-w-[220px]">
+                          Experience the future of pet care with our intelligent companion app.
+                        </p>
+                        
+                        {/* Bottom navigation mockup */}
+                        <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 bg-white rounded-2xl p-3 sm:p-4 shadow-lg border border-sand-200/50">
+                          <div className="flex justify-around items-center">
+                            {[
+                              { icon: "🏠", label: "Home", active: true },
+                              { icon: "💝", label: "Health", active: false },
+                              { icon: "📍", label: "Location", active: false },
+                              { icon: "⚙️", label: "Settings", active: false }
+                            ].map((item, idx) => (
+                              <div key={idx} className={`flex flex-col items-center gap-1 ${item.active ? 'text-cocoa-700' : 'text-warmgray-500'}`}>
+                                <span className="text-base sm:text-lg">{item.icon}</span>
+                                <span className="text-[8px] sm:text-[10px] font-medium">{item.label}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Home indicator */}
+                  <div className="absolute bottom-2 sm:bottom-3 left-1/2 transform -translate-x-1/2 w-20 sm:w-24 h-1 bg-white/30 rounded-full"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* DEVICE PREVIEW */}
-      <section id="device" className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div className="aspect-square rounded-2xl overflow-hidden">
+      <section id="device" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
+            <div className="relative order-2 lg:order-1">
+              <div className="aspect-square w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-none mx-auto rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl">
                 <Image src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Smart collar device technology" fill className="object-cover" />
               </div>
             </div>
             
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 leading-tight">
+            <div className="space-y-6 sm:space-y-8 text-center lg:text-left order-1 lg:order-2">
+              <div className="space-y-4 sm:space-y-6">
+                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-charcoal-900 leading-tight">
                   Meet the <span className="text-cocoa-700">Whisker Collar</span>
                 </h2>
                 
-                <p className="text-lg md:text-xl text-warmgray-600 leading-relaxed">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-warmgray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                   A breakthrough companion device that combines GPS tracking, activity monitoring, and health sensors—giving you complete insight into your pet's world.
                 </p>
               </div>
               
               {/* Minimalist feature list */}
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {[
                   { 
-                    icon: (
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                      </svg>
-                    ),
                     title: "Real-time GPS tracking", 
-                    desc: "Know where your pet is, always. Set custom safe zones and get instant alerts.",
-                    color: "text-sky-500",
-                    iconBg: "bg-sky-400"
+                    desc: "Know where your pet is, always. Set custom safe zones and get instant alerts."
                   },
                   { 
-                    icon: (
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-                      </svg>
-                    ),
                     title: "Activity & behavior insights", 
-                    desc: "Understand your pet's daily patterns, energy levels, and behavioral changes.",
-                    color: "text-cocoa-700",
-                    iconBg: "bg-cocoa-500"
+                    desc: "Understand your pet's daily patterns, energy levels, and behavioral changes."
                   },
                   { 
-                    icon: (
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                      </svg>
-                    ),
                     title: "Health monitoring", 
-                    desc: "Temperature tracking and wellness indicators to catch health issues early.",
-                    color: "text-green-500",
-                    iconBg: "bg-green-400"
+                    desc: "Temperature tracking and wellness indicators to catch health issues early."
                   },
                   { 
-                    icon: (
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
-                      </svg>
-                    ),
                     title: "Seamless app integration", 
-                    desc: "All collar data syncs instantly to your phone for easy access and insights.",
-                    color: "text-gold-500",
-                    iconBg: "bg-gold-400"
+                    desc: "All collar data syncs instantly to your phone for easy access and insights."
                   }
                 ].map((feature, idx) => (
                   <div key={idx} className="space-y-2">
-                    <h4 className="font-semibold text-charcoal-900">
-                      {feature.title}
-                    </h4>
-                    <p className="text-warmgray-600 leading-relaxed">
+                    <div className="flex items-center gap-2 justify-center lg:justify-start">
+                      <span className="text-cocoa-500 font-bold">—</span>
+                      <h4 className="font-semibold text-sm sm:text-base text-charcoal-900">
+                        {feature.title}
+                      </h4>
+                    </div>
+                    <p className="text-xs sm:text-sm text-warmgray-600 leading-relaxed pl-5 max-w-lg mx-auto lg:mx-0">
                       {feature.desc}
                     </p>
                   </div>
@@ -230,22 +235,20 @@ export default function Home() {
       </section>
 
       {/* FEATURES */}
-      <section id="features" className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 leading-tight mb-4">
+      <section id="features" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-charcoal-900 leading-tight mb-3 sm:mb-4">
               Why choose <span className="text-cocoa-700">Whisker</span>
             </h2>
             
-            <p className="text-lg md:text-xl text-warmgray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-warmgray-600 leading-relaxed max-w-2xl mx-auto px-4">
               The perfect combination of smart hardware and AI creates insights you can't get anywhere else.
             </p>
           </div>
 
-          <SectionPanel className="rounded-3xl" accentCorner="tr">
-            <div className="space-y-8">
-            {/* First row - 3 cards */}
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <SectionPanel className="rounded-2xl sm:rounded-3xl" accentCorner="tr">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {[
                 {
                   title: "Real-time insights",
@@ -258,21 +261,7 @@ export default function Home() {
                 {
                   title: "Preventive care",
                   description: "Early health detection and timely checkup reminders."
-                }
-              ].map((feature, index) => (
-                <div key={index} className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="text-cocoa-500 font-bold">—</span>
-                    <h3 className="font-semibold text-charcoal-900">{feature.title}</h3>
-                  </div>
-                  <p className="text-warmgray-600 leading-relaxed pl-5">{feature.description}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Second row - 3 cards */}
-            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {[
+                },
                 {
                   title: "Personalized nutrition",
                   description: "Custom diet plans based on breed, age, and activity."
@@ -286,34 +275,33 @@ export default function Home() {
                   description: "All pet information organized in one place."
                 }
               ].map((feature, index) => (
-                <div key={index} className="space-y-3">
+                <div key={index} className="space-y-2 sm:space-y-3">
                   <div className="flex items-center gap-2">
                     <span className="text-cocoa-500 font-bold">—</span>
-                    <h3 className="font-semibold text-charcoal-900">{feature.title}</h3>
+                    <h3 className="font-semibold text-sm sm:text-base text-charcoal-900">{feature.title}</h3>
                   </div>
-                  <p className="text-warmgray-600 leading-relaxed pl-5">{feature.description}</p>
+                  <p className="text-xs sm:text-sm text-warmgray-600 leading-relaxed pl-5">{feature.description}</p>
                 </div>
               ))}
-            </div>
             </div>
           </SectionPanel>
         </div>
       </section>
 
       {/* PRIVACY & SAFETY */}
-      <section id="privacy" className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-10 md:mb-12">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 leading-tight mb-4">
+      <section id="privacy" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-charcoal-900 leading-tight mb-3 sm:mb-4">
               Privacy & Safety <span className="text-cocoa-700">by Design</span>
             </h2>
             
-            <p className="text-lg md:text-xl text-warmgray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-warmgray-600 leading-relaxed max-w-2xl mx-auto px-4">
               Your pet's data belongs to you. We're built on transparency and user control.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
             {[
               {
                 title: "Your Data, Your Control",
@@ -328,12 +316,12 @@ export default function Home() {
                 description: "Whisker provides educational information only. For medical emergencies, always consult a licensed veterinarian."
               }
             ].map((principle, index) => (
-              <div key={index} className="space-y-3">
-                <div className="flex items-center gap-2">
+              <div key={index} className="space-y-2 sm:space-y-3 text-center sm:text-left">
+                <div className="flex items-center gap-2 justify-center sm:justify-start">
                   <span className="text-cocoa-500 font-bold">—</span>
-                  <h3 className="font-semibold text-charcoal-900">{principle.title}</h3>
+                  <h3 className="font-semibold text-sm sm:text-base text-charcoal-900">{principle.title}</h3>
                 </div>
-                <p className="text-warmgray-600 leading-relaxed pl-5">{principle.description}</p>
+                <p className="text-xs sm:text-sm text-warmgray-600 leading-relaxed pl-5 max-w-md mx-auto sm:mx-0">{principle.description}</p>
               </div>
             ))}
           </div>
@@ -341,18 +329,18 @@ export default function Home() {
       </section>
 
       {/* ROADMAP */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-10 md:mb-12">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 leading-tight mb-4">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-charcoal-900 leading-tight mb-3 sm:mb-4">
               Product <span className="text-cocoa-700">Roadmap</span>
             </h2>
             
-            <p className="text-lg md:text-xl text-warmgray-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-warmgray-600 leading-relaxed max-w-2xl mx-auto px-4">
               Here's what we're building and when you can expect it.
             </p>
           </div>
-          <SectionPanel className="rounded-3xl" accentCorner="bl">
+          <SectionPanel className="rounded-2xl sm:rounded-3xl" accentCorner="bl">
             <Timeline
               items={[
                 { label: "Now", title: "App Beta & Collar Waitlist", description: "Building core features and gathering signups", status: "active" },
@@ -364,8 +352,8 @@ export default function Home() {
             />
           </SectionPanel>
           
-          <div className="text-center mt-8">
-            <p className="text-warmgray-600 leading-relaxed max-w-2xl mx-auto">
+          <div className="text-center mt-6 sm:mt-8">
+            <p className="text-xs sm:text-sm md:text-base text-warmgray-600 leading-relaxed max-w-2xl mx-auto px-4">
               Join our waitlist to get early access and be the first to know when each stage launches. We're committed to building something truly special for you and your pet.
             </p>
           </div>
@@ -380,7 +368,7 @@ export default function Home() {
       </div>
         
       {/* WAITLIST */}
-      <section id="waitlist" className="relative py-20 overflow-hidden">
+      <section id="waitlist" className="relative py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden">
         <div className="absolute inset-0">
           <Image src="/images/cute-pet-bg.jpg" alt="Happy pet" fill className="object-cover" />
           <div className="absolute inset-0 bg-charcoal-900/60"></div>
@@ -388,18 +376,18 @@ export default function Home() {
         
 
 
-        <div className="container mx-auto relative z-10">
-          <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-3xl md:text-4xl text-white mb-4">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8 sm:mb-10 md:mb-12">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-3 sm:mb-4 leading-tight">
                 Join the Whisker Collar Waitlist
               </h2>
-              <p className="text-lg text-white/90">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto px-4">
                 Be first to know when the smart collar pilot opens.
               </p>
             </div>
 
-            <div className="max-w-xl mx-auto">
+            <div className="max-w-2xl mx-auto">
               <WaitlistForm />
             </div>
           </div>
@@ -407,10 +395,10 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="pt-16 pb-12 md:pt-20 md:pb-16 bg-white">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center mb-10">
-            <h2 className="font-serif text-3xl sm:text-4xl text-charcoal-900 leading-tight mb-4">
+      <section id="faq" className="pt-12 pb-8 sm:pt-16 sm:pb-12 md:pt-20 md:pb-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+          <div className="text-center mb-8 sm:mb-10">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-charcoal-900 leading-tight mb-3 sm:mb-4">
               Frequently Asked <span className="text-cocoa-700">Questions</span>
             </h2>
           </div>

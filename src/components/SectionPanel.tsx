@@ -25,7 +25,7 @@ export default function SectionPanel({
       className={cn(
         "relative overflow-hidden border border-sand-200/70 bg-cream-50 shadow-elevation-1",
         cornerRadiusClass[accentCorner],
-        "p-6 md:p-10",
+        "p-4 sm:p-6 md:p-8 lg:p-10",
         className
       )}
     >
@@ -33,11 +33,11 @@ export default function SectionPanel({
       <div
         aria-hidden
         className={cn(
-          "pointer-events-none absolute size-40 md:size-56 bg-cocoa-500/10 blur-xl", 
-          accentCorner === "tl" && "-top-10 -left-10 rounded-br-full",
-          accentCorner === "tr" && "-top-10 -right-10 rounded-bl-full",
-          accentCorner === "bl" && "-bottom-10 -left-10 rounded-tr-full",
-          accentCorner === "br" && "-bottom-10 -right-10 rounded-tl-full"
+          "pointer-events-none absolute size-32 sm:size-40 md:size-48 lg:size-56 bg-cocoa-500/10 blur-xl", 
+          accentCorner === "tl" && "-top-8 -left-8 sm:-top-10 sm:-left-10 rounded-br-full",
+          accentCorner === "tr" && "-top-8 -right-8 sm:-top-10 sm:-right-10 rounded-bl-full",
+          accentCorner === "bl" && "-bottom-8 -left-8 sm:-bottom-10 sm:-left-10 rounded-tr-full",
+          accentCorner === "br" && "-bottom-8 -right-8 sm:-bottom-10 sm:-right-10 rounded-tl-full"
         )}
       />
 
