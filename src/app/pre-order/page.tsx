@@ -160,23 +160,39 @@ export default function PreOrderPage() {
                 </div>
               </div>
 
-              {/* Purchase Options */}
-              <div className="space-y-3 sm:space-y-4">
-                <StripeCheckout
-                  data={checkoutData}
-                  className="w-full bg-cocoa-700 hover:bg-cocoa-500 text-white font-semibold py-4 sm:py-5 px-6 sm:px-8 rounded-2xl text-base sm:text-lg transition-all duration-200 hover:shadow-xl hover:scale-[1.02]"
-                >
-                  Pre-Order Now • ${totalPrice}
-                </StripeCheckout>
-                
-                {/* 1-Click Payment Options (enabled if device supports Payment Request) */}
-                <PaymentButtons label="Pay faster with" />
-
-                {/* Fallback guidance */}
-                <div className="text-center text-xs text-warmgray-600">
-                  Apple Pay / Google Pay appear automatically if supported by your device and browser.
+              {/* Payment Options */}
+              <SectionPanel className="rounded-2xl" accentCorner="tr">
+                <div className="space-y-4 sm:space-y-6">
+                  <h3 className="font-semibold text-base sm:text-lg text-charcoal-900 text-center">
+                    Choose Payment Method
+                  </h3>
+                  
+                  {/* Primary Stripe Checkout */}
+                  <StripeCheckout
+                    data={checkoutData}
+                    className="w-full bg-cocoa-700 hover:bg-cocoa-500 text-white font-semibold py-4 sm:py-5 px-6 sm:px-8 rounded-2xl text-base sm:text-lg transition-all duration-200 hover:shadow-xl hover:scale-[1.02]"
+                  >
+                    Pre-Order with Card • ${totalPrice}
+                  </StripeCheckout>
+                  
+                  {/* Express Payment Divider */}
+                  <div className="relative">
+                    <div className="absolute inset-0 flex items-center">
+                      <div className="w-full border-t border-sand-200"></div>
+                    </div>
+                    <div className="relative flex justify-center text-xs text-warmgray-500 bg-cream-50 px-4">
+                      or pay instantly with
+                    </div>
+                  </div>
+                  
+                  {/* Express Payment Options */}
+                  <PaymentButtons />
+                  
+                  <div className="text-center text-xs text-warmgray-600 leading-relaxed">
+                    Secure payment powered by Stripe. Express payment options appear automatically on supported devices.
+                  </div>
                 </div>
-              </div>
+              </SectionPanel>
 
               {/* Features */}
               <SectionPanel className="rounded-2xl" accentCorner="br">
@@ -202,13 +218,13 @@ export default function PreOrderPage() {
               {/* Trust Signals */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
                 {[
-                  { icon: "🔒", text: "Secure Payment" },
-                  { icon: "🚚", text: "Free Shipping" },
-                  { icon: "↩️", text: "30-Day Returns" },
-                  { icon: "🛡️", text: "1-Year Warranty" }
+                  { text: "Secure Payment" },
+                  { text: "Free Shipping" },
+                  { text: "30-Day Returns" },
+                  { text: "1-Year Warranty" }
                 ].map((item, index) => (
                   <div key={index} className="space-y-2">
-                    <div className="text-2xl sm:text-3xl">{item.icon}</div>
+                    <div className="w-3 h-3 bg-cocoa-500 rounded-full mx-auto"></div>
                     <div className="text-xs sm:text-sm text-warmgray-600 font-medium">{item.text}</div>
                   </div>
                 ))}

@@ -15,15 +15,15 @@ export default function CollarFunnelPage() {
   const [petBreed, setPetBreed] = useState("");
 
   const colorOptions = [
-    { id: "charcoal", name: "Midnight Black", color: "bg-charcoal-900", emoji: "🖤" },
-    { id: "cocoa", name: "Cocoa Brown", color: "bg-cocoa-700", emoji: "🤎" },
-    { id: "sand", name: "Desert Sand", color: "bg-sand-200", emoji: "🤍" }
+    { id: "charcoal", name: "Midnight Black", color: "bg-charcoal-900" },
+    { id: "cocoa", name: "Cocoa Brown", color: "bg-cocoa-700" },
+    { id: "sand", name: "Desert Sand", color: "bg-sand-200" }
   ];
 
   const sizeOptions = [
-    { id: "small", name: "Small", range: "10-14 inches", emoji: "🐕" },
-    { id: "medium", name: "Medium", range: "14-20 inches", emoji: "🐶" },
-    { id: "large", name: "Large", range: "20-26 inches", emoji: "🐕‍🦺" }
+    { id: "small", name: "Small", range: "10-14 inches" },
+    { id: "medium", name: "Medium", range: "14-20 inches" },
+    { id: "large", name: "Large", range: "20-26 inches" }
   ];
 
   const steps = [
@@ -116,16 +116,16 @@ export default function CollarFunnelPage() {
             {currentStep === 1 && (
               <div className="space-y-6 sm:space-y-8">
                 <div className="text-center">
-                  <div className="text-6xl sm:text-7xl md:text-8xl mb-4">🐕</div>
-                  <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-charcoal-900 mb-4">
-                    Tell us about your furry friend!
+                  <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-charcoal-900 mb-2">
+                    Tell us about your pet
                   </h2>
+                  <p className="text-sm text-warmgray-600">We'll personalize the experience just for them.</p>
                 </div>
                 
                 <div className="space-y-4 sm:space-y-6">
                   <div>
                     <label className="block text-sm sm:text-base font-medium text-charcoal-900 mb-2">
-                      What's your pet's name? 🏷️
+                      Pet's name
                     </label>
                     <input
                       type="text"
@@ -138,7 +138,7 @@ export default function CollarFunnelPage() {
                   
                   <div>
                     <label className="block text-sm sm:text-base font-medium text-charcoal-900 mb-2">
-                      What breed are they? 🐾
+                      Breed
                     </label>
                     <input
                       type="text"
@@ -174,7 +174,6 @@ export default function CollarFunnelPage() {
                           : "border-sand-200 hover:border-cocoa-300 bg-white"
                       )}
                     >
-                      <div className="text-4xl sm:text-5xl mb-3">{color.emoji}</div>
                       <div className={cn("w-12 h-12 sm:w-16 sm:h-16 rounded-full mx-auto mb-3", color.color)}></div>
                       <h3 className="font-semibold text-sm sm:text-base text-charcoal-900">{color.name}</h3>
                       {selectedColor === color.id && (
@@ -212,7 +211,6 @@ export default function CollarFunnelPage() {
                           : "border-sand-200 hover:border-cocoa-300 bg-white"
                       )}
                     >
-                      <div className="text-4xl sm:text-5xl mb-3">{size.emoji}</div>
                       <h3 className="font-semibold text-base sm:text-lg text-charcoal-900 mb-2">{size.name}</h3>
                       <p className="text-xs sm:text-sm text-warmgray-600">{size.range}</p>
                       {selectedSize === size.id && (
@@ -244,10 +242,10 @@ export default function CollarFunnelPage() {
             {currentStep === 4 && (
               <div className="space-y-6 sm:space-y-8">
                 <div className="text-center">
-                  <div className="text-6xl sm:text-7xl md:text-8xl mb-4">🎉</div>
-                  <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-charcoal-900 mb-4">
-                    Perfect! Let's get {petName || "your pet"} their collar
+                  <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-charcoal-900 mb-2">
+                    Complete your pre-order
                   </h2>
+                  <p className="text-sm text-warmgray-600">Perfect! Let's get {petName || "your pet"} their new collar.</p>
                 </div>
                 
                 {/* Order Summary */}
@@ -287,7 +285,7 @@ export default function CollarFunnelPage() {
                     data={checkoutData}
                     className="w-full bg-gradient-to-r from-cocoa-700 to-cocoa-500 hover:from-cocoa-500 hover:to-cocoa-300 text-white font-semibold py-4 sm:py-5 px-6 sm:px-8 rounded-2xl text-base sm:text-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] transform"
                   >
-                    Complete Pre-Order • $200 🎁
+                    Complete Pre-Order • $200
                   </StripeCheckout>
                   
                   {/* 1-Click Payment Options (Payment Request API) */}
@@ -303,10 +301,10 @@ export default function CollarFunnelPage() {
             {currentStep === 2 && (
               <div className="space-y-6 sm:space-y-8">
                 <div className="text-center">
-                  <div className="text-6xl sm:text-7xl md:text-8xl mb-4">🎨</div>
-                  <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-charcoal-900 mb-4">
-                    Which color speaks to {petName || "your pet"}?
+                  <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-charcoal-900 mb-2">
+                    Choose your collar style
                   </h2>
+                  <p className="text-sm text-warmgray-600">Select a color that matches {petName ? `${petName}'s` : "your pet's"} personality.</p>
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
@@ -321,11 +319,10 @@ export default function CollarFunnelPage() {
                           : "border-sand-200 hover:border-cocoa-300 bg-white"
                       )}
                     >
-                      <div className="text-4xl sm:text-5xl mb-3">{color.emoji}</div>
-                      <div className={cn("w-16 h-16 sm:w-20 sm:h-20 rounded-full mx-auto mb-3 shadow-inner", color.color)}></div>
+                      <div className={cn("w-16 h-16 sm:w-20 sm:h-20 rounded-full mx-auto mb-4 shadow-inner", color.color)}></div>
                       <h3 className="font-semibold text-sm sm:text-base text-charcoal-900">{color.name}</h3>
                       {selectedColor === color.id && (
-                        <div className="absolute -top-2 -right-2 w-6 h-6 bg-cocoa-500 rounded-full flex items-center justify-center animate-pulse">
+                        <div className="absolute -top-2 -right-2 w-6 h-6 bg-cocoa-500 rounded-full flex items-center justify-center">
                           <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                           </svg>
@@ -341,10 +338,10 @@ export default function CollarFunnelPage() {
             {currentStep === 3 && (
               <div className="space-y-6 sm:space-y-8">
                 <div className="text-center">
-                  <div className="text-6xl sm:text-7xl md:text-8xl mb-4">📐</div>
-                  <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-charcoal-900 mb-4">
-                    What size is {petName || "your pet"}?
+                  <h2 className="font-serif text-xl sm:text-2xl md:text-3xl text-charcoal-900 mb-2">
+                    Select the right size
                   </h2>
+                  <p className="text-sm text-warmgray-600">Comfort is key for {petName ? `${petName}'s` : "your pet's"} everyday wear.</p>
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
@@ -359,11 +356,10 @@ export default function CollarFunnelPage() {
                           : "border-sand-200 hover:border-cocoa-300 bg-white"
                       )}
                     >
-                      <div className="text-4xl sm:text-5xl mb-3">{size.emoji}</div>
                       <h3 className="font-semibold text-base sm:text-lg text-charcoal-900 mb-2">{size.name}</h3>
                       <p className="text-xs sm:text-sm text-warmgray-600">{size.range}</p>
                       {selectedSize === size.id && (
-                        <div className="absolute -top-2 -right-2 w-6 h-6 bg-cocoa-500 rounded-full flex items-center justify-center animate-pulse">
+                        <div className="absolute -top-2 -right-2 w-6 h-6 bg-cocoa-500 rounded-full flex items-center justify-center">
                           <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                           </svg>
@@ -373,15 +369,12 @@ export default function CollarFunnelPage() {
                   ))}
                 </div>
                 
-                <div className="bg-sky-50 border border-sky-200 rounded-2xl p-4 sm:p-6">
-                  <div className="flex items-start gap-3">
-                    <div className="text-2xl">📏</div>
-                    <div>
-                      <h4 className="font-semibold text-sm sm:text-base text-charcoal-900 mb-2">How to Measure</h4>
-                      <p className="text-xs sm:text-sm text-warmgray-600 leading-relaxed">
-                        Use a soft measuring tape around the base of your pet's neck where a collar would normally sit. Add 2 inches for comfort.
-                      </p>
-                    </div>
+                <div className="bg-cream-50 border border-sand-200 rounded-2xl p-4 sm:p-6">
+                  <div className="space-y-2">
+                    <h4 className="font-semibold text-sm sm:text-base text-charcoal-900">Sizing Guide</h4>
+                    <p className="text-xs sm:text-sm text-warmgray-600 leading-relaxed">
+                      Measure your pet's neck circumference with a soft tape measure where a collar would normally sit. Add 2 inches for comfort.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -417,19 +410,18 @@ export default function CollarFunnelPage() {
                 </button>
               ) : (
                 <div className="text-xs sm:text-sm text-warmgray-600">
-                  Ready to complete your order above! 🎉
+                  Ready to complete your order above
                 </div>
               )}
             </div>
           </div>
 
-          {/* Fun Facts */}
+          {/* Trust Signal */}
           {currentStep < 4 && (
             <div className="mt-8 sm:mt-10 md:mt-12 text-center">
               <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/50 max-w-md mx-auto">
-                <div className="text-3xl sm:text-4xl mb-2">💝</div>
                 <p className="text-xs sm:text-sm text-warmgray-600 leading-relaxed">
-                  Over 10,000 pet parents have already joined our waitlist! You're in great company.
+                  Over 10,000 pet parents have already joined our waitlist. You're in great company.
                 </p>
               </div>
             </div>

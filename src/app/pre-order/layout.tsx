@@ -1,6 +1,3 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-
 export const metadata = {
   title: "Pre-Order Whisker Smart Collar | Whisker",
   description: "Pre-order your Whisker Smart Collar with GPS tracking, health monitoring, and AI insights for your pet.",
@@ -11,11 +8,6 @@ export default function PreOrderLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      <Header />
-      {children}
-      <Footer />
-    </>
-  );
+  // Use root layout header/footer to avoid double headers.
+  return children;
 }
