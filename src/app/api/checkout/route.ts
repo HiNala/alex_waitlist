@@ -20,8 +20,8 @@ export async function POST(req: NextRequest) {
       color = 'Charcoal Black',
       size = undefined,
       quantity = 1,
-      success_url = `${req.nextUrl.origin}/pre-order?status=success`,
-      cancel_url = `${req.nextUrl.origin}/pre-order?status=cancelled`,
+      success_url = `${req.nextUrl.origin}/collar-funnel/success`,
+      cancel_url = `${req.nextUrl.origin}/collar-funnel/cancelled`,
       metadata = {},
     } = body || {};
 
