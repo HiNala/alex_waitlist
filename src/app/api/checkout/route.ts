@@ -4,7 +4,9 @@ import { PAYMENTS } from '@/lib/payments.config';
 
 // Expect STRIPE_SECRET_KEY in env (set in your hosting provider)
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
-const stripe = stripeSecretKey ? new Stripe(stripeSecretKey) : null;
+const stripe = stripeSecretKey ? new Stripe(stripeSecretKey, { 
+  apiVersion: '2024-12-18.acacia' 
+}) : null;
 
 export async function POST(req: NextRequest) {
   try {
