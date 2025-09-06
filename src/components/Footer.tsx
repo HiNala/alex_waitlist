@@ -23,6 +23,8 @@ export default function Footer() {
               <li><a href="#features" className="hover:text-cocoa-700 transition-colors">Features</a></li>
               <li><a href="#device" className="hover:text-cocoa-700 transition-colors">Device</a></li>
               <li><a href="#preview" className="hover:text-cocoa-700 transition-colors">App Preview</a></li>
+              <li><a href="/pre-order" className="hover:text-cocoa-700 transition-colors">Pre-Order Page</a></li>
+              <li><a href="/collar-funnel" className="hover:text-cocoa-700 transition-colors">Fun Funnel (A/B)</a></li>
               <li><a href="#faq" className="hover:text-cocoa-700 transition-colors">FAQ</a></li>
             </ul>
           </div>

@@ -14,7 +14,9 @@ Whisker combines veterinary knowledge with artificial intelligence to deliver pe
   - Mobile device mockups for app previews
   - Animated hero section with image carousel
   - Interactive UI screens showcasing app functionality
+- **Ecommerce Integration**: Full Stripe payment processing with Apple Pay & Google Pay
 - **Waitlist Signup**: Multiple email capture forms with validation
+- **A/B Testing Ready**: Two different pre-order experiences
 - **Performance Optimized**: Fast loading and rendering
 - **TypeScript**: Type safety throughout the codebase
 
@@ -48,8 +50,12 @@ yarn install
 
 3. Set up environment variables:
 
+Create a `.env.local` file in the project root:
+
 ```bash
-cp .env.example .env.local
+# Stripe Configuration (Required for pre-order payments)
+STRIPE_SECRET_KEY=sk_test_... # or sk_live_... for production
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_... # or pk_live_... for production
 ```
 
 4. Run the development server:
@@ -62,6 +68,24 @@ yarn dev
 
 5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Available Routes
+
+### Public Pages
+- **`/`** - Main landing page with hero, features, roadmap, and waitlist signup
+- **`/pre-order`** - Standard ecommerce pre-order page with product gallery and Stripe checkout
+- **`/collar-funnel`** - Fun funnel ordering experience with step-by-step personalization (A/B testing)
+- **`/privacy`** - Privacy policy page
+- **`/terms`** - Terms of service page  
+- **`/support`** - Support and contact information
+
+### API Endpoints
+- **`/api/checkout`** - Stripe Checkout Session creation for payments
+- **`/api/waitlist`** - Waitlist signup handling and storage
+- **`/api/kit`** - Kit integration testing endpoint
+
+### Development/Testing
+- **`/test-kit`** - UI component testing and kit integration demos
+
 ## Project Structure
 
 ```
@@ -70,21 +94,36 @@ yarn dev
 ├── src/                     # Source code
 │   ├── app/                 # Next.js app router pages
 │   │   ├── api/             # API routes
-│   │   │   └── waitlist/    # Waitlist API endpoint
+│   │   │   ├── checkout/    # Stripe payment endpoint
+│   │   │   ├── waitlist/    # Waitlist API endpoint
+│   │   │   └── kit/         # Kit integration endpoint
+│   │   ├── pre-order/       # Standard ecommerce page
+│   │   ├── collar-funnel/   # Fun funnel experience (A/B)
+│   │   ├── privacy/         # Privacy policy
+│   │   ├── terms/           # Terms of service
+│   │   ├── support/         # Support page
+│   │   ├── test-kit/        # Component testing
 │   │   ├── globals.css      # Global styles
 │   │   ├── layout.tsx       # Root layout
 │   │   └── page.tsx         # Home page
-│   └── components/          # Reusable components
-│       ├── Header.tsx       # Header component
-│       ├── FeaturesSection.tsx # Features section
-│       ├── WaitlistForm.tsx # Waitlist form component
-│       ├── HeroImageCarousel.tsx # Hero carousel
-│       ├── TestUI.tsx       # UI demo wrapper
-│       └── ui-screens/      # App UI screen mockups
-│           ├── HomeScreen.tsx
-│           ├── HealthChatScreen.tsx
-│           ├── HealthTimelineScreen.tsx
-│           └── NutritionScreen.tsx
+│   ├── components/          # Reusable components
+│   │   ├── Header.tsx       # Header component
+│   │   ├── Footer.tsx       # Footer component
+│   │   ├── WaitlistForm.tsx # Waitlist form component
+│   │   ├── SectionPanel.tsx # Reusable panel component
+│   │   ├── Timeline.tsx     # Timeline component
+│   │   ├── StripeCheckout.tsx # Stripe checkout integration
+│   │   ├── PaymentButtons.tsx # Apple/Google Pay buttons
+│   │   ├── TestUI.tsx       # UI demo wrapper
+│   │   └── ui-screens/      # App UI screen mockups
+│   │       ├── HomeScreen.tsx
+│   │       ├── HealthChatScreen.tsx
+│   │       ├── HealthTimelineScreen.tsx
+│   │       └── NutritionScreen.tsx
+│   └── lib/                 # Utilities and configuration
+│       ├── utils.ts         # Utility functions
+│       ├── site.ts          # Site configuration
+│       └── payments.config.ts # Payment configuration
 ├── tailwind.config.js       # Tailwind CSS configuration
 └── tsconfig.json            # TypeScript configuration
 ```
@@ -117,6 +156,77 @@ The site implements a comprehensive mobile-first approach with:
 ## Deployment
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new).
+
+## Pre-Order Ecommerce Pages
+
+Two beautiful, mobile-responsive ecommerce experiences are included:
+
+- `/pre-order` – Standard ecommerce product detail + checkout
+- `/collar-funnel` – Fun funnel ordering flow with soft pastel aesthetics (for A/B testing)
+
+### Payment Integration (Stripe)
+
+We use Stripe Checkout Sessions for payments. Apple Pay, Google Pay, Link, and cards are enabled by default (Stripe automatically exposes them when available).
+
+Setup steps:
+
+1) Install dependencies (already added)
+
+```
+npm i stripe
+```
+
+2) Add environment variable
+
+Create an environment variable in your hosting platform (Vercel, etc.):
+
+- `STRIPE_SECRET_KEY` – your live or test secret key (e.g., `sk_live_...` or `sk_test_...`)
+
+3) Configure allowed domains in Stripe
+
+In your Stripe Dashboard → Settings → Checkout → Domains, add your site domain so Checkout can redirect back correctly.
+
+4) How it works
+
+- Client components call our API route: `POST /api/checkout`
+- API route creates a Stripe Checkout Session with the product details
+- User is redirected to `session.url`
+- On success/cancel, Stripe redirects back to:
+  - Success: `/pre-order?status=success`
+  - Cancel: `/pre-order?status=cancelled`
+
+5) Customizing
+
+You can pass extra metadata and custom success/cancel URLs via the `StripeCheckout` component props:
+
+```
+<StripeCheckout
+  data={{
+    productName: "Whisker Smart Collar",
+    color: "Charcoal Black",
+    size: "Medium",
+    quantity: 1,
+    price: 199,
+    success_url: "https://yourdomain.com/pre-order?status=success",
+    cancel_url: "https://yourdomain.com/pre-order?status=cancelled",
+    metadata: { campaign: "ab_test_funnel_a" }
+  }}
+>
+  Pre-Order Now
+</StripeCheckout>
+```
+
+6) Testing
+
+- Use Stripe test keys and cards (e.g., `4242 4242 4242 4242`) to verify flows locally.
+- Run locally: `npm run dev` and visit `/pre-order`.
+
+7) Notes
+
+- Our API route is at `src/app/api/checkout/route.ts`
+- It sets allowed countries for shipping and allows promotion codes
+- It uses price passed from the client (in cents)
+- Apple Pay, Google Pay, and Link are automatically available where supported
 
 ## Customization
 

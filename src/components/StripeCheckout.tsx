@@ -8,6 +8,9 @@ interface CheckoutData {
   size?: string;
   quantity: number;
   price: number;
+  success_url?: string;
+  cancel_url?: string;
+  metadata?: Record<string, string | number | boolean>;
   customerInfo?: {
     petName?: string;
     petBreed?: string;
@@ -35,19 +38,19 @@ export default function StripeCheckout({
     setIsLoading(true);
     
     try {
-      // TODO: Replace with actual Stripe integration
-      console.log("Stripe checkout initiated:", data);
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // For demo purposes - replace with actual Stripe checkout
-      const confirmed = confirm(`Confirm pre-order:\n\n${data.productName}\nColor: ${data.color}\n${data.size ? `Size: ${data.size}\n` : ''}Quantity: ${data.quantity}\nTotal: $${data.price}\n\nProceed to Stripe checkout?`);
-      
-      if (confirmed) {
-        // Here you would typically redirect to Stripe or handle the payment
-        alert("🎉 Pre-order successful! You'll receive a confirmation email shortly.");
-        onSuccess?.();
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const json = await res.json();
+      if (!res.ok) throw new Error(json?.error || 'Checkout failed');
+
+      if (json?.url) {
+        window.location.href = json.url as string;
+      } else {
+        throw new Error('No checkout URL returned');
       }
     } catch (error) {
       console.error("Checkout error:", error);
