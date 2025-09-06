@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { SITE } from "@/lib/site";
-import Footer from "@/components/Footer";
+import FooterVisibility from "@/components/FooterVisibility";
 import Header from "@/components/Header";
 import CookieBanner from "@/components/CookieBanner";
 
@@ -45,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
         <Header />
         <main id="content">{children}</main>
-        <Footer />
+        <FooterVisibility />
         <CookieBanner />
       </body>
     </html>
