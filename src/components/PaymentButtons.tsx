@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { loadStripe, Stripe, PaymentRequest } from "@stripe/stripe-js";
 import { PAYMENTS } from "@/lib/payments.config";
 
@@ -34,10 +34,9 @@ export default function PaymentButtons({ label = "Buy with" }: PaymentButtonsPro
       },
       requestPayerName: true,
       requestPayerEmail: true,
-      requestShipping: false,
     });
 
-    pr.canMakePayment().then(result => {
+    pr.canMakePayment().then((result) => {
       if (result) {
         setPaymentRequest(pr);
         setCanMakePayment(true);
@@ -49,12 +48,23 @@ export default function PaymentButtons({ label = "Buy with" }: PaymentButtonsPro
     return null; // Hidden if Apple/Google Pay not available
   }
 
-  // Use the built-in browser sheet for Apple Pay / Google Pay
+  // Use Stripe Payment Request sheet for Apple Pay / Google Pay
   const handleClick = async () => {
     try {
-      const result = await paymentRequest.show();
-      await paymentRequest.abort();
-      console.log("PaymentRequest result:", result);
+      // Create PaymentIntent on our server
+      const res = await fetch("/api/payment-intent", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ quantity: 1 }),
+      });
+      const json = await res.json();
+      if (!res.ok || !json?.clientSecret) throw new Error(json?.error || "Failed to init payment");
+
+      const result = await paymentRequest!.show();
+      if (result.complete) {
+        // Let browser sheet close gracefully; success page will be handled by Stripe
+        window.location.href = "/collar-funnel/success";
+      }
     } catch (e) {
       console.warn(e);
     }
