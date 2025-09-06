@@ -157,76 +157,82 @@ The site implements a comprehensive mobile-first approach with:
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new).
 
-## Pre-Order Ecommerce Pages
+## Ecommerce & Payment Integration
 
-Two beautiful, mobile-responsive ecommerce experiences are included:
+### Pre-Order Pages
 
-- `/pre-order` – Standard ecommerce product detail + checkout
-- `/collar-funnel` – Fun funnel ordering flow with soft pastel aesthetics (for A/B testing)
+Two beautiful, mobile-responsive ecommerce experiences for A/B testing:
+
+- **`/pre-order`** – Standard ecommerce product detail page with gallery, color selection, and checkout
+- **`/collar-funnel`** – Fun step-by-step funnel with soft pastel aesthetics and personalization
 
 ### Payment Integration (Stripe)
 
-We use Stripe Checkout Sessions for payments. Apple Pay, Google Pay, Link, and cards are enabled by default (Stripe automatically exposes them when available).
+Robust payment processing with multiple gateway support:
 
-Setup steps:
+#### Supported Payment Methods
+- **Credit/Debit Cards** - All major cards via Stripe
+- **Apple Pay** - One-click payments on supported devices
+- **Google Pay** - One-click payments on supported devices  
+- **Link** - Stripe's express checkout
+- **Bank Transfers** - US bank account payments
 
-1) Install dependencies (already added)
+#### Setup Instructions
 
-```
-npm i stripe
-```
-
-2) Add environment variable
-
-Create an environment variable in your hosting platform (Vercel, etc.):
-
-- `STRIPE_SECRET_KEY` – your live or test secret key (e.g., `sk_live_...` or `sk_test_...`)
-
-3) Configure allowed domains in Stripe
-
-In your Stripe Dashboard → Settings → Checkout → Domains, add your site domain so Checkout can redirect back correctly.
-
-4) How it works
-
-- Client components call our API route: `POST /api/checkout`
-- API route creates a Stripe Checkout Session with the product details
-- User is redirected to `session.url`
-- On success/cancel, Stripe redirects back to:
-  - Success: `/pre-order?status=success`
-  - Cancel: `/pre-order?status=cancelled`
-
-5) Customizing
-
-You can pass extra metadata and custom success/cancel URLs via the `StripeCheckout` component props:
-
-```
-<StripeCheckout
-  data={{
-    productName: "Whisker Smart Collar",
-    color: "Charcoal Black",
-    size: "Medium",
-    quantity: 1,
-    price: 199,
-    success_url: "https://yourdomain.com/pre-order?status=success",
-    cancel_url: "https://yourdomain.com/pre-order?status=cancelled",
-    metadata: { campaign: "ab_test_funnel_a" }
-  }}
->
-  Pre-Order Now
-</StripeCheckout>
+1. **Install Dependencies** (already included)
+```bash
+npm install stripe @stripe/stripe-js @stripe/react-stripe-js
 ```
 
-6) Testing
+2. **Environment Variables**
+Add to your hosting platform (Vercel, Netlify, etc.):
+```bash
+STRIPE_SECRET_KEY=sk_test_... # or sk_live_... for production
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_... # or pk_live_... for production
+```
 
-- Use Stripe test keys and cards (e.g., `4242 4242 4242 4242`) to verify flows locally.
-- Run locally: `npm run dev` and visit `/pre-order`.
+3. **Stripe Dashboard Configuration**
+- Go to Stripe Dashboard → Settings → Checkout
+- Add your domain(s) under "Allowed domains"
+- Enable Apple Pay domain verification (automatic with Stripe Checkout)
 
-7) Notes
+#### How It Works
 
-- Our API route is at `src/app/api/checkout/route.ts`
-- It sets allowed countries for shipping and allows promotion codes
-- It uses price passed from the client (in cents)
-- Apple Pay, Google Pay, and Link are automatically available where supported
+1. **Client Interaction**: User selects product options and clicks "Pre-Order"
+2. **API Call**: `StripeCheckout` component posts to `/api/checkout`
+3. **Session Creation**: Server creates Stripe Checkout Session with product details
+4. **Redirect**: User redirected to Stripe's secure checkout page
+5. **Payment**: User completes payment with their preferred method
+6. **Return**: Stripe redirects back to success/cancel URLs
+
+#### Product Configuration
+
+Price and product details are centrally managed in `src/lib/payments.config.ts`:
+```typescript
+export const PAYMENTS = {
+  product: {
+    name: "Whisker Smart Collar - Pre-Order",
+    price: 200, // $200
+  },
+  stripe: {
+    unitAmount: 20000, // $200.00 in cents (server-enforced)
+  }
+};
+```
+
+#### Security Features
+- **Server-side pricing** - Price cannot be manipulated by client
+- **Quantity limits** - Enforced 1-10 items per order
+- **Metadata tracking** - Color, size, and custom data stored with each order
+- **HTTPS required** - All payment flows use secure connections
+
+#### Testing
+```bash
+npm run dev
+# Visit /pre-order or /collar-funnel
+# Use test card: 4242 4242 4242 4242
+# Expiry: any future date, CVC: any 3 digits
+```
 
 ## Customization
 
