@@ -60,11 +60,9 @@ export default function PaymentButtons({ label = "Buy with" }: PaymentButtonsPro
       const json = await res.json();
       if (!res.ok || !json?.clientSecret) throw new Error(json?.error || "Failed to init payment");
 
-      const result = await paymentRequest!.show();
-      if (result.complete) {
-        // Let browser sheet close gracefully; success page will be handled by Stripe
-        window.location.href = "/collar-funnel/success";
-      }
+      await paymentRequest!.show();
+      // Let browser sheet close gracefully; success page will be handled by Stripe
+      window.location.href = "/collar-funnel/success";
     } catch (e) {
       console.warn(e);
     }
