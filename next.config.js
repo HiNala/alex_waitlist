@@ -14,11 +14,7 @@ const nextConfig = {
   images: {
     domains: ['images.unsplash.com']
   },
-  redirects: async () => ([
-    // Redirect old domains to new Vercel domain
-    { source: "/:path*", has: [{ type: "host", value: "www.whisker.pet" }], destination: "https://whisker-pet.vercel.app/:path*", permanent: true },
-    { source: "/:path*", has: [{ type: "host", value: "whisker.pet" }], destination: "https://whisker-pet.vercel.app/:path*", permanent: true },
-  ]),
+  redirects: async () => ([]),
   headers: async () => ([
     {
       source: "/(.*)",
