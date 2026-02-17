@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import WaitlistForm from "@/components/WaitlistForm";
-import { Activity, MapPin, Heart, Bell, Smartphone, Shield, Check, ArrowRight } from "lucide-react";
+import { Activity, MapPin, Heart, Smartphone, Shield, Check, ArrowRight } from "lucide-react";
 
 export const metadata = {
   title: "Mobile App — Whisker",
@@ -45,6 +45,11 @@ export default function MobileAppPage() {
               <p className="text-sm text-white/40 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
                 Included free with every Whisker collar purchase.
               </p>
+              <div className="flex flex-wrap gap-2 justify-center lg:justify-start pt-2">
+                <a href="#app-dashboard" className="text-xs px-3 py-1 rounded-full border border-white/20 text-white/70 hover:text-white hover:border-cocoa-300 transition-colors">Dashboard</a>
+                <a href="#app-map" className="text-xs px-3 py-1 rounded-full border border-white/20 text-white/70 hover:text-white hover:border-cocoa-300 transition-colors">Location</a>
+                <a href="#app-ai" className="text-xs px-3 py-1 rounded-full border border-white/20 text-white/70 hover:text-white hover:border-cocoa-300 transition-colors">AI Assistant</a>
+              </div>
             </div>
             
             <div className="relative animate-fade-in-up flex justify-center lg:justify-end" style={{ animationDelay: "0.5s" }}>
@@ -121,7 +126,7 @@ export default function MobileAppPage() {
       </section>
 
       {/* Feature 1: Dashboard */}
-      <section className="py-24 lg:py-32 bg-white">
+      <section id="app-dashboard" className="py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="order-2 lg:order-1 relative h-[600px] bg-sand-50 rounded-[3rem] overflow-hidden border border-sand-100 shadow-lg">
@@ -167,7 +172,7 @@ export default function MobileAppPage() {
       </section>
 
       {/* Feature 2: Map */}
-      <section className="py-24 lg:py-32 bg-cream-50">
+      <section id="app-map" className="py-24 lg:py-32 bg-cream-50">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="space-y-8">
@@ -217,7 +222,7 @@ export default function MobileAppPage() {
       </section>
 
       {/* Feature 3: AI Health */}
-      <section className="py-24 lg:py-32 bg-white">
+      <section id="app-ai" className="py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="order-2 lg:order-1 relative h-[600px] bg-charcoal-900 rounded-[3rem] overflow-hidden border border-charcoal-800 shadow-2xl">
@@ -295,6 +300,12 @@ export default function MobileAppPage() {
           </p>
           <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/10">
             <WaitlistForm />
+          </div>
+          <div className="mt-8 flex items-center justify-center gap-3 text-sm text-white/70">
+            <span>Prefer hardware first?</span>
+            <Link href="/pre-order" className="underline underline-offset-4 hover:text-white">
+              Reserve Dog or Cat now
+            </Link>
           </div>
         </div>
       </section>

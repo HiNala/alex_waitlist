@@ -14,6 +14,9 @@ export default function AboutPage() {
       <section className="relative py-24 lg:py-32 bg-cream-50 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-sand-200 text-sm font-medium text-cocoa-700">
+              Digital Studio Labs, LLC
+            </div>
             <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl text-charcoal-900 leading-tight animate-fade-in-up">
               We&apos;re building the future of <span className="text-cocoa-700">pet care.</span>
             </h1>
@@ -151,6 +154,9 @@ export default function AboutPage() {
           <Link href="/pre-order" className="btn-primary inline-flex items-center justify-center px-12 py-5 text-xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
             Reserve Your Whisker
           </Link>
+          <p className="mt-6 text-sm text-warmgray-500">
+            Questions before pre-ordering? <Link href="/support" className="underline underline-offset-4 hover:text-cocoa-700">Talk to support</Link>.
+          </p>
         </div>
       </section>
     </div>

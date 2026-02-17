@@ -18,6 +18,7 @@ export default function BlogPage() {
       {/* Hero Section */}
       <section className="bg-cream-50 py-20 lg:py-28 relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center">
+          <p className="text-sm uppercase tracking-[0.18em] text-cocoa-700/80 font-semibold mb-3">Latest Insights</p>
           <h1 className="font-serif text-5xl lg:text-6xl text-charcoal-900 mb-6 animate-fade-in-up">
             The Whisker <span className="text-cocoa-700">Journal</span>
           </h1>
@@ -68,7 +69,7 @@ export default function BlogPage() {
 
         {/* Recent Posts Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {remainingPosts.map((post, idx) => (
+          {remainingPosts.map((post) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}

@@ -15,11 +15,11 @@ export default function Header() {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6 text-sm text-warmgray-600">
-          <Link href="/products/dog-collar" className="hover:text-cocoa-500 transition-colors">Dog</Link>
-          <Link href="/products/cat-collar" className="hover:text-cocoa-500 transition-colors">Cat</Link>
-          <Link href="/app" className="hover:text-cocoa-500 transition-colors">App</Link>
-          <Link href="/blog" className="hover:text-cocoa-500 transition-colors">Blog</Link>
-          <Link href="/about" className="hover:text-cocoa-500 transition-colors">About</Link>
+          <Link href="/products/dog-collar" className="hover:text-cocoa-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cocoa-300 rounded-sm">Dog</Link>
+          <Link href="/products/cat-collar" className="hover:text-cocoa-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cocoa-300 rounded-sm">Cat</Link>
+          <Link href="/app" className="hover:text-cocoa-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cocoa-300 rounded-sm">App</Link>
+          <Link href="/blog" className="hover:text-cocoa-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cocoa-300 rounded-sm">Blog</Link>
+          <Link href="/about" className="hover:text-cocoa-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cocoa-300 rounded-sm">About</Link>
         </nav>
         
         {/* Desktop CTA + Mobile Menu Button */}

@@ -3,26 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Check, Shield, Truck, CreditCard, ArrowRight } from "lucide-react";
-
-// Mock checkout components for now - in real app these would be the actual Stripe components
-const StripeCheckoutButton = ({ product }: { product: any }) => (
-  <button className="w-full btn-primary py-4 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
-    <CreditCard className="w-5 h-5" />
-    Reserve for ${product.deposit}
-  </button>
-);
-
-const ExpressCheckout = () => (
-  <div className="grid grid-cols-2 gap-3">
-    <button className="flex items-center justify-center bg-black text-white py-3 rounded-xl hover:opacity-90 transition-opacity">
-      <span className="font-bold">Apple Pay</span>
-    </button>
-    <button className="flex items-center justify-center bg-white border border-sand-200 text-charcoal-900 py-3 rounded-xl hover:bg-sand-50 transition-colors">
-      <span className="font-bold"><span className="text-blue-500">G</span>Pay</span>
-    </button>
-  </div>
-);
+import { Check, Shield, Truck, ArrowRight, CreditCard } from "lucide-react";
+import StripeCheckout from "@/components/StripeCheckout";
+import PaymentButtons from "@/components/PaymentButtons";
 
 const products = [
   {
@@ -45,7 +28,13 @@ const products = [
 
 export default function PreOrderPage() {
   const [selectedId, setSelectedId] = useState(products[0].id);
-  const selectedProduct = products.find(p => p.id === selectedId) || products[0];
+  const selectedProduct = products.find((p) => p.id === selectedId) || products[0];
+  const checkoutData = {
+    productName: selectedProduct.name,
+    color: "Default",
+    quantity: 1,
+    price: selectedProduct.deposit,
+  };
 
   return (
     <div className="bg-cream-50 min-h-screen">
@@ -174,7 +163,13 @@ export default function PreOrderPage() {
             </div>
 
             <div className="space-y-4">
-              <StripeCheckoutButton product={selectedProduct} />
+              <StripeCheckout
+                data={checkoutData}
+                className="w-full btn-primary py-4 text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2"
+              >
+                <CreditCard className="w-5 h-5" />
+                Reserve {selectedProduct.name} for ${selectedProduct.deposit}
+              </StripeCheckout>
               
               <div className="relative py-2">
                 <div className="absolute inset-0 flex items-center">
@@ -185,7 +180,7 @@ export default function PreOrderPage() {
                 </div>
               </div>
               
-              <ExpressCheckout />
+              <PaymentButtons label={`Fast checkout for ${selectedProduct.name}`} />
             </div>
 
             <p className="text-center text-xs text-warmgray-400 mt-6 leading-relaxed">

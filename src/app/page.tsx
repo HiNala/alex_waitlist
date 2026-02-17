@@ -35,6 +35,9 @@ export default function Home() {
                   View Products <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
+              <p className="text-sm text-warmgray-500 animate-fade-in-up" style={{ animationDelay: "0.35s" }}>
+                $100 refundable deposit · $250 at shipment · Ships in 3-6 months
+              </p>
               
               <div className="flex flex-wrap gap-6 pt-6 text-sm text-warmgray-600 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
                 <span className="flex items-center gap-2">
@@ -95,6 +98,7 @@ export default function Home() {
                 desc: "GPS tracking, health monitoring, and AI behavior insights for your dog.",
                 price: "$350",
                 deposit: "$100 deposit",
+                tag: "Dog",
                 image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=400&fit=crop",
                 href: "/products/dog-collar",
                 cta: "View Dog Collar"
@@ -104,6 +108,7 @@ export default function Home() {
                 desc: "GPS collar with RFID-linked smart bowl for portion control and feeding schedules.",
                 price: "$350",
                 deposit: "$100 deposit",
+                tag: "Cat",
                 image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&h=400&fit=crop",
                 href: "/products/cat-collar",
                 cta: "View Cat Bundle"
@@ -113,6 +118,7 @@ export default function Home() {
                 desc: "Your AI companion for comprehensive pet care, powered by collar data.",
                 price: "Included",
                 deposit: "with any collar",
+                tag: "App",
                 image: "https://images.unsplash.com/photo-1551717743-49959800-b15e?w=600&h=400&fit=crop",
                 href: "/app",
                 cta: "Explore App"
@@ -128,6 +134,9 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-8 flex-1 flex flex-col">
+                  <span className="inline-flex w-fit text-[11px] uppercase tracking-wider font-semibold bg-cream-50 text-cocoa-700 border border-sand-200 rounded-full px-2.5 py-1 mb-3">
+                    {product.tag}
+                  </span>
                   <h3 className="font-serif text-2xl text-charcoal-900 mb-3">{product.title}</h3>
                   <p className="text-warmgray-600 leading-relaxed mb-6 flex-1">{product.desc}</p>
                   <div className="space-y-4">
@@ -191,7 +200,7 @@ export default function Home() {
                 desc: "Optimized power management for up to 10 days of battery life."
               }
             ].map((feature, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-3xl border border-sand-200 hover:shadow-lg transition-shadow duration-300">
+              <div key={idx} className="bg-white p-8 rounded-3xl border border-sand-200 hover:shadow-lg hover:border-cocoa-200 transition-all duration-300">
                 <div className="w-14 h-14 bg-cream-50 rounded-2xl flex items-center justify-center mb-6">
                   {feature.icon}
                 </div>
@@ -208,6 +217,7 @@ export default function Home() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8 order-2 lg:order-1">
+              <p className="text-sm uppercase tracking-[0.18em] text-cocoa-300/80 font-semibold">Mobile Experience</p>
               <h2 className="font-serif text-4xl lg:text-5xl leading-tight">
                 The <span className="text-cocoa-300">Whisker App</span>
               </h2>
@@ -231,13 +241,9 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className="pt-8 flex gap-4">
-                <div className="h-12 w-36 bg-white/10 rounded-lg flex items-center justify-center text-sm font-medium text-white/50 border border-white/5">
-                  App Store
-                </div>
-                <div className="h-12 w-36 bg-white/10 rounded-lg flex items-center justify-center text-sm font-medium text-white/50 border border-white/5">
-                  Google Play
-                </div>
+              <div className="pt-8 flex flex-col sm:flex-row gap-4">
+                <Image src="/images/app-store-badge.svg" alt="Download on the App Store" width={140} height={42} className="h-11 w-auto opacity-75" />
+                <Image src="/images/google-play-badge.svg" alt="Get it on Google Play" width={140} height={42} className="h-11 w-auto opacity-75" />
               </div>
             </div>
 
@@ -286,6 +292,7 @@ export default function Home() {
       <section className="py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
           <div className="text-center mb-16">
+            <p className="text-sm uppercase tracking-[0.16em] text-cocoa-700/80 font-semibold mb-3">Simple Process</p>
             <h2 className="font-serif text-4xl lg:text-5xl text-charcoal-900 leading-tight mb-6">
               How it <span className="text-cocoa-700">works</span>
             </h2>
@@ -293,14 +300,14 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-12 relative">
             {/* Connecting Line (Desktop) */}
-            <div className="hidden md:block absolute top-12 left-1/6 right-1/6 h-0.5 bg-sand-200 -z-10"></div>
+            <div className="hidden md:block absolute top-12 left-1/6 right-1/6 h-0.5 border-t border-dashed border-sand-300 -z-10"></div>
             
             {[
               { step: "1", title: "Choose your product", desc: "Pick the smart collar and accessories that fit your pet." },
               { step: "2", title: "Secure your spot", desc: "Place a $100 refundable deposit to reserve your unit." },
               { step: "3", title: "Track everything", desc: "Get your collar, download the app, and start understanding your pet." }
             ].map((item, idx) => (
-              <div key={idx} className="text-center bg-white">
+              <div key={idx} className="text-center bg-white rounded-3xl border border-sand-200 p-6 shadow-sm hover:shadow-md transition-shadow">
                 <div className="w-24 h-24 rounded-full bg-cream-50 border-4 border-white shadow-lg flex items-center justify-center mx-auto mb-8 relative z-10">
                   <span className="font-serif text-3xl font-bold text-cocoa-700">{item.step}</span>
                 </div>
@@ -339,9 +346,11 @@ export default function Home() {
       <section className="py-24 lg:py-32 bg-cream-50">
         <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
           <div className="text-center mb-16">
+            <p className="text-sm uppercase tracking-[0.16em] text-cocoa-700/80 font-semibold mb-3">Pre-Order Questions</p>
             <h2 className="font-serif text-4xl lg:text-5xl text-charcoal-900 leading-tight mb-6">
               Frequently Asked <span className="text-cocoa-700">Questions</span>
             </h2>
+            <p className="text-warmgray-600">Everything you need to know before placing your deposit.</p>
           </div>
           
           <div className="space-y-4">

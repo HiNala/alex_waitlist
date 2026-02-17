@@ -83,9 +83,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               <div className="text-sm text-warmgray-500">
                 Tags: <span className="text-cocoa-600 font-medium">Technology, Pet Health</span>
               </div>
-              <button className="flex items-center gap-2 text-warmgray-600 hover:text-cocoa-700 transition-colors">
-                <Share2 className="w-4 h-4" /> Share
-              </button>
+              <Link href="/blog" className="flex items-center gap-2 text-warmgray-600 hover:text-cocoa-700 transition-colors">
+                <Share2 className="w-4 h-4" /> More articles
+              </Link>
             </div>
           </div>
         </div>

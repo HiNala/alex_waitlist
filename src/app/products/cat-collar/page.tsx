@@ -40,6 +40,11 @@ export default function CatCollarPage() {
                   Total price $350 · Ships in 3–6 months
                 </div>
               </div>
+              <div className="flex flex-wrap gap-2 justify-center lg:justify-start pt-2">
+                <a href="#cat-collar" className="text-xs px-3 py-1 rounded-full border border-sand-200 text-warmgray-600 hover:text-cocoa-700 hover:border-cocoa-300 transition-colors">01 Collar</a>
+                <a href="#cat-bowl" className="text-xs px-3 py-1 rounded-full border border-sand-200 text-warmgray-600 hover:text-cocoa-700 hover:border-cocoa-300 transition-colors">02 Bowl</a>
+                <a href="#cat-ecosystem" className="text-xs px-3 py-1 rounded-full border border-sand-200 text-warmgray-600 hover:text-cocoa-700 hover:border-cocoa-300 transition-colors">03 Ecosystem</a>
+              </div>
             </div>
             
             <div className="relative animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
@@ -68,7 +73,7 @@ export default function CatCollarPage() {
       </section>
 
       {/* Feature 1: The Collar */}
-      <section className="py-24 lg:py-32 bg-white">
+      <section id="cat-collar" className="py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="order-2 lg:order-1 relative aspect-square rounded-[2.5rem] overflow-hidden bg-sand-100 shadow-lg">
@@ -110,7 +115,7 @@ export default function CatCollarPage() {
       </section>
 
       {/* Feature 2: The Bowl */}
-      <section className="py-24 lg:py-32 bg-cream-50">
+      <section id="cat-bowl" className="py-24 lg:py-32 bg-cream-50">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="space-y-8">
@@ -155,7 +160,7 @@ export default function CatCollarPage() {
       </section>
 
       {/* Feature 3: Ecosystem */}
-      <section className="py-24 lg:py-32 bg-white">
+      <section id="cat-ecosystem" className="py-24 lg:py-32 bg-white">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="order-2 lg:order-1 relative aspect-video lg:aspect-square rounded-[2.5rem] overflow-hidden bg-sand-100 shadow-lg">
