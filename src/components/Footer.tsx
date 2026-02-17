@@ -4,43 +4,74 @@ import { SITE } from "@/lib/site";
 
 export default function Footer() {
   return (
-    <footer className="mt-24 border-t border-sand-200 bg-white">
-      <div className="container mx-auto px-4 py-16 max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
-              <Image src="/logo/Whisker_button_logo.svg" alt="Whisker" width={64} height={64} />
-              <div className="font-serif text-2xl text-charcoal-900">Whisker</div>
+    <footer className="bg-cocoa-900 text-white/80">
+      <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 max-w-7xl">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 sm:gap-12">
+          {/* Brand */}
+          <div className="col-span-2 md:col-span-1">
+            <div className="flex items-center gap-2.5 mb-5">
+              <Image src="/logo/Whisker_button_logo.svg" alt="Whisker" width={40} height={40} className="brightness-0 invert opacity-90" />
+              <span className="font-serif text-xl text-white font-bold">Whisker</span>
             </div>
-            <p className="text-warmgray-600 leading-relaxed max-w-md">
-              {SITE.description}
+            <p className="text-sm text-white/60 leading-relaxed max-w-xs mb-6">
+              Smart pet technology for the pets you love most.
             </p>
+            {/* Social placeholders */}
+            <div className="flex gap-3">
+              {["Instagram", "X", "TikTok"].map((platform) => (
+                <a
+                  key={platform}
+                  href="#"
+                  aria-label={platform}
+                  className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center text-xs text-white/60 font-medium"
+                >
+                  {platform[0]}
+                </a>
+              ))}
+            </div>
           </div>
 
+          {/* Products */}
           <div>
-            <div className="font-semibold text-charcoal-900 mb-4">Product</div>
-            <ul className="space-y-3 text-warmgray-600">
-              <li><a href="#features" className="hover:text-cocoa-700 transition-colors">Features</a></li>
-              <li><a href="#device" className="hover:text-cocoa-700 transition-colors">Device</a></li>
-              <li><a href="#preview" className="hover:text-cocoa-700 transition-colors">App Preview</a></li>
-              <li><a href="/pre-order" className="hover:text-cocoa-700 transition-colors">Pre-Order Page</a></li>
-              <li><a href="/collar-funnel" className="hover:text-cocoa-700 transition-colors">Fun Funnel (A/B)</a></li>
-              <li><a href="#faq" className="hover:text-cocoa-700 transition-colors">FAQ</a></li>
+            <div className="font-semibold text-white text-sm mb-4 tracking-wide">Products</div>
+            <ul className="space-y-3 text-sm text-white/60">
+              <li><Link href="/products/dog-collar" className="hover:text-white transition-colors">Dog Collar</Link></li>
+              <li><Link href="/products/cat-collar" className="hover:text-white transition-colors">Cat Collar + Bowl</Link></li>
+              <li><Link href="/app" className="hover:text-white transition-colors">Whisker App</Link></li>
+              <li><Link href="/pre-order" className="hover:text-white transition-colors">Pre-Order</Link></li>
             </ul>
           </div>
 
+          {/* Resources */}
           <div>
-            <div className="font-semibold text-charcoal-900 mb-4">Company</div>
-            <ul className="space-y-3 text-warmgray-600">
-              <li><Link href="/support" className="hover:text-cocoa-700 transition-colors">Support</Link></li>
-              <li><Link href="/privacy" className="hover:text-cocoa-700 transition-colors">Privacy</Link></li>
-              <li><Link href="/terms" className="hover:text-cocoa-700 transition-colors">Terms</Link></li>
+            <div className="font-semibold text-white text-sm mb-4 tracking-wide">Resources</div>
+            <ul className="space-y-3 text-sm text-white/60">
+              <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
+              <li><Link href="/support" className="hover:text-white transition-colors">Support</Link></li>
+              <li><Link href="/#faq" className="hover:text-white transition-colors">FAQ</Link></li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <div className="font-semibold text-white text-sm mb-4 tracking-wide">Company</div>
+            <ul className="space-y-3 text-sm text-white/60">
+              <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
+              <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link></li>
+              <li><Link href="/terms" className="hover:text-white transition-colors">Terms</Link></li>
             </ul>
           </div>
         </div>
-        
-        <div className="border-t border-sand-200 mt-12 pt-8 text-center text-sm text-warmgray-600">
-          © {new Date().getFullYear()} {SITE.company}. All rights reserved.
+
+        {/* Bottom */}
+        <div className="border-t border-white/10 mt-12 sm:mt-16 pt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40">
+            <div>&copy; {new Date().getFullYear()} {SITE.company}. All rights reserved.</div>
+            <div className="text-center sm:text-right leading-relaxed max-w-sm">
+              Pre-sale deposits are $100 of $350 total. Remaining balance charged at shipment.
+              Deposits are fully refundable before shipping.
+            </div>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,15 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export type WaitlistEntry = {
-  email: string;
-  name?: string;
-  petType?: string;
-  registeredAt: string;
-};
-
-// For demonstration; consider replacing with a persistent store
-let waitlist: WaitlistEntry[] = []; 
-
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -22,17 +12,15 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const newEntry: WaitlistEntry = {
+    // Log for server-side monitoring
+    console.log("waitlist_signup", {
       email,
       name,
       petType,
       registeredAt: new Date().toISOString(),
-    };
+    });
 
-    // In a real app, ensure uniqueness and proper storage
-    waitlist.push(newEntry);
-
-    return NextResponse.json({ success: true, entry: newEntry });
+    return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Error processing waitlist submission:", error);
     return NextResponse.json(
@@ -41,8 +29,3 @@ export async function POST(req: NextRequest) {
     );
   }
 }
-
-export async function GET() {
-  // Optionally, return waitlist entries (secure this endpoint in production)
-  return NextResponse.json({ waitlist });
-} 
