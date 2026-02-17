@@ -1,138 +1,84 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import BlogContent from "./BlogContent";
-
-interface BlogPostPageProps {
-  params: Promise<{ slug: string }>;
-}
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
   return posts.map((post) => ({ slug: post.slug }));
 }
 
-export async function generateMetadata({ params }: BlogPostPageProps) {
-  const { slug } = await params;
-  const post = getPostBySlug(slug);
-  if (!post) return { title: "Post Not Found — Whisker" };
-  return {
-    title: `${post.title} — Whisker Blog`,
-    description: post.excerpt,
-  };
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const post = getPostBySlug(params.slug);
+  if (!post) return { title: "Not Found — Whisker" };
+  return { title: `${post.title} — Whisker` };
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = await params;
-  const post = getPostBySlug(slug);
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
+  const post = getPostBySlug(params.slug);
   if (!post) notFound();
 
   const allPosts = getAllPosts();
-  const relatedPosts = allPosts.filter((p) => p.slug !== slug).slice(0, 2);
+  const related = allPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
 
   return (
     <div className="bg-white min-h-screen">
-      <article className="pt-8 pb-16 sm:pt-12 sm:pb-20">
-        <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-[#9CA3AF] mb-8 font-sans">
-            <Link href="/" className="hover:text-cocoa-700 transition-colors">Home</Link>
-            <span>/</span>
-            <Link href="/blog" className="hover:text-cocoa-700 transition-colors">Blog</Link>
-            <span>/</span>
-            <span className="text-[#1A1A1A] truncate">{post.title}</span>
-          </nav>
+      <article className="container mx-auto px-4 sm:px-6 max-w-3xl py-10 sm:py-16">
+        {/* Breadcrumb */}
+        <nav className="flex items-center gap-2 text-sm text-warmgray-500 mb-8">
+          <Link href="/" className="hover:text-cocoa-500">Home</Link>
+          <span>/</span>
+          <Link href="/blog" className="hover:text-cocoa-500">Blog</Link>
+          <span>/</span>
+          <span className="text-warmgray-600 truncate">{post.title}</span>
+        </nav>
 
-          {/* Article Header */}
-          <header className="mb-10 sm:mb-12">
-            <div className="flex items-center gap-3 text-sm text-[#9CA3AF] mb-4 font-sans">
-              <time dateTime={post.date}>
-                {new Date(post.date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </time>
-              <span>&middot;</span>
-              <span>{post.readingTime}</span>
-            </div>
-            <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#1A1A1A] leading-tight mb-4">
-              {post.title}
-            </h1>
-            <p className="text-lg text-[#6B6B6B] leading-relaxed font-sans">{post.excerpt}</p>
-            <div className="mt-6 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cocoa-500 to-cocoa-700 flex items-center justify-center text-white text-sm font-semibold font-sans">
-                {post.author.split(" ").map((n) => n[0]).join("").slice(0, 2)}
-              </div>
-              <div>
-                <div className="font-medium text-[#1A1A1A] text-sm font-sans">{post.author}</div>
-                <div className="text-xs text-[#9CA3AF] font-sans">Whisker</div>
-              </div>
-            </div>
-          </header>
-
-          {/* Cover */}
-          {post.coverImage && (
-            <div className="relative w-full h-64 sm:h-80 rounded-xl overflow-hidden border border-sand-200 mb-10">
-              <Image
-                src={post.coverImage}
-                alt={post.title}
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          )}
-
-          {/* Content */}
-          <div className="prose max-w-none">
-            <BlogContent content={post.content} />
+        {/* Cover image */}
+        {post.coverImage && (
+          <div className="relative h-56 sm:h-72 md:h-80 rounded-2xl overflow-hidden mb-8">
+            <Image src={post.coverImage} alt={post.title} fill className="object-cover" />
           </div>
+        )}
 
-          {/* Bottom CTA Card */}
-          <div className="mt-12 pt-8">
-            <div className="bg-gradient-to-b from-cream-50 to-white rounded-lg p-6 sm:p-8 text-center border border-cocoa-300">
-              <h3 className="font-serif text-2xl text-[#1A1A1A] mb-3">Interested in Whisker?</h3>
-              <p className="text-[#6B6B6B] mb-5 text-sm leading-relaxed font-sans">
-                Reserve your smart collar with a $100 refundable deposit. Limited to 500 units per product.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/products/dog-collar" className="btn-primary inline-flex items-center justify-center py-4 px-8">
-                  Dog Collar
-                </Link>
-                <Link href="/products/cat-collar" className="btn-secondary inline-flex items-center justify-center py-4 px-8">
-                  Cat Bundle
-                </Link>
-              </div>
-            </div>
+        {/* Title and meta */}
+        <header className="mb-8">
+          <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl text-charcoal-900 leading-tight mb-3">
+            {post.title}
+          </h1>
+          <div className="flex items-center gap-3 text-sm text-warmgray-500">
+            <span>{post.author}</span>
+            <span>&middot;</span>
+            <time>{post.date}</time>
           </div>
+        </header>
+
+        {/* Content */}
+        <div className="prose">
+          <BlogContent content={post.content} />
         </div>
       </article>
 
-      {/* Related Posts */}
-      {relatedPosts.length > 0 && (
-        <section className="section-padding bg-cream-50">
+      {/* Related posts */}
+      {related.length > 0 && (
+        <section className="border-t border-sand-200 bg-cream-50 py-12">
           <div className="container mx-auto px-4 sm:px-6 max-w-3xl">
-            <h2 className="font-serif text-2xl text-[#1A1A1A] mb-6">More from the blog</h2>
-            <div className="space-y-4">
-              {relatedPosts.map((related) => (
+            <h2 className="font-serif text-xl sm:text-2xl text-charcoal-900 mb-6">More from the blog</h2>
+            <div className="grid sm:grid-cols-2 gap-6">
+              {related.map((r) => (
                 <Link
-                  key={related.slug}
-                  href={`/blog/${related.slug}`}
-                  className="block bg-white rounded-lg border border-[#E5E5E5] overflow-hidden hover:border-cocoa-700 hover:shadow-card transition-all duration-300"
+                  key={r.slug}
+                  href={`/blog/${r.slug}`}
+                  className="group bg-white rounded-xl overflow-hidden border border-sand-200 hover:shadow-md transition-all"
                 >
-                  {related.coverImage && (
-                    <div className="relative h-36 w-full bg-cream-50">
-                      <Image src={related.coverImage} alt={related.title} fill className="object-cover" />
+                  {r.coverImage && (
+                    <div className="relative h-36 overflow-hidden">
+                      <Image src={r.coverImage} alt={r.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                     </div>
                   )}
-                  <div className="p-5">
-                    <div className="text-xs text-[#9CA3AF] mb-1 font-sans">
-                      {new Date(related.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })} &middot; {related.readingTime}
-                    </div>
-                    <h3 className="font-serif text-lg text-[#1A1A1A] mb-1">{related.title}</h3>
-                    <p className="text-sm text-[#6B6B6B] line-clamp-2 font-sans">{related.excerpt}</p>
+                  <div className="p-4">
+                    <h3 className="font-semibold text-sm text-charcoal-900 group-hover:text-cocoa-700 transition-colors">{r.title}</h3>
+                    <time className="text-xs text-warmgray-500 mt-1 block">{r.date}</time>
                   </div>
                 </Link>
               ))}

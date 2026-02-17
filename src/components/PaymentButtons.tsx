@@ -29,7 +29,7 @@ export default function PaymentButtons({ label = "Buy with" }: PaymentButtonsPro
       country: "US",
       currency: PAYMENTS.stripe.currency,
       total: {
-        label: PAYMENTS.product.name,
+        label: PAYMENTS.products.dogCollar.name,
         amount: PAYMENTS.stripe.unitAmount,
       },
       requestPayerName: true,

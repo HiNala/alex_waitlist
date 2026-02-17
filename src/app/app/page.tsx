@@ -1,155 +1,89 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Activity, MessageSquare, MapPin, Utensils, BarChart3, PawPrint } from "lucide-react";
+import WaitlistForm from "@/components/WaitlistForm";
 
 export const metadata = {
-  title: "Whisker App — Your Pet's Health Dashboard",
-  description: "The Whisker companion app turns collar and bowl data into meaningful health insights, GPS tracking, feeding logs, and AI-powered guidance.",
+  title: "Mobile App — Whisker",
 };
 
-const appFeatures = [
-  {
-    title: "Health Dashboard",
-    description: "See your pet's health score, vitals, activity, and sleep at a glance. Spot trends before they become problems.",
-    icon: Activity,
-  },
-  {
-    title: "AI Health Chat",
-    description: "Ask anything about your pet's health. Our AI analyzes collar data alongside veterinary knowledge to give personalized answers.",
-    icon: MessageSquare,
-  },
-  {
-    title: "GPS Tracking",
-    description: "Real-time location with customizable safe zones and instant alerts. Always know where your pet is.",
-    icon: MapPin,
-  },
-  {
-    title: "Feeding Tracker",
-    description: "Automatic meal logging from the smart bowl. See portions, timing, and nutrition insights for each pet.",
-    icon: Utensils,
-  },
-  {
-    title: "Activity Monitor",
-    description: "Steps, play time, rest periods, and energy levels — understand your pet's daily rhythm.",
-    icon: BarChart3,
-  },
-  {
-    title: "Multi-Pet Profiles",
-    description: "Manage all your pets from one app. Each gets their own profile, data, and personalized insights.",
-    icon: PawPrint,
-  },
+const FEATURES = [
+  "AI health assistant",
+  "Real-time GPS tracking",
+  "Activity dashboard",
+  "Feeding management",
+  "Behavior insights",
+  "Safe zone alerts",
 ];
 
-export default function AppPage() {
+export default function MobileAppPage() {
   return (
-    <div className="bg-white">
+    <>
       {/* Hero */}
-      <section className="bg-charcoal-900 section-padding text-white">
-        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 items-center">
-            <div className="text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/90 text-xs sm:text-sm font-medium px-4 py-2 rounded-full mb-6">
-                Coming Soon
-              </div>
-              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-tight mb-6">
-                The <span className="text-cocoa-300">Whisker</span> App
+      <section className="bg-cream-50 pt-12 pb-16 md:pt-16 md:pb-20">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="grid lg:grid-cols-2 gap-10 md:gap-14 items-center">
+            <div className="order-2 lg:order-1 text-center lg:text-left space-y-5">
+              <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-charcoal-900 leading-tight">
+                The Whisker <span className="text-cocoa-700">companion app</span>
               </h1>
-              <p className="text-lg sm:text-xl text-white/80 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0 font-sans">
-                Your pet&apos;s entire world in one beautiful app. Health insights, GPS tracking, feeding logs, and AI guidance — all powered by your Whisker collar and smart bowl.
+              <p className="text-warmgray-600 text-base md:text-lg max-w-xl mx-auto lg:mx-0">
+                Pairs with the smart collar to give you complete insight into your pet&apos;s world. Included free with any collar purchase.
               </p>
-              <div className="flex flex-col xs:flex-row gap-3 justify-center lg:justify-start mb-6">
-                <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-btn px-5 py-3">
-                  <Image src="/images/app-store-badge.svg" alt="App Store" width={120} height={36} className="h-8 w-auto opacity-70" />
-                </div>
-                <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-btn px-5 py-3">
-                  <Image src="/images/google-play-badge.svg" alt="Google Play" width={120} height={36} className="h-8 w-auto opacity-70" />
-                </div>
+              <div className="text-sm text-warmgray-600">
+                Available on iOS and Android (coming soon)
               </div>
-              <p className="text-sm text-white/50 font-sans">Free with any Whisker collar. iOS 16+ and Android 12+.</p>
-            </div>
-
-            {/* Phone Mockup */}
-            <div className="flex justify-center">
-              <div className="relative w-[260px] h-[530px] sm:w-[280px] sm:h-[570px]">
-                <div className="absolute inset-0 bg-white/10 rounded-[36px] border border-white/20 overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
-                    alt="Whisker App Dashboard"
-                    fill
-                    className="object-cover opacity-90"
-                  />
-                  {/* Overlay to darken slightly for better contrast if needed */}
-                  <div className="absolute inset-0 bg-black/20" />
-                </div>
+              <div className="flex gap-4 justify-center lg:justify-start">
+                <Image src="/images/app-store-badge.svg" alt="Download on the App Store" width={140} height={42} className="h-10 w-auto opacity-60" />
+                <Image src="/images/google-play-badge.svg" alt="Get it on Google Play" width={140} height={42} className="h-10 w-auto opacity-60" />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-cream-50 border-y border-sand-200/70">
-        <div className="container mx-auto px-4 sm:px-6 max-w-6xl py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { label: "Included", value: "Free with collar" },
-              { label: "Platforms", value: "iOS + Android" },
-              { label: "Core views", value: "Health, GPS, Feeding" },
-              { label: "Release", value: "Coming soon" },
-            ].map((item) => (
-              <div key={item.label} className="bg-white rounded-lg border border-sand-200 p-4 text-center">
-                <div className="text-xs uppercase tracking-wider text-warmgray-500 mb-1">{item.label}</div>
-                <div className="text-sm font-semibold text-[#1A1A1A]">{item.value}</div>
-              </div>
-            ))}
+            <div className="order-1 lg:order-2 rounded-2xl overflow-hidden aspect-[4/3] md:aspect-video relative">
+              <Image
+                src="https://images.unsplash.com/photo-1551717743-49959800-b15e?w=1200&h=600&fit=crop"
+                alt="Person with phone and pet"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="section-padding bg-white">
-        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#1A1A1A] leading-tight mb-4">
-              Everything in <span className="text-cocoa-700">one app</span>
+      <section className="py-12 md:py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="text-center mb-10">
+            <h2 className="font-serif text-2xl md:text-3xl text-charcoal-900 mb-2">
+              Everything in one <span className="text-cocoa-700">place</span>
             </h2>
-            <p className="text-base sm:text-lg text-[#6B6B6B] max-w-2xl mx-auto font-sans">
-              Collar sensors, smart bowl data, and AI come together to give you a complete picture of your pet.
-            </p>
+            <p className="text-warmgray-600 text-sm md:text-base">Your pet&apos;s data, insights, and controls at your fingertips.</p>
           </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {appFeatures.map((feature, i) => (
-              <div key={i} className="p-6 rounded-lg border border-[#E5E5E5] hover:border-cocoa-300/50 hover:shadow-card transition-all duration-300">
-                <div className="w-12 h-12 rounded-xl bg-cocoa-700/10 flex items-center justify-center text-cocoa-700 mb-4">
-                  <feature.icon className="w-6 h-6" strokeWidth={1.5} />
-                </div>
-                <h3 className="font-serif text-xl text-[#1A1A1A] mb-2">{feature.title}</h3>
-                <p className="text-[#6B6B6B] leading-relaxed font-sans">{feature.description}</p>
-              </div>
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0 m-0">
+            {FEATURES.map((f) => (
+              <li key={f} className="flex items-start gap-3">
+                <span className="text-cocoa-500 font-bold">&mdash;</span>
+                <span className="text-charcoal-900 font-medium">{f}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-gradient-to-b from-cream-50 to-white">
-        <div className="container mx-auto px-4 sm:px-6 max-w-3xl text-center">
-          <h2 className="font-serif text-3xl sm:text-4xl text-[#1A1A1A] mb-4">
-            Get the app free with any <span className="text-cocoa-700">Whisker collar</span>
-          </h2>
-          <p className="text-[#6B6B6B] mb-8 leading-relaxed font-sans">
-            The Whisker app is included free with every collar purchase. Pre-order yours today and be among the first to experience the future of pet care.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/products/dog-collar" className="btn-primary inline-flex items-center justify-center py-4 px-8">
-              Dog Collar — $100 Deposit
-            </Link>
-            <Link href="/products/cat-collar" className="btn-secondary inline-flex items-center justify-center py-4 px-8">
-              Cat Bundle — $100 Deposit
-            </Link>
+      <section className="py-12 md:py-20 bg-cream-50">
+        <div className="container mx-auto px-4 max-w-2xl">
+          <div className="text-center mb-8">
+            <h2 className="font-serif text-2xl md:text-3xl text-charcoal-900 mb-2">
+              Get early <span className="text-cocoa-700">access</span>
+            </h2>
+            <p className="text-warmgray-600 text-sm md:text-base">
+              Join the waitlist to be notified when the app launches. Or{" "}
+              <Link href="/pre-order" className="text-cocoa-700 hover:text-cocoa-500 underline">reserve a collar</Link> to get the app free when it ships.
+            </p>
           </div>
+          <WaitlistForm />
         </div>
       </section>
-    </div>
+    </>
   );
 }

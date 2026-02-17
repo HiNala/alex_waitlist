@@ -1,20 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { getProductBySlug, PAYMENTS } from '@/lib/payments.config';
+import { PAYMENTS } from '@/lib/payments.config';
 
+// Expect STRIPE_SECRET_KEY in env (set in your hosting provider)
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
-const stripe = stripeSecretKey ? new Stripe(stripeSecretKey) : null;
+const stripe = stripeSecretKey ? new Stripe(stripeSecretKey, { 
+  apiVersion: '2025-08-27.basil' 
+}) : null;
 
 export async function POST(req: NextRequest) {
   try {
     if (!stripe) {
-      return NextResponse.json({ error: 'Stripe is not configured. Set STRIPE_SECRET_KEY in your environment.' }, { status: 500 });
+      return NextResponse.json({ error: 'Stripe is not configured' }, { status: 500 });
     }
 
     const body = await req.json().catch(() => ({}));
     const {
-      productName = PAYMENTS.product.name,
-      color = 'Midnight Black',
+      productName = PAYMENTS.products.dogCollar.name,
+      color = 'Charcoal Black',
       size = undefined,
       quantity = 1,
       success_url = `${req.nextUrl.origin}/collar-funnel/success`,
@@ -22,24 +25,15 @@ export async function POST(req: NextRequest) {
       metadata = {},
     } = body || {};
 
-    const productSlug = metadata?.productSlug;
-    const product = productSlug ? getProductBySlug(productSlug) : null;
-
-    // Use deposit amount — $100 (10000 cents) per unit
-    const unitAmount = product ? product.depositCents : PAYMENTS.stripe.unitAmount;
-    const safeQuantity = Math.max(1, Math.min(5, Number(quantity) || 1));
-
-    const displayName = product
-      ? `${product.name} — Pre-Sale Deposit`
-      : productName;
+    // Enforce server-side pricing to prevent tampering
+    const unitAmount = PAYMENTS.stripe.unitAmount;
+    const safeQuantity = Math.max(1, Math.min(10, Number(quantity) || 1));
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
-      payment_method_types: ['card', 'link'],
+      payment_method_types: ['card', 'us_bank_account', 'link'],
       allow_promotion_codes: true,
-      shipping_address_collection: {
-        allowed_countries: ['US', 'CA', 'GB', 'AU', 'NZ', 'IE', 'DE', 'FR', 'ES', 'IT'],
-      },
+      shipping_address_collection: { allowed_countries: ['US', 'CA', 'GB', 'AU', 'NZ', 'IE', 'DE', 'FR', 'ES', 'IT'] },
       submit_type: 'pay',
       line_items: [
         {
@@ -48,13 +42,8 @@ export async function POST(req: NextRequest) {
             currency: 'usd',
             unit_amount: unitAmount,
             product_data: {
-              name: displayName,
-              description: [
-                color,
-                size,
-                `$100 deposit of $350 retail`,
-                `Remaining $250 charged at shipment`,
-              ].filter(Boolean).join(' · '),
+              name: productName,
+              description: [color, size].filter(Boolean).join(' · '),
             },
           },
         },
@@ -62,21 +51,19 @@ export async function POST(req: NextRequest) {
       success_url,
       cancel_url,
       metadata: {
-        productSlug: productSlug || '',
-        deposit: 'true',
-        depositAmount: String(unitAmount),
-        remainingBalance: product ? String(product.depositCents * 2.5) : '25000',
         color,
         size: size || '',
+        unit_amount: String(unitAmount),
         quantity: String(safeQuantity),
         ...metadata,
       },
     });
 
     return NextResponse.json({ id: session.id, url: session.url });
-  } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : 'Checkout error';
+  } catch (error: any) {
     console.error('Stripe checkout error:', error);
-    return NextResponse.json({ error: message }, { status: 500 });
+    return NextResponse.json({ error: error.message || 'Checkout error' }, { status: 500 });
   }
 }
+
+

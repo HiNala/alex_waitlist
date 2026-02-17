@@ -1,95 +1,127 @@
-import Link from "next/link";
-import Image from "next/image";
-import { PRODUCTS } from "@/lib/payments.config";
-import { PawPrint, Cat } from "lucide-react";
+"use client";
 
-export const metadata = {
-  title: "Pre-Order — Whisker",
-  description: "Reserve your Whisker smart collar with a $100 refundable deposit. Limited to 500 units per product.",
-};
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import StripeCheckout from "@/components/StripeCheckout";
+import PaymentButtons from "@/components/PaymentButtons";
+
+const products = [
+  {
+    id: "dog-collar",
+    name: "Smart Dog Collar",
+    price: 350,
+    deposit: 100,
+    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&h=400&fit=crop",
+    description: "GPS tracking, health monitoring, and AI behavior insights for your dog.",
+  },
+  {
+    id: "cat-bundle",
+    name: "Cat Collar + Smart Bowl",
+    price: 350,
+    deposit: 100,
+    image: "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&h=400&fit=crop",
+    description: "GPS cat collar paired with RFID smart bowl for complete feline care.",
+  },
+];
 
 export default function PreOrderPage() {
+  const [selected, setSelected] = useState(products[0]);
+
+  const checkoutData = {
+    productName: selected.name,
+    color: "Default",
+    quantity: 1,
+    price: selected.deposit,
+  };
+
   return (
-    <div className="bg-gradient-to-b from-cream-50 to-white min-h-screen">
-      <div className="container mx-auto px-4 sm:px-6 max-w-4xl section-padding">
-        <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 bg-cocoa-700/10 border border-cocoa-700/20 text-cocoa-500 text-sm font-medium px-4 py-2 rounded-pill mb-6">
-            Limited to 500 units per product
-          </div>
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#1A1A1A] leading-tight tracking-tight mb-6">
-            Pre-Order Your <span className="text-cocoa-700">Whisker</span>
+    <div className="bg-white min-h-screen">
+      <div className="container mx-auto px-4 sm:px-6 max-w-5xl py-10 sm:py-16">
+        {/* Breadcrumb */}
+        <nav className="flex items-center gap-2 text-sm text-warmgray-500 mb-8">
+          <Link href="/" className="hover:text-cocoa-500">Home</Link>
+          <span>/</span>
+          <span className="text-warmgray-600">Pre-Order</span>
+        </nav>
+
+        <div className="text-center mb-10">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 mb-3">
+            Reserve your <span className="text-cocoa-700">Whisker</span>
           </h1>
-          <p className="text-lg text-[#6B6B6B] max-w-2xl mx-auto leading-relaxed">
-            Reserve with a $100 refundable deposit. The remaining $250 is charged when your product is ready to ship.
+          <p className="text-warmgray-600 text-base sm:text-lg max-w-xl mx-auto">
+            Secure your spot with a $100 refundable deposit. The remaining $250 is charged when your product ships.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-8">
-          <Link
-            href="/products/dog-collar"
-            className="group bg-white rounded-lg border border-sand-200 overflow-hidden shadow-card hover:shadow-hover hover:border-cocoa-700 transition-all duration-300"
-          >
-            <div className="relative h-44 w-full bg-cream-50">
-              <Image
-                src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=800&auto=format&fit=crop"
-                alt="Smart Dog Collar"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-            <div className="p-8">
-              <div className="w-12 h-12 rounded-full bg-cocoa-700/10 flex items-center justify-center text-cocoa-700 mb-5 group-hover:bg-cocoa-700 group-hover:text-white transition-colors duration-300">
-                <PawPrint className="w-6 h-6" strokeWidth={1.5} />
+        {/* Product selection */}
+        <div className="grid sm:grid-cols-2 gap-6 mb-10 max-w-2xl mx-auto">
+          {products.map((product) => (
+            <button
+              key={product.id}
+              onClick={() => setSelected(product)}
+              className={`text-left rounded-2xl overflow-hidden border-2 transition-all ${
+                selected.id === product.id
+                  ? "border-cocoa-500 shadow-lg"
+                  : "border-sand-200 hover:border-cocoa-300"
+              }`}
+            >
+              <div className="relative h-40 overflow-hidden">
+                <Image src={product.image} alt={product.name} fill className="object-cover" />
               </div>
-            <h2 className="text-2xl font-semibold text-[#1A1A1A] mb-2 group-hover:text-cocoa-700 transition-colors">
-              {PRODUCTS.dogCollar.shortName}
-            </h2>
-            <p className="text-sm text-[#6B6B6B] mb-4 leading-relaxed">{PRODUCTS.dogCollar.description}</p>
-            <div className="flex items-baseline gap-2 mb-4">
-              <span className="text-2xl font-semibold text-[#1A1A1A]">${PRODUCTS.dogCollar.retailPrice}</span>
-              <span className="text-sm text-[#9CA3AF]">retail</span>
-            </div>
-            <span className="inline-flex items-center gap-1.5 text-cocoa-700 font-semibold text-sm group-hover:gap-2.5 transition-all">
-              Reserve — ${PRODUCTS.dogCollar.deposit} deposit
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-            </span>
-            </div>
-          </Link>
-
-          <Link
-            href="/products/cat-collar"
-            className="group bg-white rounded-lg border border-sand-200 overflow-hidden shadow-card hover:shadow-hover hover:border-cocoa-700 transition-all duration-300"
-          >
-            <div className="relative h-44 w-full bg-cream-50">
-              <Image
-                src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=800&auto=format&fit=crop"
-                alt="Cat Collar + Smart Bowl"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-            <div className="p-8">
-              <div className="w-12 h-12 rounded-full bg-cocoa-700/10 flex items-center justify-center text-cocoa-700 mb-5 group-hover:bg-cocoa-700 group-hover:text-white transition-colors duration-300">
-                <Cat className="w-6 h-6" strokeWidth={1.5} />
+              <div className="p-4">
+                <h3 className="font-semibold text-charcoal-900 mb-1">{product.name}</h3>
+                <p className="text-xs text-warmgray-600 leading-relaxed mb-2">{product.description}</p>
+                <div className="flex items-center gap-2">
+                  <span className="text-lg font-bold text-charcoal-900">${product.price}</span>
+                  <span className="text-xs text-warmgray-500">total</span>
+                </div>
               </div>
-            <h2 className="text-2xl font-semibold text-[#1A1A1A] mb-2 group-hover:text-cocoa-700 transition-colors">
-              {PRODUCTS.catBundle.shortName}
-            </h2>
-            <p className="text-sm text-[#6B6B6B] mb-4 leading-relaxed">{PRODUCTS.catBundle.description}</p>
-            <div className="flex items-baseline gap-2 mb-4">
-              <span className="text-2xl font-semibold text-[#1A1A1A]">${PRODUCTS.catBundle.retailPrice}</span>
-              <span className="text-sm text-[#9CA3AF]">bundle</span>
-            </div>
-            <span className="inline-flex items-center gap-1.5 text-cocoa-700 font-semibold text-sm group-hover:gap-2.5 transition-all">
-              Reserve — ${PRODUCTS.catBundle.deposit} deposit
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-            </span>
-            </div>
-          </Link>
+            </button>
+          ))}
         </div>
 
-        <div className="text-center mt-10 text-sm text-[#9CA3AF]">
-          All deposits are fully refundable before shipment. See <Link href="/terms" className="underline text-cocoa-700 hover:text-cocoa-500">Terms</Link> for details.
+        {/* Deposit explainer + checkout */}
+        <div className="max-w-md mx-auto">
+          {/* Deposit visual */}
+          <div className="bg-cream-50 rounded-2xl p-6 mb-6 border border-sand-200">
+            <div className="flex items-center justify-between mb-4">
+              <span className="text-sm font-medium text-charcoal-900">{selected.name}</span>
+              <span className="text-sm text-warmgray-600">${selected.price} total</span>
+            </div>
+            <div className="w-full bg-sand-200 rounded-full h-3 mb-3">
+              <div className="bg-cocoa-700 h-3 rounded-full" style={{ width: "28.6%" }}></div>
+            </div>
+            <div className="flex justify-between text-xs text-warmgray-600">
+              <span className="font-semibold text-cocoa-700">$100 deposit today</span>
+              <span>$250 when it ships</span>
+            </div>
+          </div>
+
+          {/* Checkout */}
+          <div className="space-y-4">
+            <StripeCheckout
+              data={checkoutData}
+              className="w-full bg-cocoa-700 hover:bg-cocoa-500 text-white font-semibold py-4 px-6 rounded-2xl text-base transition-all duration-200 hover:shadow-xl hover:scale-[1.02]"
+            >
+              Reserve with Card &mdash; $100 Deposit
+            </StripeCheckout>
+
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-sand-200"></div>
+              </div>
+              <div className="relative flex justify-center text-xs text-warmgray-500 bg-white px-3">
+                or pay instantly with
+              </div>
+            </div>
+
+            <PaymentButtons />
+
+            <p className="text-center text-xs text-warmgray-500 leading-relaxed">
+              Secure payment via Stripe. Deposits are fully refundable before shipping. Ships within 3-6 months.
+            </p>
+          </div>
         </div>
       </div>
     </div>
