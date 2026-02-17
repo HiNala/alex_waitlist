@@ -87,6 +87,24 @@ export default function AppPage() {
         </div>
       </section>
 
+      <section className="bg-cream-50 border-y border-sand-200/70">
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl py-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { label: "Included", value: "Free with collar" },
+              { label: "Platforms", value: "iOS + Android" },
+              { label: "Core views", value: "Health, GPS, Feeding" },
+              { label: "Release", value: "Coming soon" },
+            ].map((item) => (
+              <div key={item.label} className="bg-white rounded-lg border border-sand-200 p-4 text-center">
+                <div className="text-xs uppercase tracking-wider text-warmgray-500 mb-1">{item.label}</div>
+                <div className="text-sm font-semibold text-[#1A1A1A]">{item.value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Features */}
       <section className="section-padding bg-white">
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl">

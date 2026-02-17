@@ -16,6 +16,21 @@ export default function Terms() {
           <p className="text-lg text-[#6B6B6B]">Last updated: February 16, 2026</p>
         </div>
 
+        <div className="grid sm:grid-cols-3 gap-4 mb-8">
+          <div className="bg-white border border-sand-200 rounded-lg p-4 text-center">
+            <div className="text-xs uppercase tracking-wider text-warmgray-500 mb-1">Deposit</div>
+            <div className="text-sm font-semibold text-[#1A1A1A]">${SITE.presale.depositAmount} refundable</div>
+          </div>
+          <div className="bg-white border border-sand-200 rounded-lg p-4 text-center">
+            <div className="text-xs uppercase tracking-wider text-warmgray-500 mb-1">Remaining balance</div>
+            <div className="text-sm font-semibold text-[#1A1A1A]">${SITE.presale.remainingBalance} at shipment</div>
+          </div>
+          <div className="bg-white border border-sand-200 rounded-lg p-4 text-center">
+            <div className="text-xs uppercase tracking-wider text-warmgray-500 mb-1">Lead time</div>
+            <div className="text-sm font-semibold text-[#1A1A1A]">{SITE.presale.leadTime}</div>
+          </div>
+        </div>
+
         <div className="bg-white rounded-lg p-6 sm:p-8 md:p-12 shadow-card border border-sand-200 prose max-w-none">
           <p>Welcome to {SITE.name}. By using our website or app you agree to these Terms.</p>
 

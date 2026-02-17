@@ -49,11 +49,7 @@ export default function BlogIndexPage() {
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
-                      ) : (
-                        <div className="absolute inset-0 flex items-center justify-center bg-cream-100 text-cocoa-300">
-                          <span className="text-4xl">🐾</span>
-                        </div>
-                      )}
+                      ) : <div className="absolute inset-0 bg-gradient-to-br from-cream-100 to-sand-100" />}
                     </div>
 
                     <div className="p-6 flex flex-col flex-grow">

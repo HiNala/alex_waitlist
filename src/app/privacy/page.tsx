@@ -16,6 +16,21 @@ export default function Privacy() {
           <p className="text-lg text-[#6B6B6B]">Last updated: February 16, 2026</p>
         </div>
 
+        <div className="grid sm:grid-cols-3 gap-4 mb-8">
+          <div className="bg-white border border-sand-200 rounded-lg p-4 text-center">
+            <div className="text-xs uppercase tracking-wider text-warmgray-500 mb-1">No data sales</div>
+            <div className="text-sm font-semibold text-[#1A1A1A]">Never sold</div>
+          </div>
+          <div className="bg-white border border-sand-200 rounded-lg p-4 text-center">
+            <div className="text-xs uppercase tracking-wider text-warmgray-500 mb-1">Payments</div>
+            <div className="text-sm font-semibold text-[#1A1A1A]">Handled by Stripe</div>
+          </div>
+          <div className="bg-white border border-sand-200 rounded-lg p-4 text-center">
+            <div className="text-xs uppercase tracking-wider text-warmgray-500 mb-1">Requests</div>
+            <div className="text-sm font-semibold text-[#1A1A1A]">2 business days</div>
+          </div>
+        </div>
+
         <div className="bg-white rounded-lg p-6 sm:p-8 md:p-12 shadow-card border border-sand-200 prose max-w-none">
           <p>{SITE.name} (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) respects your privacy. This policy explains what we collect, why, and how you can control your information.</p>
 

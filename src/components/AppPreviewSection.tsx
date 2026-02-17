@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import AnimateOnScroll from "./AnimateOnScroll";
 import Link from "next/link";
 import Image from "next/image";
+import { LayoutGrid, MessageSquare, Navigation, Utensils } from "lucide-react";
 
 const EASING = [0.4, 0, 0.2, 1] as const;
 
@@ -12,7 +13,7 @@ const screens = [
   {
     id: "dashboard",
     label: "Dashboard",
-    icon: "🏠",
+    Icon: LayoutGrid,
     title: "Everything at a glance",
     description:
       "See your pet's health score, daily activity, location, and recent alerts — all on one screen.",
@@ -21,7 +22,7 @@ const screens = [
   {
     id: "health",
     label: "Health Chat",
-    icon: "💝",
+    Icon: MessageSquare,
     title: "AI health insights",
     description:
       "Ask anything about your pet's health. Whisker's AI analyzes collar data and veterinary knowledge to give personalized answers.",
@@ -30,7 +31,7 @@ const screens = [
   {
     id: "tracking",
     label: "GPS Tracking",
-    icon: "📍",
+    Icon: Navigation,
     title: "Always know where they are",
     description:
       "Real-time GPS tracking with customizable safe zones and instant escape alerts.",
@@ -39,7 +40,7 @@ const screens = [
   {
     id: "nutrition",
     label: "Feeding",
-    icon: "🍽️",
+    Icon: Utensils,
     title: "Smart feeding, tracked",
     description:
       "The smart bowl logs every meal, controls portions, and ensures each cat eats from their own bowl.",
@@ -112,7 +113,7 @@ export default function AppPreviewSection() {
                   }`}
                   style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
                 >
-                  <span>{screen.icon}</span>
+                  <screen.Icon className="w-4 h-4" strokeWidth={1.5} />
                   <span className="hidden sm:inline">{screen.label}</span>
                 </button>
               ))}
@@ -197,7 +198,7 @@ export default function AppPreviewSection() {
                               : "text-warmgray-400"
                           }`}
                         >
-                          <span className="text-lg leading-none">{screen.icon}</span>
+                          <screen.Icon className="w-4 h-4" strokeWidth={1.5} />
                           <span className="text-[9px] font-medium font-sans truncate max-w-full">
                             {screen.label}
                           </span>

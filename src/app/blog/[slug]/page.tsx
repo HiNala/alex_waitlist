@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import BlogContent from "./BlogContent";
 
@@ -71,6 +72,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           </header>
 
+          {/* Cover */}
+          {post.coverImage && (
+            <div className="relative w-full h-64 sm:h-80 rounded-xl overflow-hidden border border-sand-200 mb-10">
+              <Image
+                src={post.coverImage}
+                alt={post.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          )}
+
           {/* Content */}
           <div className="prose max-w-none">
             <BlogContent content={post.content} />
@@ -106,13 +120,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <Link
                   key={related.slug}
                   href={`/blog/${related.slug}`}
-                  className="block bg-white rounded-lg border border-[#E5E5E5] p-5 hover:border-cocoa-700 hover:shadow-card transition-all duration-300"
+                  className="block bg-white rounded-lg border border-[#E5E5E5] overflow-hidden hover:border-cocoa-700 hover:shadow-card transition-all duration-300"
                 >
-                  <div className="text-xs text-[#9CA3AF] mb-1 font-sans">
-                    {new Date(related.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })} &middot; {related.readingTime}
+                  {related.coverImage && (
+                    <div className="relative h-36 w-full bg-cream-50">
+                      <Image src={related.coverImage} alt={related.title} fill className="object-cover" />
+                    </div>
+                  )}
+                  <div className="p-5">
+                    <div className="text-xs text-[#9CA3AF] mb-1 font-sans">
+                      {new Date(related.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })} &middot; {related.readingTime}
+                    </div>
+                    <h3 className="font-serif text-lg text-[#1A1A1A] mb-1">{related.title}</h3>
+                    <p className="text-sm text-[#6B6B6B] line-clamp-2 font-sans">{related.excerpt}</p>
                   </div>
-                  <h3 className="font-serif text-lg text-[#1A1A1A] mb-1">{related.title}</h3>
-                  <p className="text-sm text-[#6B6B6B] line-clamp-2 font-sans">{related.excerpt}</p>
                 </Link>
               ))}
             </div>

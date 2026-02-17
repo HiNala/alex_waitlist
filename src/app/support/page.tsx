@@ -9,14 +9,31 @@ export const metadata = {
 export default function Support() {
   return (
     <div className="bg-cream-50 min-h-screen">
-      <div className="container mx-auto max-w-4xl px-4 py-16 sm:py-20">
-        <div className="text-center mb-12 sm:mb-16">
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-charcoal-900 mb-4 leading-tight">
+      <section className="bg-charcoal-900 text-white py-14 sm:py-20">
+        <div className="container mx-auto max-w-4xl px-4 text-center">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl mb-4 leading-tight">
             Support &amp; Contact
           </h1>
-          <p className="text-lg text-warmgray-600 leading-relaxed max-w-2xl mx-auto">
-            We&apos;re here to help. For questions about pre-orders, products, or your account, reach out below.
+          <p className="text-lg text-white/75 leading-relaxed max-w-2xl mx-auto">
+            Fast, human support for pre-orders, refunds, setup questions, and product guidance.
           </p>
+        </div>
+      </section>
+
+      <div className="container mx-auto max-w-4xl px-4 py-12 sm:py-16">
+        <div className="grid sm:grid-cols-3 gap-4 mb-8">
+          <a href={`mailto:${SITE.supportEmail}`} className="bg-white border border-sand-200 rounded-xl p-4 text-center hover:border-cocoa-300 transition-colors">
+            <div className="text-xs uppercase tracking-wider text-warmgray-500 mb-1">Support</div>
+            <div className="text-sm font-medium text-charcoal-900">{SITE.supportEmail}</div>
+          </a>
+          <a href={`mailto:${SITE.contactEmail}`} className="bg-white border border-sand-200 rounded-xl p-4 text-center hover:border-cocoa-300 transition-colors">
+            <div className="text-xs uppercase tracking-wider text-warmgray-500 mb-1">General</div>
+            <div className="text-sm font-medium text-charcoal-900">{SITE.contactEmail}</div>
+          </a>
+          <a href={`mailto:${SITE.privacyEmail}`} className="bg-white border border-sand-200 rounded-xl p-4 text-center hover:border-cocoa-300 transition-colors">
+            <div className="text-xs uppercase tracking-wider text-warmgray-500 mb-1">Privacy</div>
+            <div className="text-sm font-medium text-charcoal-900">{SITE.privacyEmail}</div>
+          </a>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-8 sm:mb-12">
@@ -79,30 +96,39 @@ export default function Support() {
 
         <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-sand-200/30">
           <h2 className="font-serif text-xl sm:text-2xl font-bold text-charcoal-900 mb-6">Frequently Asked Questions</h2>
-          <div className="space-y-6">
-            <div>
-              <h3 className="font-semibold text-charcoal-900 mb-2">How does the pre-sale deposit work?</h3>
-              <p className="text-warmgray-600 text-sm leading-relaxed">You pay a $100 refundable deposit to reserve your unit. The remaining $250 is charged when your product is ready to ship (estimated 3–6 months). You can request a full refund any time before shipment.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-charcoal-900 mb-2">Is Whisker a substitute for a vet?</h3>
-              <p className="text-warmgray-600 text-sm leading-relaxed">No. Whisker provides health insights and educational guidance only. For emergencies, contact a licensed veterinarian immediately.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-charcoal-900 mb-2">How do I request a refund?</h3>
-              <p className="text-warmgray-600 text-sm leading-relaxed">
-                Email <a href={`mailto:${SITE.supportEmail}`} className="text-cocoa-500 underline">{SITE.supportEmail}</a> with
-                &ldquo;Refund Request&rdquo; in the subject line. Refunds are processed within 5–10 business days.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-charcoal-900 mb-2">Need more help?</h3>
-              <p className="text-warmgray-600 text-sm leading-relaxed">
-                Visit our <Link href="/blog" className="text-cocoa-500 underline">blog</Link> for product guides,
-                read our <Link href="/privacy" className="text-cocoa-500 underline">Privacy Policy</Link>, or
-                review our <Link href="/terms" className="text-cocoa-500 underline">Terms of Service</Link> for detailed information.
-              </p>
-            </div>
+          <div className="space-y-3">
+            {[
+              {
+                q: "How does the pre-sale deposit work?",
+                a: "You pay a $100 refundable deposit to reserve your unit. The remaining $250 is charged when your product is ready to ship (estimated 3–6 months). You can request a full refund any time before shipment.",
+              },
+              {
+                q: "Is Whisker a substitute for a vet?",
+                a: "No. Whisker provides health insights and educational guidance only. For emergencies, contact a licensed veterinarian immediately.",
+              },
+              {
+                q: "How do I request a refund?",
+                a: `Email ${SITE.supportEmail} with 'Refund Request' in the subject line. Refunds are processed within 5–10 business days.`,
+              },
+              {
+                q: "Need more help?",
+                a: "Visit our blog for product guides, privacy policy for data details, and terms for billing and deposit rules.",
+              },
+            ].map((item) => (
+              <details key={item.q} className="group border border-sand-200 rounded-lg px-4 py-3 bg-cream-50/40">
+                <summary className="cursor-pointer list-none flex items-center justify-between gap-4">
+                  <h3 className="font-semibold text-charcoal-900 text-sm">{item.q}</h3>
+                  <span className="text-cocoa-700 group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <p className="text-warmgray-600 text-sm leading-relaxed mt-3">{item.a}</p>
+              </details>
+            ))}
+          </div>
+          <div className="mt-8 text-sm text-warmgray-600">
+            Need policy details? See{" "}
+            <Link href="/privacy" className="text-cocoa-500 underline">Privacy</Link>{" "}
+            and{" "}
+            <Link href="/terms" className="text-cocoa-500 underline">Terms</Link>.
           </div>
         </div>
       </div>

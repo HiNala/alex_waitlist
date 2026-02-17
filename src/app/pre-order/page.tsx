@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { PRODUCTS } from "@/lib/payments.config";
 import { PawPrint, Cat } from "lucide-react";
 
@@ -26,11 +27,20 @@ export default function PreOrderPage() {
         <div className="grid sm:grid-cols-2 gap-8">
           <Link
             href="/products/dog-collar"
-            className="group bg-white rounded-lg border border-sand-200 p-8 shadow-card hover:shadow-hover hover:border-cocoa-700 transition-all duration-300"
+            className="group bg-white rounded-lg border border-sand-200 overflow-hidden shadow-card hover:shadow-hover hover:border-cocoa-700 transition-all duration-300"
           >
-            <div className="w-16 h-16 rounded-full bg-cocoa-700/10 flex items-center justify-center text-cocoa-700 mb-6 group-hover:bg-cocoa-700 group-hover:text-white transition-colors duration-300">
-              <PawPrint className="w-8 h-8" strokeWidth={1.5} />
+            <div className="relative h-44 w-full bg-cream-50">
+              <Image
+                src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=800&auto=format&fit=crop"
+                alt="Smart Dog Collar"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
             </div>
+            <div className="p-8">
+              <div className="w-12 h-12 rounded-full bg-cocoa-700/10 flex items-center justify-center text-cocoa-700 mb-5 group-hover:bg-cocoa-700 group-hover:text-white transition-colors duration-300">
+                <PawPrint className="w-6 h-6" strokeWidth={1.5} />
+              </div>
             <h2 className="text-2xl font-semibold text-[#1A1A1A] mb-2 group-hover:text-cocoa-700 transition-colors">
               {PRODUCTS.dogCollar.shortName}
             </h2>
@@ -43,15 +53,25 @@ export default function PreOrderPage() {
               Reserve — ${PRODUCTS.dogCollar.deposit} deposit
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
             </span>
+            </div>
           </Link>
 
           <Link
             href="/products/cat-collar"
-            className="group bg-white rounded-lg border border-sand-200 p-8 shadow-card hover:shadow-hover hover:border-cocoa-700 transition-all duration-300"
+            className="group bg-white rounded-lg border border-sand-200 overflow-hidden shadow-card hover:shadow-hover hover:border-cocoa-700 transition-all duration-300"
           >
-            <div className="w-16 h-16 rounded-full bg-cocoa-700/10 flex items-center justify-center text-cocoa-700 mb-6 group-hover:bg-cocoa-700 group-hover:text-white transition-colors duration-300">
-              <Cat className="w-8 h-8" strokeWidth={1.5} />
+            <div className="relative h-44 w-full bg-cream-50">
+              <Image
+                src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=800&auto=format&fit=crop"
+                alt="Cat Collar + Smart Bowl"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+              />
             </div>
+            <div className="p-8">
+              <div className="w-12 h-12 rounded-full bg-cocoa-700/10 flex items-center justify-center text-cocoa-700 mb-5 group-hover:bg-cocoa-700 group-hover:text-white transition-colors duration-300">
+                <Cat className="w-6 h-6" strokeWidth={1.5} />
+              </div>
             <h2 className="text-2xl font-semibold text-[#1A1A1A] mb-2 group-hover:text-cocoa-700 transition-colors">
               {PRODUCTS.catBundle.shortName}
             </h2>
@@ -64,6 +84,7 @@ export default function PreOrderPage() {
               Reserve — ${PRODUCTS.catBundle.deposit} deposit
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
             </span>
+            </div>
           </Link>
         </div>
 
