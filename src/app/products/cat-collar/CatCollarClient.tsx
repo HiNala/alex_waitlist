@@ -5,6 +5,7 @@ import DepositBadge from "@/components/DepositBadge";
 import PreOrderSection from "@/components/PreOrderSection";
 import { PRODUCTS } from "@/lib/payments.config";
 import Link from "next/link";
+import Image from "next/image";
 
 const product = PRODUCTS.catBundle;
 
@@ -29,20 +30,14 @@ export default function CatCollarClient() {
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             {/* Product Image Area */}
             <AnimateOnScroll>
-              <div className="aspect-square bg-gradient-to-br from-[#FAF6F1] to-sand-100 rounded-lg border border-[#E8DDD3] flex items-center justify-center shadow-lg overflow-hidden">
-                <div className="text-center p-8">
-                  <div className="flex items-center justify-center gap-4 mb-6">
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-cocoa-500 to-cocoa-700 flex items-center justify-center shadow-xl">
-                      <span className="text-4xl">🐈</span>
-                    </div>
-                    <div className="text-3xl text-[#9CA3AF]">+</div>
-                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-gold-400 to-gold-500 flex items-center justify-center shadow-xl">
-                      <span className="text-4xl">🍽️</span>
-                    </div>
-                  </div>
-                  <div className="font-serif text-2xl text-[#1A1A1A] font-bold mb-1">Cat Collar + Smart Bowl</div>
-                  <div className="text-[#6B6B6B]">GPS · RFID · Smart Feeding</div>
-                </div>
+              <div className="aspect-square bg-gradient-to-br from-[#FAF6F1] to-sand-100 rounded-lg border border-[#E8DDD3] shadow-lg overflow-hidden relative">
+                <Image
+                  src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=800&auto=format&fit=crop"
+                  alt="Whisker Cat Collar and Smart Bowl"
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
             </AnimateOnScroll>
 
@@ -96,7 +91,11 @@ export default function CatCollarClient() {
             {/* GPS Cat Collar Card */}
             <AnimateOnScroll>
               <div className="bg-[#FAF6F1] rounded-lg p-6 sm:p-8 border border-[#E8DDD3] h-full">
-                <div className="text-3xl mb-4">🐈</div>
+                <div className="w-12 h-12 rounded-xl bg-cocoa-700/10 flex items-center justify-center text-cocoa-700 mb-4">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
                 <h3 className="font-serif text-2xl text-[#1A1A1A] mb-3">GPS Cat Collar</h3>
                 <p className="text-sm text-[#6B6B6B] mb-5 leading-relaxed">
                   Lightweight breakaway collar with real-time GPS tracking and RFID identification — know where your cat is, always.
@@ -119,7 +118,11 @@ export default function CatCollarClient() {
             {/* Smart Bowl Card */}
             <AnimateOnScroll delay={0.1}>
               <div className="bg-[#FAF6F1] rounded-lg p-6 sm:p-8 border border-[#E8DDD3] h-full">
-                <div className="text-3xl mb-4">🍽️</div>
+                <div className="w-12 h-12 rounded-xl bg-cocoa-700/10 flex items-center justify-center text-cocoa-700 mb-4">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
                 <h3 className="font-serif text-2xl text-[#1A1A1A] mb-3">Smart Bowl</h3>
                 <p className="text-sm text-[#6B6B6B] mb-5 leading-relaxed">
                   An automatic RFID-gated bowl that only opens for the right cat — with portion tracking, timed feeding, and multi-cat support.

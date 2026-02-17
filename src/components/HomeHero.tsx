@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const easing = [0.4, 0, 0.2, 1] as const;
@@ -111,7 +112,7 @@ export default function HomeHero() {
             </motion.div>
           </motion.div>
 
-          {/* Right: Visual — 40% — Floating product card */}
+          {/* Right: Visual — 40% — Unsplash Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -119,55 +120,16 @@ export default function HomeHero() {
             className="relative flex justify-center lg:justify-end order-first lg:order-last"
           >
             <div className="relative w-full max-w-sm">
-              {/* Product card with gradient background */}
-              <div
-                className="relative rounded-3xl shadow-elevation-3 overflow-hidden"
-                style={{
-                  background: "linear-gradient(145deg, #FAF6F1 0%, #FFFFFF 50%, #FAF3ED 100%)",
-                  boxShadow: "0 8px 32px rgba(107, 66, 38, 0.08), 0 2px 8px rgba(0,0,0,0.04)",
-                }}
-              >
-                <div className="border border-sand-200/60 rounded-3xl p-6 sm:p-8">
-                  {/* Product visual */}
-                  <div className="aspect-square rounded-2xl mb-6 flex items-center justify-center overflow-hidden bg-gradient-to-br from-cream-50 to-white">
-                    <div className="text-center p-6">
-                      <div className="w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-4 rounded-full bg-gradient-to-br from-cocoa-500 to-cocoa-700 flex items-center justify-center shadow-cocoa">
-                        <img
-                          src="/logo/Whisker_button_logo.svg"
-                          alt="Whisker"
-                          className="w-14 h-14 sm:w-20 sm:h-20"
-                        />
-                      </div>
-                      <div className="font-serif text-lg sm:text-xl font-bold text-[#1A1A1A]">
-                        Whisker Smart Collar
-                      </div>
-                      <div className="text-sm text-warmgray-500 mt-1 font-sans">
-                        GPS · Biometrics · AI
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Quick stats grid */}
-                  <div className="grid grid-cols-3 gap-3">
-                    {[
-                      { value: "7-day", label: "Battery" },
-                      { value: "IP67", label: "Water rated" },
-                      { value: "38g", label: "Weight" },
-                    ].map((stat, i) => (
-                      <div
-                        key={i}
-                        className="bg-white/80 rounded-xl p-3 text-center border border-sand-200/50"
-                      >
-                        <div className="font-semibold text-[#1A1A1A] text-sm font-sans">
-                          {stat.value}
-                        </div>
-                        <div className="text-xs text-warmgray-500 font-sans mt-0.5">
-                          {stat.label}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              <div className="relative rounded-3xl shadow-elevation-3 overflow-hidden aspect-[4/5] w-full">
+                <Image
+                  src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=800&auto=format&fit=crop"
+                  alt="Whisker Smart Collar on a dog"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                {/* Gradient overlay at bottom for text readability if we add any, or just aesthetic */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
               </div>
 
               {/* Floating $100 deposit badge */}
@@ -178,7 +140,7 @@ export default function HomeHero() {
                   repeat: Infinity,
                   ease: [0.4, 0, 0.2, 1],
                 }}
-                className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-cocoa-700 text-white text-xs font-bold px-3 py-2 rounded-xl shadow-cocoa"
+                className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-cocoa-700 text-white text-xs font-bold px-3 py-2 rounded-xl shadow-cocoa z-10"
               >
                 $100 deposit
               </motion.div>

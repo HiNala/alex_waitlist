@@ -29,7 +29,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
             <ProductCard
-              icon={<span>🐕</span>}
+              imageSrc="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=800&auto=format&fit=crop"
               title="Smart Dog Collar"
               description="GPS, heart rate, temperature, activity tracking, and AI-powered behavioral insights in one sleek collar."
               price={350}
@@ -38,7 +38,7 @@ export default function Home() {
               badge="Pre-Sale Open"
             />
             <ProductCard
-              icon={<span>🐈</span>}
+              imageSrc="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=800&auto=format&fit=crop"
               title="Cat Collar + Smart Bowl"
               description="GPS tracking and RFID collar paired with an automatic smart bowl — portion control for multi-cat homes."
               price={350}
@@ -47,7 +47,7 @@ export default function Home() {
               badge="Pre-Sale Open"
             />
             <ProductCard
-              icon={<span>📱</span>}
+              imageSrc="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?q=80&w=800&auto=format&fit=crop"
               title="Whisker App"
               description="Your pet&apos;s health dashboard — real-time data, AI chat, feeding logs, and GPS tracking all in one place."
               price={0}

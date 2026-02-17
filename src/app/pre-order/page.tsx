@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PRODUCTS } from "@/lib/payments.config";
+import { PawPrint, Cat } from "lucide-react";
 
 export const metadata = {
   title: "Pre-Order — Whisker",
@@ -27,7 +28,9 @@ export default function PreOrderPage() {
             href="/products/dog-collar"
             className="group bg-white rounded-lg border border-sand-200 p-8 shadow-card hover:shadow-hover hover:border-cocoa-700 transition-all duration-300"
           >
-            <div className="text-4xl mb-4">🐕</div>
+            <div className="w-16 h-16 rounded-full bg-cocoa-700/10 flex items-center justify-center text-cocoa-700 mb-6 group-hover:bg-cocoa-700 group-hover:text-white transition-colors duration-300">
+              <PawPrint className="w-8 h-8" strokeWidth={1.5} />
+            </div>
             <h2 className="text-2xl font-semibold text-[#1A1A1A] mb-2 group-hover:text-cocoa-700 transition-colors">
               {PRODUCTS.dogCollar.shortName}
             </h2>
@@ -46,7 +49,9 @@ export default function PreOrderPage() {
             href="/products/cat-collar"
             className="group bg-white rounded-lg border border-sand-200 p-8 shadow-card hover:shadow-hover hover:border-cocoa-700 transition-all duration-300"
           >
-            <div className="text-4xl mb-4">🐈</div>
+            <div className="w-16 h-16 rounded-full bg-cocoa-700/10 flex items-center justify-center text-cocoa-700 mb-6 group-hover:bg-cocoa-700 group-hover:text-white transition-colors duration-300">
+              <Cat className="w-8 h-8" strokeWidth={1.5} />
+            </div>
             <h2 className="text-2xl font-semibold text-[#1A1A1A] mb-2 group-hover:text-cocoa-700 transition-colors">
               {PRODUCTS.catBundle.shortName}
             </h2>

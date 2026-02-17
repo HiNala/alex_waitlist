@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
+import { PawPrint, Smartphone, Cat } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -60,7 +61,7 @@ export default function Header() {
                   className="flex items-start gap-3 px-4 py-3 hover:bg-cream-50 transition-colors"
                   onClick={() => setProductsOpen(false)}
                 >
-                  <span className="text-xl mt-0.5">🐕</span>
+                  <PawPrint className="w-5 h-5 text-cocoa-700 mt-0.5" strokeWidth={1.5} />
                   <div>
                     <div className="font-semibold text-[#1A1A1A] text-sm">Smart Dog Collar</div>
                     <div className="text-xs text-[#9CA3AF] mt-0.5">GPS, biometrics &amp; AI insights</div>
@@ -71,7 +72,7 @@ export default function Header() {
                   className="flex items-start gap-3 px-4 py-3 hover:bg-cream-50 transition-colors"
                   onClick={() => setProductsOpen(false)}
                 >
-                  <span className="text-xl mt-0.5">🐈</span>
+                  <Cat className="w-5 h-5 text-cocoa-700 mt-0.5" strokeWidth={1.5} />
                   <div>
                     <div className="font-semibold text-[#1A1A1A] text-sm">Cat Collar + Smart Bowl</div>
                     <div className="text-xs text-[#9CA3AF] mt-0.5">GPS, RFID &amp; portion tracking</div>
@@ -83,7 +84,7 @@ export default function Header() {
                   className="flex items-start gap-3 px-4 py-3 hover:bg-cream-50 transition-colors"
                   onClick={() => setProductsOpen(false)}
                 >
-                  <span className="text-xl mt-0.5">📱</span>
+                  <Smartphone className="w-5 h-5 text-cocoa-700 mt-0.5" strokeWidth={1.5} />
                   <div>
                     <div className="font-semibold text-[#1A1A1A] text-sm">Whisker App</div>
                     <div className="text-xs text-[#9CA3AF] mt-0.5">Your pet&apos;s health dashboard</div>
@@ -134,13 +135,13 @@ export default function Header() {
         <nav className="container mx-auto px-4 py-5 space-y-1 border-t border-[#E5E5E5] bg-white">
           <div className="text-xs font-semibold text-[#9CA3AF] uppercase tracking-widest px-3 pb-2">Products</div>
           <Link href="/products/dog-collar" className="flex items-center gap-3 px-3 py-3 rounded-btn hover:bg-cream-50 transition-colors text-[#1A1A1A] font-medium" onClick={closeMobile}>
-            <span>🐕</span> Smart Dog Collar
+            <PawPrint className="w-5 h-5 text-cocoa-700" strokeWidth={1.5} /> Smart Dog Collar
           </Link>
           <Link href="/products/cat-collar" className="flex items-center gap-3 px-3 py-3 rounded-btn hover:bg-cream-50 transition-colors text-[#1A1A1A] font-medium" onClick={closeMobile}>
-            <span>🐈</span> Cat Collar + Smart Bowl
+            <Cat className="w-5 h-5 text-cocoa-700" strokeWidth={1.5} /> Cat Collar + Smart Bowl
           </Link>
           <Link href="/app" className="flex items-center gap-3 px-3 py-3 rounded-btn hover:bg-cream-50 transition-colors text-[#1A1A1A] font-medium" onClick={closeMobile}>
-            <span>📱</span> Whisker App
+            <Smartphone className="w-5 h-5 text-cocoa-700" strokeWidth={1.5} /> Whisker App
           </Link>
 
           <div className="border-t border-[#E5E5E5] my-3" />

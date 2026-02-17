@@ -5,6 +5,7 @@ import DepositBadge from "@/components/DepositBadge";
 import PreOrderSection from "@/components/PreOrderSection";
 import { PRODUCTS } from "@/lib/payments.config";
 import Link from "next/link";
+import Image from "next/image";
 
 const product = PRODUCTS.dogCollar;
 
@@ -23,14 +24,14 @@ export default function DogCollarClient() {
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             {/* Product Image Area */}
             <AnimateOnScroll>
-              <div className="aspect-square bg-gradient-to-br from-[#FAF6F1] to-sand-100 rounded-lg border border-[#E8DDD3] flex items-center justify-center shadow-lg overflow-hidden">
-                <div className="text-center p-8">
-                  <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-cocoa-500 to-cocoa-700 flex items-center justify-center shadow-xl">
-                    <img src="/logo/Whisker_button_logo.svg" alt="Whisker" className="w-20 h-20" />
-                  </div>
-                  <div className="font-serif text-2xl text-[#1A1A1A] font-bold mb-1">Smart Dog Collar</div>
-                  <div className="text-[#6B6B6B]">GPS · Biometrics · AI</div>
-                </div>
+              <div className="aspect-square bg-gradient-to-br from-[#FAF6F1] to-sand-100 rounded-lg border border-[#E8DDD3] shadow-lg overflow-hidden relative">
+                <Image
+                  src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?q=80&w=800&auto=format&fit=crop"
+                  alt="Whisker Smart Dog Collar"
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
             </AnimateOnScroll>
 

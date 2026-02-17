@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Activity, MessageSquare, MapPin, Utensils, BarChart3, PawPrint } from "lucide-react";
 
 export const metadata = {
   title: "Whisker App — Your Pet's Health Dashboard",
@@ -10,32 +11,32 @@ const appFeatures = [
   {
     title: "Health Dashboard",
     description: "See your pet's health score, vitals, activity, and sleep at a glance. Spot trends before they become problems.",
-    icon: "💝",
+    icon: Activity,
   },
   {
     title: "AI Health Chat",
     description: "Ask anything about your pet's health. Our AI analyzes collar data alongside veterinary knowledge to give personalized answers.",
-    icon: "🤖",
+    icon: MessageSquare,
   },
   {
     title: "GPS Tracking",
     description: "Real-time location with customizable safe zones and instant alerts. Always know where your pet is.",
-    icon: "📍",
+    icon: MapPin,
   },
   {
     title: "Feeding Tracker",
     description: "Automatic meal logging from the smart bowl. See portions, timing, and nutrition insights for each pet.",
-    icon: "🍽️",
+    icon: Utensils,
   },
   {
     title: "Activity Monitor",
     description: "Steps, play time, rest periods, and energy levels — understand your pet's daily rhythm.",
-    icon: "📊",
+    icon: BarChart3,
   },
   {
     title: "Multi-Pet Profiles",
     description: "Manage all your pets from one app. Each gets their own profile, data, and personalized insights.",
-    icon: "🐾",
+    icon: PawPrint,
   },
 ];
 
@@ -70,40 +71,15 @@ export default function AppPage() {
             {/* Phone Mockup */}
             <div className="flex justify-center">
               <div className="relative w-[260px] h-[530px] sm:w-[280px] sm:h-[570px]">
-                <div className="absolute inset-0 bg-white/10 rounded-[36px] border border-white/20">
-                  <div className="absolute inset-[10px] bg-white rounded-[26px] overflow-hidden">
-                    <div className="flex justify-between items-center px-5 py-2.5">
-                      <div className="text-[11px] font-semibold text-[#1A1A1A] font-sans">9:41</div>
-                      <div className="w-5 h-2.5 border border-[#1A1A1A] rounded-sm">
-                        <div className="w-3/4 h-full bg-[#1A1A1A] rounded-sm" />
-                      </div>
-                    </div>
-                    <div className="p-4 space-y-3">
-                      <div className="flex items-center justify-between mb-1">
-                        <div className="font-semibold text-[#1A1A1A] text-sm font-sans">Good morning!</div>
-                        <div className="w-8 h-8 rounded-full bg-cocoa-500/20 flex items-center justify-center text-xs">🐕</div>
-                      </div>
-                      <div className="bg-gradient-to-br from-cocoa-700 to-cocoa-500 rounded-lg p-4 text-white">
-                        <div className="text-xs opacity-80 mb-1 font-sans">Health Score</div>
-                        <div className="text-3xl font-bold font-serif">94</div>
-                        <div className="text-xs opacity-80 mt-1 font-sans">Excellent</div>
-                      </div>
-                      <div className="grid grid-cols-2 gap-2">
-                        <div className="bg-cream-50 rounded-lg p-3">
-                          <div className="text-xs text-[#9CA3AF] font-sans">Steps</div>
-                          <div className="font-bold text-[#1A1A1A] text-sm font-sans">8,240</div>
-                        </div>
-                        <div className="bg-cream-50 rounded-lg p-3">
-                          <div className="text-xs text-[#9CA3AF] font-sans">Heart Rate</div>
-                          <div className="font-bold text-[#1A1A1A] text-sm font-sans">82 bpm</div>
-                        </div>
-                      </div>
-                      <div className="bg-cream-50 rounded-lg p-3">
-                        <div className="text-xs text-[#9CA3AF] font-sans">Location</div>
-                        <div className="font-bold text-[#1A1A1A] text-sm font-sans">Home — Safe Zone ✓</div>
-                      </div>
-                    </div>
-                  </div>
+                <div className="absolute inset-0 bg-white/10 rounded-[36px] border border-white/20 overflow-hidden">
+                  <Image
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
+                    alt="Whisker App Dashboard"
+                    fill
+                    className="object-cover opacity-90"
+                  />
+                  {/* Overlay to darken slightly for better contrast if needed */}
+                  <div className="absolute inset-0 bg-black/20" />
                 </div>
               </div>
             </div>
@@ -126,7 +102,9 @@ export default function AppPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {appFeatures.map((feature, i) => (
               <div key={i} className="p-6 rounded-lg border border-[#E5E5E5] hover:border-cocoa-300/50 hover:shadow-card transition-all duration-300">
-                <div className="text-3xl mb-4">{feature.icon}</div>
+                <div className="w-12 h-12 rounded-xl bg-cocoa-700/10 flex items-center justify-center text-cocoa-700 mb-4">
+                  <feature.icon className="w-6 h-6" strokeWidth={1.5} />
+                </div>
                 <h3 className="font-serif text-xl text-[#1A1A1A] mb-2">{feature.title}</h3>
                 <p className="text-[#6B6B6B] leading-relaxed font-sans">{feature.description}</p>
               </div>
