@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getAllPosts, getPostBySlug } from "@/lib/blog";
 import BlogContent from "./BlogContent";
-import { ArrowLeft, Calendar, User, Clock, Share2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, User, Clock, Share2 } from "lucide-react";
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
