@@ -3,6 +3,7 @@ title: "Why Smart Pet Technology Is the Future of Pet Care"
 date: "2026-02-10"
 excerpt: "The pet care industry is undergoing a quiet revolution. Smart collars, AI-powered health monitoring, and connected accessories are transforming how we understand and care for our animals."
 author: "Whisker Team"
+coverImage: "https://images.unsplash.com/photo-1581888227599-77981198520d?q=80&w=800&auto=format&fit=crop"
 ---
 
 ## The Pet Care Industry Is Changing

@@ -145,6 +145,25 @@ export default function CatCollarClient() {
         </div>
       </section>
 
+      {/* Lifestyle / Comfort */}
+      <section className="relative h-[500px] w-full overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1513245543132-31f507417b26?q=80&w=1600&auto=format&fit=crop"
+          alt="Cat sleeping comfortably"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 flex items-center justify-center text-center p-6">
+          <div className="max-w-2xl">
+            <h2 className="font-serif text-4xl sm:text-5xl text-white mb-4">Peace of mind for you</h2>
+            <p className="text-lg sm:text-xl text-white/90 font-sans">
+              Comfort for them. A system designed to make life better for everyone in the house.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Specs: Collar + Bowl side by side */}
       <section className="section-padding bg-[#FAF6F1]">
         <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
@@ -225,7 +244,7 @@ export default function CatCollarClient() {
       </section>
 
       {/* Pre-Order */}
-      <section className="section-padding bg-gradient-to-b from-[#FAF6F1] to-white">
+      <section id="pre-order" className="section-padding bg-gradient-to-b from-[#FAF6F1] to-white">
         <div className="container mx-auto px-4 sm:px-6 max-w-xl">
           <PreOrderSection
             productName={product.name}

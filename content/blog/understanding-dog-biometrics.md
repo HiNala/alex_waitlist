@@ -3,6 +3,7 @@ title: "Understanding Your Dog Through Biometric Data"
 date: "2026-02-12"
 excerpt: "What can a smart collar actually tell you about your dog? From heart rate patterns to sleep quality, here's how biometric data translates into actionable health insights."
 author: "Whisker Team"
+coverImage: "https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?q=80&w=800&auto=format&fit=crop"
 ---
 
 ## Your Dog Is Talking — Through Data

@@ -3,6 +3,7 @@ title: "The Indoor Cat Problem: Why GPS Changes Everything"
 date: "2026-02-08"
 excerpt: "Even indoor cats escape. And when they do, they're often poorly equipped to navigate the outside world. Here's why GPS tracking is essential for every cat — even the ones who never leave the couch."
 author: "Whisker Team"
+coverImage: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=800&auto=format&fit=crop"
 ---
 
 ## The Myth of the Indoor Cat

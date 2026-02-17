@@ -3,6 +3,7 @@ title: "Introducing Whisker: The Smart Collar Your Pet Deserves"
 date: "2026-02-15"
 excerpt: "We're building the most thoughtful pet technology on the planet — smart collars and a companion app that turn sensor data into meaningful insights about your pet's health, behavior, and happiness."
 author: "Whisker Team"
+coverImage: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=800&auto=format&fit=crop"
 ---
 
 ## A New Way to Know Your Pet

@@ -67,16 +67,21 @@ export default function HomeFeaturesGrid() {
             const Icon = feature.icon;
             return (
               <StaggerItem key={index}>
-                <div className="group bg-white border border-[#E5E5E5] rounded-lg p-6 h-full transition-all duration-300 hover:border-cocoa-700 hover:shadow-[0_4px_16px_rgba(139,94,60,0.08)]">
-                  <div className="w-12 h-12 rounded-btn bg-cream-50 border border-sand-200 flex items-center justify-center text-cocoa-700 mb-4">
-                    <Icon className="w-6 h-6" strokeWidth={1.5} />
+                <div className="group bg-white border border-[#E5E5E5] rounded-xl p-8 h-full transition-all duration-300 hover:border-cocoa-300/50 hover:shadow-card hover:-translate-y-1 relative overflow-hidden">
+                  {/* Subtle gradient background on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-cream-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <div className="relative z-10">
+                    <div className="w-14 h-14 rounded-2xl bg-cocoa-700/5 flex items-center justify-center text-cocoa-700 mb-6 group-hover:bg-cocoa-700 group-hover:text-white transition-colors duration-300">
+                      <Icon className="w-7 h-7" strokeWidth={1.5} />
+                    </div>
+                    <h3 className="font-sans text-xl font-semibold text-[#1A1A1A] mb-3 group-hover:text-cocoa-700 transition-colors">
+                      {feature.title}
+                    </h3>
+                    <p className="font-sans text-base font-normal text-[#6B6B6B] leading-relaxed">
+                      {feature.description}
+                    </p>
                   </div>
-                  <h3 className="font-sans text-lg font-semibold text-[#1A1A1A] mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="font-sans text-sm font-normal text-[#6B6B6B] leading-relaxed">
-                    {feature.description}
-                  </p>
                 </div>
               </StaggerItem>
             );
