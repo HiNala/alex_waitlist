@@ -15,8 +15,8 @@ export default function Header() {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6 text-sm text-warmgray-600">
-          <Link href="/products/dog-collar" className="hover:text-cocoa-500 transition-colors">Dog Collar</Link>
-          <Link href="/products/cat-collar" className="hover:text-cocoa-500 transition-colors">Cat Bundle</Link>
+          <Link href="/products/dog-collar" className="hover:text-cocoa-500 transition-colors">Dog</Link>
+          <Link href="/products/cat-collar" className="hover:text-cocoa-500 transition-colors">Cat</Link>
           <Link href="/app" className="hover:text-cocoa-500 transition-colors">App</Link>
           <Link href="/blog" className="hover:text-cocoa-500 transition-colors">Blog</Link>
           <Link href="/about" className="hover:text-cocoa-500 transition-colors">About</Link>
@@ -51,9 +51,9 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-white border-t border-sand-200/50">
           <nav className="container mx-auto px-4 py-4 space-y-1">
-            <Link href="/products/dog-collar" className="block py-3 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Dog Collar</Link>
-            <Link href="/products/cat-collar" className="block py-3 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Cat Collar + Bowl</Link>
-            <Link href="/app" className="block py-3 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Mobile App</Link>
+            <Link href="/products/dog-collar" className="block py-3 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Dog</Link>
+            <Link href="/products/cat-collar" className="block py-3 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Cat</Link>
+            <Link href="/app" className="block py-3 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>App</Link>
             <Link href="/blog" className="block py-3 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Blog</Link>
             <Link href="/about" className="block py-3 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>About</Link>
             <Link href="/support" className="block py-3 text-warmgray-600 hover:text-cocoa-500 transition-colors" onClick={() => setMobileMenuOpen(false)}>Support</Link>

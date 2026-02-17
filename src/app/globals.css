@@ -59,6 +59,37 @@ body { color: var(--text-secondary); }
   100% { transform: translateY(-50%); }
 }
 
+/* New animations for premium feel */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  opacity: 0; /* Start hidden */
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.pattern-dots {
+  background-image: radial-gradient(#8B5E3C 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
 @layer components {
   .btn-primary {
     @apply bg-cocoa-700 hover:bg-cocoa-500 text-white font-medium py-3 px-6 rounded-pill shadow-lg transition-all duration-200 hover:shadow-xl hover:scale-[1.02] focus:ring-2 focus:ring-sky-400 focus:ring-offset-2;
